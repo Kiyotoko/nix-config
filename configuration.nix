@@ -87,8 +87,11 @@
     description = "Karl Zschiebsch";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      kdePackages.kate
-    #  thunderbird
+      thunderbird
+      audacious
+      vscodium
+      obsidian
+      gparted
     ];
   };
 
@@ -104,6 +107,20 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
     git
+    gradle
+    maven
+    python3
+    gnumake
+    cmake
+
+    unzip
+    zip
+  ];
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    gwenview
+    elisa
+    kwrited
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
