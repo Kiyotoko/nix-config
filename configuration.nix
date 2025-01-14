@@ -91,12 +91,18 @@
       audacious
       vscodium
       obsidian
-      gparted
     ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -110,17 +116,24 @@
     gradle
     maven
     python3
+    python312Packages.pip
     gnumake
     cmake
-
+    temurin-bin
+    gparted
+    tree
+    wget
     unzip
     zip
+    bluez
+    bluez-tools
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     gwenview
     elisa
     kwrited
+    kwallet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
