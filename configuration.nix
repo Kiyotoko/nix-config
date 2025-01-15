@@ -48,6 +48,8 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
+  services.displayManager.defaultSession = "plasma";
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
@@ -91,6 +93,9 @@
       audacious
       vscodium
       obsidian
+      signal-desktop
+      telegram-desktop
+      zapzap
     ];
   };
 
@@ -103,6 +108,28 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -al";
+      rb = "sudo nixos-rebuild switch --flake .";
+    };
+    histSize = 10000;
+
+    # Your zsh config
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "thefuck" ];
+      theme = "robbyrussell";
+    };
+  };
+  users.defaultUserShell = pkgs.zsh;
+  environment.shells = with pkgs; [ zsh ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -164,5 +191,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
