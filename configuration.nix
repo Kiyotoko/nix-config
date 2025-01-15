@@ -51,7 +51,8 @@
   services.displayManager.defaultSession = "plasma";
   services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
-
+  services.blueman.enable = true;
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
@@ -65,6 +66,8 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -112,19 +115,15 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = {
-      ll = "ls -al";
-      rb = "sudo nixos-rebuild switch --flake .";
-    };
-    histSize = 10000;
+    shellAliases = {};
+    histSize = 100;
 
     # Your zsh config
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
-      plugins = [ "git" "thefuck" ];
+      plugins = [ "git" "mvn" "npm" "pip" "python" ];
       theme = "robbyrussell";
     };
   };
@@ -154,8 +153,6 @@
     wget
     unzip
     zip
-    bluez
-    bluez-tools
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
