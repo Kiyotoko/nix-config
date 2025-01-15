@@ -92,6 +92,7 @@
     description = "Karl Zschiebsch";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
+      tor-browser
       thunderbird
       audacious
       vscodium
@@ -111,24 +112,6 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    syntaxHighlighting.enable = true;
-
-    shellAliases = {};
-    histSize = 100;
-
-    # Your zsh config
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "mvn" "npm" "pip" "python" ];
-      theme = "robbyrussell";
-    };
-  };
-  users.defaultUserShell = pkgs.zsh;
-  environment.shells = with pkgs; [ zsh ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
