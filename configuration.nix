@@ -117,6 +117,8 @@
     maven
     python3
     python312Packages.pip
+    python312Packages.dbus-python
+    python312Packages.venvShellHook
     gnumake
     cmake
     temurin-bin
