@@ -136,6 +136,7 @@
     wget
     unzip
     zip
+    passh
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
