@@ -45,7 +45,7 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" ];
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -132,17 +132,24 @@
       telegram-desktop
       zapzap
       discord
+      calcurse
     ];
   };
 
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install steam
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+  programs.bash.shellAliases = {
+    signal-desktop = "signal-desktop --password-store=\"kwallet5\" --no-sandbox %U";
+    rb = "sudo nixos-rebuild switch --flake .";
   };
 
   # Allow unfree packages
@@ -175,8 +182,6 @@
     kwrited
     kwallet
     kwalletmanager
-    pkgs.libsForQt5.kwallet
-    pkgs.libsForQt5.kwalletmanager
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
