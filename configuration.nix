@@ -157,6 +157,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # Development tools
     git
     gradle
     maven
@@ -166,13 +167,16 @@
     python312Packages.venvShellHook
     gnumake
     cmake
-    temurin-bin
     gparted
     tree
     wget
     unzip
     zip
     passh
+
+    # LSP clients
+    marksman
+    nil
   ];
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
