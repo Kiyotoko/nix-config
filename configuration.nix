@@ -127,6 +127,8 @@
       thunderbird
       audacious
       vscodium
+      jetbrains.idea-ultimate
+      jetbrains.clion
       obsidian
       signal-desktop
       telegram-desktop
@@ -165,6 +167,7 @@
     python312Packages.pip
     python312Packages.dbus-python
     python312Packages.venvShellHook
+    texliveFull
     gnumake
     cmake
     gparted
