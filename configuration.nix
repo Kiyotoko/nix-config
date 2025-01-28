@@ -134,8 +134,10 @@
       telegram-desktop
       zapzap
       discord
+      gimp
     ];
   };
+  users.extraGroups.vboxusers.members = [ "karl" ];
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -189,6 +191,11 @@
     kwallet
     kwalletmanager
   ];
+
+  # Enable virtualisation
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
