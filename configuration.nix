@@ -151,7 +151,6 @@
   };
 
   programs.bash.shellAliases = {
-    signal-desktop = "signal-desktop --password-store=\"kwallet5\" --no-sandbox %U";
     rb = "sudo nixos-rebuild switch --flake .";
   };
 
@@ -194,8 +193,10 @@
 
   # Enable virtualisation
   virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
+  virtualisation.virtualbox.host.enableKvm = true;
+  virtualisation.virtualbox.host.enableHardening = true;
+  virtualisation.memorySize = 8096;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
