@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   imports =
@@ -134,6 +134,7 @@
       zapzap
       discord
       gimp
+      inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
   users.extraGroups.vboxusers.members = [ "karl" ];
@@ -170,6 +171,8 @@
     texliveFull
     gnumake
     cmake
+
+    # System tools
     gparted
     tree
     wget
