@@ -123,12 +123,11 @@
     description = "Karl Zschiebsch";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-      tor-browser
       thunderbird
       audacious
       vscodium
       jetbrains.idea-ultimate
-      jetbrains.clion
+      jetbrains.rust-rover
       obsidian
       signal-desktop
       telegram-desktop
@@ -194,9 +193,7 @@
   # Enable virtualisation
   virtualisation.virtualbox.host.enable = true;
   virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.host.enableKvm = true;
   virtualisation.virtualbox.host.enableHardening = true;
-  virtualisation.memorySize = 8096;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
