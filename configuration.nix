@@ -106,6 +106,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -119,9 +120,12 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karl = {
+    name = "karl";
     isNormalUser = true;
     description = "Karl Zschiebsch";
     extraGroups = [ "networkmanager" "wheel" ];
+    useDefaultShell = true;
+    initialPassword = "nixos"; # Change with ’passwd’
     packages = with pkgs; [
       thunderbird
       audacious
@@ -148,10 +152,38 @@
     remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    protontricks.enable = true;
+    package = with pkgs; steam.override {
+      extraPkgs = pkgs: [
+        jq
+        cabextract
+        wget 
+      ];
+    };
   };
 
-  programs.bash.shellAliases = {
-    rb = "sudo nixos-rebuild switch --flake .";
+  programs.bash = {
+    completion.enable = true;
+    promtInit = ''
+      # Provide a nice prompt if the terminal supports it.
+      if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
+        PROMPT_COLOR="1;31m"
+        ((UID)) && PROMPT_COLOR="1;32m"
+        if [ -n "$INSIDE_EMACS" ]; then
+          # Emacs term mode doesn't support xterm title escape sequence (\e]0;)
+          PS1="\n\[\033[$PROMPT_COLOR\][\u@\h:\w]\\$\[\033[0m\] "
+        else
+          PS1="\n\[\033[$PROMPT_COLOR\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\\$\[\033[0m\] "
+        fi
+        if test "$TERM" = "xterm"; then
+          PS1="\[\033]2;\h:\u:\w\007\]$PS1"
+        fi
+      fi
+    '';
+    shellInit = "./calendar";
+    shellAliases = {
+      rb = "sudo nixos-rebuild switch --flake .";
+    };
   };
 
   # Allow unfree packages
@@ -179,6 +211,7 @@
     unzip
     zip
     passh
+    glow
 
     # LSP clients
     marksman
@@ -227,7 +260,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.gc = {
     automatic = true;
-    persistent = false;
+    persistent = true;
     dates = "daily";
     options = "-d --delete-older-than 7d";
   };
