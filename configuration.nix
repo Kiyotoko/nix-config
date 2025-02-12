@@ -123,7 +123,7 @@
     name = "karl";
     isNormalUser = true;
     description = "Karl Zschiebsch";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’
     packages = with pkgs; [
@@ -141,6 +141,7 @@
       inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
+  users.groups.libvirtd.members = [ "karl" ];
   users.extraGroups.vboxusers.members = [ "karl" ];
 
   # Install firefox.
@@ -164,26 +165,15 @@
 
   programs.bash = {
     completion.enable = true;
-    promtInit = ''
-      # Provide a nice prompt if the terminal supports it.
-      if [ "$TERM" != "dumb" ] || [ -n "$INSIDE_EMACS" ]; then
-        PROMPT_COLOR="1;31m"
-        ((UID)) && PROMPT_COLOR="1;32m"
-        if [ -n "$INSIDE_EMACS" ]; then
-          # Emacs term mode doesn't support xterm title escape sequence (\e]0;)
-          PS1="\n\[\033[$PROMPT_COLOR\][\u@\h:\w]\\$\[\033[0m\] "
-        else
-          PS1="\n\[\033[$PROMPT_COLOR\][\[\e]0;\u@\h: \w\a\]\u@\h:\w]\\$\[\033[0m\] "
-        fi
-        if test "$TERM" = "xterm"; then
-          PS1="\[\033]2;\h:\u:\w\007\]$PS1"
-        fi
-      fi
-    '';
     shellInit = "./calendar";
     shellAliases = {
       rb = "sudo nixos-rebuild switch --flake .";
     };
+  };
+
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
   };
 
   # Allow unfree packages
@@ -193,7 +183,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Development tools
-    git
     gradle
     maven
     python3
@@ -227,9 +216,12 @@
   ];
 
   # Enable virtualisation
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  virtualisation.virtualbox.host.enableHardening = true;
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.host.enableExtensionPack = true;
+  # virtualisation.virtualbox.host.enableHardening = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
