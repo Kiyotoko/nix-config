@@ -138,6 +138,7 @@
       zapzap
       discord
       gimp
+      blender
       inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
