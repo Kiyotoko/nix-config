@@ -48,9 +48,8 @@
   services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" ];
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
+  services.displayManager.ly.enable = true;
   services.displayManager.defaultSession = "plasma";
-  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
   
   # Configure keymap in X11
@@ -115,9 +114,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karl = {
     name = "karl";
@@ -138,12 +134,8 @@
       zapzap
       discord
       gimp
-      blender
-      inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
-  users.groups.libvirtd.members = [ "karl" ];
-  users.extraGroups.vboxusers.members = [ "karl" ];
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -166,7 +158,6 @@
 
   programs.bash = {
     completion.enable = true;
-    shellInit = "./calendar";
     shellAliases = {
       rb = "sudo nixos-rebuild switch --flake .";
     };
@@ -206,31 +197,12 @@
     # LSP clients
     marksman
     nil
+
+    grim # screenshot functionality
+    slurp # screenshot functionality
+    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+    mako # notification system developed by swaywm maintainer
   ];
-
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    gwenview
-    elisa
-    kwrited
-    kwallet
-    kwalletmanager
-  ];
-
-  # Enable virtualisation
-  programs.virt-manager.enable = true;
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
-  # virtualisation.virtualbox.host.enable = true;
-  # virtualisation.virtualbox.host.enableExtensionPack = true;
-  # virtualisation.virtualbox.host.enableHardening = true;
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
