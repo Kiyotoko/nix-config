@@ -49,6 +49,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.ly.enable = true;
+  services.displayManager.sddm.enable = false;
   services.displayManager.defaultSession = "plasma";
   services.desktopManager.plasma6.enable = true;
   
