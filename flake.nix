@@ -26,23 +26,20 @@
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
-  {
+  let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs;
       };
-      modules = [ ./configuration.nix ];
+      modules = [ ./nixos/configuration.nix ];
     };
 
     homeConfiguration."karl" = home-manager.nixosModules.home-manager {
-      /*
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.backupFileExtension = "bak";
-      home-manager.users.karl = import ./home.nix;*/
-      inherit nixpkgs;
+      pkgs = nixpkgs.legacyPackages.${system};
       extraSpecialArgs = { inherit inputs; };
-      modules = [ ./home.nix ];
+      modules = [ ./home-manager/home.nix ];
     };
   };
 }
