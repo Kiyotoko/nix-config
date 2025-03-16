@@ -4,6 +4,30 @@
 
 { config, inputs, pkgs, ... }:
 
+let
+  gtk-theme = "adw-gtk3-dark";
+
+  moreWaita = pkgs.stdenv.mkDerivation {
+    name = "MoreWaita";
+    src = inputs.more-waita;
+    installPhase = ''
+        mkdir -p $out/share/icons
+        mv * $out/share/icons
+    '';
+  };
+
+  nerdfonts = (pkgs.nerdfonts.override { fonts = [
+    "Ubuntu"
+    "UbuntuMono"
+    "CascadiaCode"
+    "FantasqueSansMono"
+    "FiraCode"
+    "Mononoki"
+  ]; });
+
+  cursor-theme = "Qogir";
+  cursor-package = pkgs.qogir-icon-theme;
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -49,10 +73,18 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.ly.enable = true;
-  services.displayManager.sddm.enable = false;
-  services.displayManager.defaultSession = "plasma";
-  services.desktopManager.plasma6.enable = true;
-  
+  services.displayManager.defaultSession = "hyprland";
+
+  # enable hyprland
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  programs.waybar = {
+    enable = true;
+  };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "de";
@@ -66,6 +98,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
+  hardware.graphics.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.pulseaudio.enable = false;
@@ -124,17 +157,27 @@
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’
     packages = with pkgs; [
+      # Utility
       thunderbird
       audacious
+      gimp
+
+      # Programming
       vscodium
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       obsidian
+
+      # Messaging
       signal-desktop
       telegram-desktop
       zapzap
       discord
-      gimp
+      teamspeak5_client
+
+      # Games
+      lutris
+      inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
 
@@ -175,7 +218,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # Development tools
+    ### Development tools ###
     gradle
     maven
     python3
@@ -185,24 +228,38 @@
     texliveFull
     gnumake
     cmake
+    meson
+    cpio
 
-    # System tools
-    gparted
-    tree
+    ### System tools ###
+    alacritty # terminal emulator
+    wofi # launcher for hyprland
+    nautilus # file manager
+    gparted # partition manager
+    playerctl # audio service
+    networkmanager # network tools
+    networkmanagerapplet
+    tree # tree view of folder
     wget
     unzip
     zip
     passh
     glow
 
-    # LSP clients
-    marksman
-    nil
+    ### Hyperland ###
+    hyprpaper
+    hyprlang
+    hyprsunset
+    hyprlock
+    hypridle
+    hyprcursor
+    hyprshot
+    hyprutils
 
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
+    ### Theme ###
+    adw-gtk3
+    font-awesome
+    nerdfonts
   ];
 
   # List services that you want to enable:
