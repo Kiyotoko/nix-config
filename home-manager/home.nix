@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 let
   homeDirectory = "/home/karl";
 in 
@@ -12,35 +11,48 @@ in
     ./starship.nix
     ./theme.nix
     ./waybar.nix
+    ./wofi.nix
   ];
 
-  home.username = "karl";
-  home.homeDirectory = "/home/karl";
+  home = {
+    username = "karl";
+    homeDirectory = "/home/karl";
 
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    # Utility
-    thunderbird
-    audacious
-    gimp
+    # This value determines the home Manager release that your
+    # configuration is compatible with. This helps avoid breakage
+    # when a new home Manager release introduces backwards
+    # incompatible changes.
+    #
+    # You can update home Manager without changing this value. See
+    # the home Manager release notes for a list of state version
+    # changes in each release.
+    stateVersion = "24.11";
 
-    # Programming
-    vscodium
-    jetbrains.idea-ultimate
-    jetbrains.rust-rover
-    obsidian
+    # Packages that should be installed to the user profile.
+    packages = with pkgs; [
+      # Utility
+      thunderbird
+      audacious
+      gimp
 
-    # Messaging
-    signal-desktop
-    telegram-desktop
-    zapzap
-    discord
-    teamspeak5_client
+      # Programming
+      vscodium
+      jetbrains.idea-ultimate
+      jetbrains.rust-rover
+      obsidian
 
-    # Games
-    lutris
-    # inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
-  ];
+      # Messaging
+      signal-desktop
+      telegram-desktop
+      zapzap
+      discord
+      teamspeak5_client
+
+      # Games
+      lutris
+      # inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
+    ];
+  };
 
   gtk.gtk3.bookmarks = [
     "file:///home"
@@ -59,17 +71,4 @@ in
       indicator = true;
     };
   };
-
-  # This value determines the home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update home Manager without changing this value. See
-  # the home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "24.11";
-
-  # Let home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

@@ -92,6 +92,6 @@ in
 
   qt = {
     enable = true;
-    platformTheme = "kde";
+    platformTheme.name = "kde";
   };
 }

@@ -23,20 +23,28 @@
       url = "github:somepaulo/MoreWaita";
       flake = false;
     };
+
+    ags.url = "github:Aylur/ags";
+    stm.url = "github:Aylur/stm";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
   in {
     nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+      inherit pkgs;
       specialArgs = {
         inherit inputs;
       };
       modules = [ ./nixos/configuration.nix ];
     };
 
-    homeConfiguration."karl" = home-manager.nixosModules.home-manager {
+    homeConfigurations."karl" = home-manager.lib.homeManagerConfiguration {
       pkgs = nixpkgs.legacyPackages.${system};
       extraSpecialArgs = { inherit inputs; };
       modules = [ ./home-manager/home.nix ];
