@@ -157,27 +157,6 @@ in
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’
     packages = with pkgs; [
-      # Utility
-      thunderbird
-      audacious
-      gimp
-
-      # Programming
-      vscodium
-      jetbrains.idea-ultimate
-      jetbrains.rust-rover
-      obsidian
-
-      # Messaging
-      signal-desktop
-      telegram-desktop
-      zapzap
-      discord
-      teamspeak5_client
-
-      # Games
-      lutris
-      inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
 
@@ -197,13 +176,6 @@ in
         cabextract
         wget 
       ];
-    };
-  };
-
-  programs.bash = {
-    completion.enable = true;
-    shellAliases = {
-      rb = "sudo nixos-rebuild switch --flake .";
     };
   };
 
