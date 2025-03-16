@@ -4,30 +4,6 @@
 
 { config, inputs, pkgs, ... }:
 
-let
-  gtk-theme = "adw-gtk3-dark";
-
-  moreWaita = pkgs.stdenv.mkDerivation {
-    name = "MoreWaita";
-    src = inputs.more-waita;
-    installPhase = ''
-        mkdir -p $out/share/icons
-        mv * $out/share/icons
-    '';
-  };
-
-  nerdfonts = (pkgs.nerdfonts.override { fonts = [
-    "Ubuntu"
-    "UbuntuMono"
-    "CascadiaCode"
-    "FantasqueSansMono"
-    "FiraCode"
-    "Mononoki"
-  ]; });
-
-  cursor-theme = "Qogir";
-  cursor-package = pkgs.qogir-icon-theme;
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -227,11 +203,6 @@ in
     hyprcursor
     hyprshot
     hyprutils
-
-    ### Theme ###
-    adw-gtk3
-    font-awesome
-    nerdfonts
   ];
 
   # List services that you want to enable:

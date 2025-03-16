@@ -42,11 +42,6 @@ in
     # inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
   ];
 
-  # basic configuration of git, please change to your own
-  programs.git = {
-    enable = true;
-  };
-
   gtk.gtk3.bookmarks = [
     "file:///home"
     "file:///games"
