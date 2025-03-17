@@ -2,7 +2,7 @@
 {
   "layer": "top",
   "position": "top",
-  "margin": "3, 0, 2, 0",
+  "margin": "3, 2, 3, 2",
 
   // If height property would be not present, it'd be calculated dynamically
   "height": 10,
@@ -14,23 +14,21 @@
       "backlight#icon",
       "backlight#value",
       "disk",
-      "mpd",
+      "mpd"
   ],
 
   "modules-center": [
-      "sway/workspaces",
+      "sway/workspaces"
   ],
 
   "modules-right": [
       "network",
       "idle_inhibitor",
       "pulseaudio",
-//        "custom/keyboard-layout",
       "battery",
       "clock",
       "tray",
-      //"custom/weather",
-      "custom/power",
+      "custom/power"
   ],
 
   // Modules
@@ -47,13 +45,13 @@
       "states": {
           // "good": 95,
           "warning": 30,
-          "critical": 15,
+          "critical": 15
       },
       "format": "{icon} {capacity}%",
       "format-charging": " {capacity}%",
       "format-plugged": " {capacity}%",
-      // "format-good": "", // An empty format will hide the module
-      // "format-full": "",
+      "format-good": "", // An empty format will hide the module
+      "format-full": "",
       "format-icons": ["", "", "", "", ""]
   },
 
@@ -67,25 +65,14 @@
   "cpu": {
       "interval": 10,
       "format": " {usage}%",
-      "max-length": 10,
-      "on-click": "kitty -e 'htop'"
-  },
-
-  "custom/keyboard-layout": {
-      "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
-      // Interval set only as a fallback, as the value is updated by signal
-      "interval": 30,
-      "format": "  {}", // Icon: keyboard
-      // Signal sent by Sway key binding (~/.config/sway/key-bindings)
-      "signal": 1, // SIGHUP
-      "tooltip": false,
-      "on-click": "~/.config/waybar/scripts/keyhint.sh",
+      "max-length": 12,
+      "on-click": "alacritty -e 'htop'"
   },
 
   "memory": {
       "interval": 5,
       "format": " {}%", // Icon: memory
-      "on-click": "kitty -e 'htop'", 
+      "on-click": "alacritty -e 'htop'", 
       "states": {
           "warning": 70,
           "critical": 90
@@ -103,14 +90,14 @@
       "format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
       "format-disconnected": "⚠ Disconnected",
       "tooltip-format": "{ifname}: {ipaddr}",
-      "on-click": "kitty -e 'nmtui'",
+      "on-click": "alacritty -e 'nmtui'"
   },
 
   "network#vpn": {
       "interface": "tun0",
       "format": " {essid} ({signalStrength}%)",
       "format-disconnected": "⚠ Disconnected",
-      "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+      "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
   },
 
   "sway/mode": {
@@ -137,7 +124,7 @@
           "5": "",
           "6": "",
           "7": "",
-          "8": "",
+          "8": ""
       }
   },
 
@@ -159,20 +146,11 @@
       "default": ["", "", ""]
     },
     "on-click": "kitty alsamixer"
-
-  },
-
-  "custom/weather": {
-      "exec": "~/.config/waybar/scripts/weather.sh",
-      "format": "{text} {icon}",
-      "return-type": "json",
-      "interval": 600,
-      "tooltip-format": "{tooltip}"
   },
 
   "tray": {
       "icon-size": 18,
-      "spacing":5,
+      "spacing":5
    },
 
   "backlight#icon": {
@@ -188,34 +166,16 @@
        "on-scroll-up": "brightnessctl -c backlight set +1%"
   },
 
-  "custom/firefox": {
-      "format": " ",
-      "on-click": "exec firefox", //choose a browser
-      "tooltip": false
-  },
-
-  "custom/terminal": {
-      "format": " ",
-      "on-click": "exec kitty", //choose a terminal
-      "tooltip": false
-  },
-
-  "custom/files": {
-      "format": " ",
-      "on-click": "exec thunar", //choose a file manager
-      "tooltip": false
-  },
-
   "custom/launcher": {
       "format":"",
-      "on-click": "exec wofi -c ~/.config/wofi/config -I",
-      "tooltip": false,
+      "on-click": "exec wofi --show drun",
+      "tooltip": false
   },
 
   "custom/power": {
       "format":"⏻",
       "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
-      "tooltip": false,
+      "tooltip": false
   },
 
   "mpd": {
@@ -243,6 +203,5 @@
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)",
     "max-length": 60
-  },
-
+  }
 }

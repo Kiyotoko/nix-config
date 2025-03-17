@@ -16,12 +16,12 @@ set $right l
 # Your preferred terminal emulator
 set $term alacritty
 # Your preferred application launcher
-set $menu wofi
+set $menu wofi --allow-images --show drun
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.config/sway/wallpaper.png fill
 #
 # Example configuration:
 #
@@ -68,9 +68,6 @@ bindsym $mod+Return exec $term
 
 # Start your launcher
 bindsym $mod+d exec $menu
-
-# Start file explorer
-bindsym $mod+e exec 
 
 # Commonly used applications
 bindsym $mod+F1 exec firefox
@@ -227,5 +224,13 @@ bar {
     position top
     swaybar_command waybar
 }
+
+#
+#No titlebars
+#
+default_border none 
+for_window [title="^.*"] title_format ""
+default_border normal 0
+default_floating_border normal 0
 
 include /etc/sway/config.d/*

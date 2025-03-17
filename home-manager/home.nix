@@ -56,8 +56,6 @@ in
   };
 
   gtk.gtk3.bookmarks = [
-    "file:///home"
-    "file:///games"
     "file://${homeDirectory}/Documents"
     "file://${homeDirectory}/Music"
     "file://${homeDirectory}/Pictures"
@@ -65,11 +63,4 @@ in
     "file://${homeDirectory}/Downloads"
     "file://${homeDirectory}/Desktop"
   ];
-
-  services = {
-    kdeconnect = {
-      enable = true;
-      indicator = true;
-    };
-  };
 }

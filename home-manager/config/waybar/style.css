@@ -1,15 +1,15 @@
 * {
-font-family: JetBrainsMono;
-padding: 1px 4px;
-color: white; 
+    font-family: JetBrainsMono;
+    padding: 1px 4px;
+    color: white; 
 }
 
 window#waybar {
-font-size: 14px;
-color: white;
-font-weight: normal;
-background: transparent;
-border-radius: 40px;
+    font-size: 14px;
+    color: white;
+    font-weight: normal;
+    background: transparent;
+    border-radius: 40px;
 }
 
 window#waybar.hidden {
@@ -27,46 +27,46 @@ opacity: 0.2;
 #custom-launcher,
 #temperature,
 #custom-power {
-color: white;
-background-color: #24283b;
-border-radius: 20px;
-margin: 1 9px;
+    color: white;
+    background-color: #24283b;
+    border-radius: 20px;
+    margin: 1 9px;
 }
 
 label:focus {
-background-color: #000;
+    background-color: #000;
 }
 
 #battery.warning.charging *{
-color: white;
+    color: white;
 }
 
 #battery.critical *{
-color: #e06c75;
+    color: #e06c75;
 }
 
 #tags button {
-background-color: #24283b;
-color: white;
-border-radius: 15px;
-margin: 0 3px;
+    background-color: #24283b;
+    color: white;
+    border-radius: 15px;
+    margin: 0 3px;
 }
 
 #tags button.occupied {
-margin: 0 3px;
-background-color: #194aac;
+    margin: 0 3px;
+    background-color: #194aac;
 }
 
 #tags button.focused {
-color: #000;
-margin: 0 3px;
-background-color: white;
+    color: #000;
+    margin: 0 3px;
+    background-color: white;
 }
 
 #tags button.urgent{
-color: red;
-margin: 0 3px;
-background-color:white;
+    color: red;
+    margin: 0 3px;
+    background-color:white;
 }
 
 /*ANIMATIONS*/
@@ -87,47 +87,47 @@ background-color:white;
 #cpu,
 #disk,
 #memory{
-border-radius: 3px 10px 3px 10px;
+    border-radius: 3px 10px 3px 10px;
 }
 
 #clock, 
 #network,
 #pulseaudio,
 #custom-power{
-border-radius: 10px 3px 10px 3px;
+    border-radius: 10px 3px 10px 3px;
 }
 
 #custom-launcher , #custom-power {
-color: red;
-font-size: 15px;
+    color: red;
+    font-size: 15px;
 }
 
 #cpu, #clock {
-background: #6F8FAF;
+    background: #6F8FAF;
 }
 
 #memory, #pulseaudio {
-background: #D70040;
+    background: #D70040;
 }
 
 #disk, #network {
-background: #00A36C;
+    background: #00A36C;
 }
 
 #battery {
-background: #F4BB44;
+    background: #F4BB44;
 }
 
 #workspaces {
-border-radius: 10px;
-font-size: 15px;
-background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-background-size: 400% 400%;
-animation: animate 21s ease infinite;
+    border-radius: 10px;
+    font-size: 15px;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: animate 21s ease infinite;
 }
 
 #workspaces button.urgent * {
-color: #630330;
+    color: #630330;
 }
 
 #idle_inhibitor {
@@ -135,6 +135,6 @@ color: #630330;
 }
 
 #mpd {
-background: transparent;
-font-size: 12px;
+    background: transparent;
+    font-size: 12px;
 }

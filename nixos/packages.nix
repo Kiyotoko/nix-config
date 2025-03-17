@@ -70,15 +70,5 @@
     zip
     passh
     glow
-
-    ### Hyperland ###
-    hyprpaper
-    hyprlang
-    hyprsunset
-    hyprlock
-    hypridle
-    hyprcursor
-    hyprshot
-    hyprutils
   ];
 }
