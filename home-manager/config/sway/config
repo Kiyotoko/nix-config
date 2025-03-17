@@ -226,11 +226,15 @@ bar {
 }
 
 #
-#No titlebars
+# Titlebar
 #
-default_border none 
-for_window [title="^.*"] title_format ""
-default_border normal 0
-default_floating_border normal 0
+title_align center
+
+# 
+# Gaps
+#
+gaps inner 4
+gaps outer 4
+smart_gaps on
 
 include /etc/sway/config.d/*
