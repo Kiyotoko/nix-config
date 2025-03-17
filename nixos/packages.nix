@@ -1,6 +1,20 @@
 { pkgs, ... }:
 
 {
+  # enable sway/hyprland & waybar
+  programs.sway = {
+    enable = true;
+  };
+
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  programs.waybar = {
+    enable = true;
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
 

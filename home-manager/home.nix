@@ -9,6 +9,7 @@ in
     ./git.nix
     ./hyprland.nix
     ./starship.nix
+    ./sway.nix
     ./theme.nix
     ./waybar.nix
     ./wofi.nix

@@ -7,7 +7,7 @@
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      ./hyprland.nix
+      # ./hyprland.nix
       ./packages.nix
     ];
 
@@ -50,17 +50,7 @@
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "hyprland";
-
-  # enable hyprland
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  programs.waybar = {
-    enable = true;
-  };
+  services.displayManager.defaultSession = "sway";
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -101,7 +91,7 @@
     # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
 	  # accessible via `nvidia-settings`.
