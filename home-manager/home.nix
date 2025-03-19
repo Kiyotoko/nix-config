@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   homeDirectory = "/home/karl";
 in 
@@ -6,13 +6,10 @@ in
   imports = [
     ./alacritty.nix
     ./bash.nix
+    ./config.nix
     ./git.nix
-    ./hyprland.nix
     ./starship.nix
-    ./sway.nix
     ./theme.nix
-    ./waybar.nix
-    ./wofi.nix
   ];
 
   home = {
@@ -32,6 +29,7 @@ in
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       # Utility
+      nemo-with-extensions
       thunderbird
       audacious
       gimp
@@ -51,7 +49,7 @@ in
 
       # Games
       lutris
-      # inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
+      inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
 

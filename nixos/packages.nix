@@ -52,18 +52,15 @@
     texliveFull
     gnumake
     cmake
-    meson
-    cpio
 
     ### System tools ###
     home-manager # managing user files
-    alacritty # terminal emulator
-    wofi # launcher for hyprland
-    nautilus # file manager
+    wofi # launcher for sway
     gparted # partition manager
     playerctl # audio service
     networkmanager # network tools
     networkmanagerapplet
+    alsa-utils # audio tools
     tree # tree view of folder
     wget
     unzip

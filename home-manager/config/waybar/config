@@ -9,11 +9,8 @@
 
   "modules-left": [
       "custom/launcher",
-      "cpu",
-      "memory",
       "backlight#icon",
       "backlight#value",
-      "disk",
       "mpd"
   ],
 
@@ -23,7 +20,6 @@
 
   "modules-right": [
       "network",
-      "idle_inhibitor",
       "pulseaudio",
       "battery",
       "clock",
@@ -62,28 +58,6 @@
       "format-alt": " {:%a, %b %d}" // Icon: calendar-alt
   },
 
-  "cpu": {
-      "interval": 10,
-      "format": " {usage}%",
-      "max-length": 12,
-      "on-click": "alacritty -e 'htop'"
-  },
-
-  "memory": {
-      "interval": 5,
-      "format": " {}%", // Icon: memory
-      "on-click": "alacritty -e 'htop'", 
-      "states": {
-          "warning": 70,
-          "critical": 90
-      }
-  },
-
-  "disk": {
-      "format": " {free}" 
-  },
-      
-
   "network": {
       "interval": 5,
       "format-wifi": " ({signalStrength}%)", // Icon: wifi
@@ -98,16 +72,6 @@
       "format": " {essid} ({signalStrength}%)",
       "format-disconnected": "⚠ Disconnected",
       "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
-  },
-
-  "sway/mode": {
-      "format": "{}",
-      "tooltip": false
-  },
-
-  "sway/window": {
-      "format": "{}",
-      "max-length": 120
   },
 
   "sway/workspaces": {

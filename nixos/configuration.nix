@@ -2,12 +2,11 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      # ./hyprland.nix
       ./packages.nix
     ];
 
@@ -15,6 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  security.rtkit.enable = true;
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -30,7 +30,6 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
     LC_IDENTIFICATION = "de_DE.UTF-8";
@@ -43,32 +42,16 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" ];
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "sway";
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "de";
-    variant = "";
-  };
-
   # Configure console keymap
   console.keyMap = "de";
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
+  # Enable hardware
   hardware.graphics.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  hardware.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.support32Bit = true;
+  hardware.pulseaudio.package = pkgs.pulseaudioFull;
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -100,27 +83,49 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-  security.rtkit.enable = true;
-  services.pipewire = {
+  
+  # Manage sound/audio and music
+  services.pipewire.enable = false;
+  services.mpd = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    extraConfig = ''
+      audio_output {
+        type "pulse"
+        name "My PulseAudio" # this can be whatever you want
+      }
+    '';
 
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
+    # Optional:
+    network.listenAddress = "any"; # if you want to allow non-localhost connections
   };
+
+  # Enable the X11 windowing system.
+  # You can disable this if you're only using the Wayland session.
+  services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" ];
+
+  # Enable the KDE Plasma Desktop Environment.
+  services.displayManager.ly.enable = true;
+  services.displayManager.defaultSession = "sway";
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = "de";
+    variant = "";
+  };
+  
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
+
+  # Use blueman for bluetooth
+  services.blueman.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karl = {
     name = "karl";
     isNormalUser = true;
     description = "Karl Zschiebsch";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "audio" "networkmanager" "wheel" "libvirtd" ];
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’
   };

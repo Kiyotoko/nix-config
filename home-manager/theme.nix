@@ -2,15 +2,6 @@
 let
   gtk-theme = "adw-gtk3-dark";
 
-  moreWaita = pkgs.stdenv.mkDerivation {
-    name = "MoreWaita";
-    src = inputs.more-waita;
-    installPhase = ''
-        mkdir -p $out/share/icons
-        mv * $out/share/icons
-    '';
-  };
-
   nerdfonts = (pkgs.nerdfonts.override { fonts = [
     "Ubuntu"
     "UbuntuMono"
@@ -29,15 +20,7 @@ in
       adw-gtk3
       font-awesome
       nerdfonts
-      moreWaita
-      # papirus-icon-theme
-      # qogir-icon-theme
-      # whitesur-icon-theme
-      # colloid-icon-theme
-      # qogir-theme
-      # yaru-theme
-      # whitesur-gtk-theme
-      # orchis-theme
+      papirus-icon-theme
     ];
     sessionVariables = {
       XCURSOR_THEME = cursor-theme;
@@ -67,8 +50,8 @@ in
           }
         '';
       };
-      ".local/share/icons/MoreWaita" = {
-        source = "${moreWaita}/share/icons";
+      ".local/share/icons/papirus-icon-theme" = {
+        source = "${pkgs.papirus-icon-theme}/share/icons"; # "${moreWaita}/share/icons";
       };
     };
   };
@@ -81,7 +64,7 @@ in
       name = cursor-theme;
       package = cursor-package;
     };
-    iconTheme.name = moreWaita.name;
+    iconTheme.name = pkgs.papirus-icon-theme.name; # moreWaita.name;
     gtk3.extraCss = ''
       headerbar, .titlebar,
       .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
