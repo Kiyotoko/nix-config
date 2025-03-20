@@ -60,7 +60,7 @@
     playerctl # audio service
     networkmanager # network tools
     networkmanagerapplet
-    alsa-utils # audio tools
+    pavucontrol # audio tools
     tree # tree view of folder
     wget
     unzip

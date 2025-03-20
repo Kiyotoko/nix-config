@@ -10,8 +10,7 @@
   "modules-left": [
       "custom/launcher",
       "backlight#icon",
-      "backlight#value",
-      "mpd"
+      "backlight#value"
   ],
 
   "modules-center": [
@@ -28,15 +27,6 @@
   ],
 
   // Modules
-
-  "idle_inhibitor": {
-      "format": "{icon} ",
-      "format-icons":{
-          "activated": "",
-          "deactivated": ""
-      }
-  },
-
   "battery": {
       "states": {
           // "good": 95,
@@ -109,7 +99,7 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "kitty alsamixer"
+    "on-click": "exec pavucontrol"
   },
 
   "tray": {
@@ -140,32 +130,5 @@
       "format":"⏻",
       "on-click": "exec ~/.config/waybar/scripts/power-menu.sh",
       "tooltip": false
-  },
-
-  "mpd": {
-    "format": "{stateIcon} {artist} - {title}",
-    "format-disconnected": "🎶",
-    "format-stopped": "♪",
-    "interval": 10,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)",
-    "max-length": 60
   }
 }
