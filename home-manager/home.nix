@@ -39,6 +39,7 @@ in
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       obsidian
+      godot_4
 
       # Messaging
       signal-desktop
