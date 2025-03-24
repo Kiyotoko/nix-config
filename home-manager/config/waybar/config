@@ -8,22 +8,22 @@
   "height": 34,
 
   "modules-left": [
-      "custom/launcher",
-      "backlight#icon",
-      "backlight#value"
+    "custom/launcher",
+    "backlight#icon",
+    "backlight#value"
   ],
 
   "modules-center": [
-      "sway/workspaces"
+    "sway/workspaces"
   ],
 
   "modules-right": [
-      "network",
-      "pulseaudio",
-      "battery",
-      "clock",
-      "tray",
-      "custom/power"
+    "tray",
+    "network",
+    "pulseaudio",
+    "battery",
+    "clock",
+    "custom/power"
   ],
 
   // Modules
