@@ -7,6 +7,7 @@ help:	## Displays this help message
 
 home:	## Rebuilds your user home folder
 	@export NIXPKGS_ALLOW_UNFREE=1 && home-manager switch --flake . -b backup --impure
+	@mkdir -p ~/.local/state/mpd ~/.local/mpd/playlists
 
 nixos:	## Rebuilds your system configuration
 	@sudo nixos-rebuild switch --flake . --impure

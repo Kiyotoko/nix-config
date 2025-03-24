@@ -61,6 +61,8 @@
     networkmanager # network tools
     networkmanagerapplet
     pavucontrol # audio tools
+    mpd-small # music player server
+    mpc # music player client
     tree # tree view of folder
     wget
     unzip

@@ -1,6 +1,6 @@
 * {
     font-family: JetBrainsMono;
-    padding: 1px 4px;
+    padding: 1px 6px;
     color: white; 
 }
 
@@ -13,24 +13,19 @@ window#waybar {
 }
 
 window#waybar.hidden {
-opacity: 0.2;
+    opacity: 0.2;
 }
 
 #battery,
 #clock, 
-#cpu,
-#disk,
-#memory,
 #network,
 #pulseaudio,
-#mpd,
 #custom-launcher,
-#temperature,
 #custom-power {
     color: white;
     background-color: #24283b;
     border-radius: 20px;
-    margin: 1 9px;
+    margin: 1px 9px;
 }
 
 label:focus {
@@ -69,48 +64,33 @@ label:focus {
     background-color:white;
 }
 
-/*ANIMATIONS*/
-@keyframes animate {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 /*BORDER RADIUS*/
-#custom-launcher,
-#cpu,
-#disk,
-#memory{
+#custom-launcher {
     border-radius: 3px 10px 3px 10px;
 }
 
 #clock, 
 #network,
 #pulseaudio,
-#custom-power{
+#custom-power {
     border-radius: 10px 3px 10px 3px;
 }
 
-#custom-launcher , #custom-power {
-    color: red;
+#custom-launcher,
+#custom-power {
+    color: white;
     font-size: 15px;
 }
 
-#cpu, #clock {
+#clock {
     background: #6F8FAF;
 }
 
-#memory, #pulseaudio {
+#pulseaudio {
     background: #D70040;
 }
 
-#disk, #network {
+#network {
     background: #00A36C;
 }
 
@@ -128,13 +108,4 @@ label:focus {
 
 #workspaces button.urgent * {
     color: #630330;
-}
-
-#idle_inhibitor {
-    padding: 0px;
-}
-
-#mpd {
-    background: transparent;
-    font-size: 12px;
 }

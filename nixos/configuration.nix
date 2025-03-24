@@ -49,9 +49,7 @@
   hardware.graphics.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  hardware.pulseaudio.enable = true;
-  hardware.pulseaudio.support32Bit = true;
-  hardware.pulseaudio.package = pkgs.pulseaudioFull;
+  hardware.pulseaudio.enable = false;
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -85,13 +83,13 @@
   };
   
   # Manage sound/audio and music
-  services.pipewire.enable = false;
+  services.pipewire.enable = true;
   services.mpd = {
     enable = true;
     extraConfig = ''
       audio_output {
-        type "pulse"
-        name "My PulseAudio" # this can be whatever you want
+        type "pipewire"
+        name "My PipeWire Output"
       }
     '';
 

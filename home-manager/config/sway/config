@@ -61,6 +61,8 @@ input "type:keyboard" {
 
 ### Startup
 exec nm-applet
+exec blueman-applet
+exec waybar
 
 ### Key bindings
 #
@@ -216,6 +218,12 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ t
 # Special keys to adjust brightness via brightnessctl
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+bindsym --locked MediaPlay
+bindsym --locked MediaStop
+bindsym --locked MediaTrackPrevious
+bindsym --locked MediaTrackNext
+
 # Special key to take a screenshot with grim
 bindsym Print exec grim
 
@@ -224,8 +232,7 @@ bindsym Print exec grim
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
-    swaybar_command waybar
+    mode invisible
 }
 
 #
