@@ -10,6 +10,7 @@ in
     ./git.nix
     ./starship.nix
     ./theme.nix
+    ./vscodium.nix
   ];
 
   home = {
@@ -29,13 +30,13 @@ in
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       # Utility
-      nemo-with-extensions
+      dolphin
+      kdePackages.k3b
       thunderbird
       audacious
       gimp
 
       # Programming
-      vscodium
       jetbrains.idea-ultimate
       jetbrains.rust-rover
       obsidian
@@ -50,6 +51,12 @@ in
 
       # Games
       lutris
+      (prismlauncher.override {
+        jdks = [
+          temurin-jre-bin-8
+          temurin-jre-bin-23
+        ];
+      })
       inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
   };
