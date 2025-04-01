@@ -16,7 +16,6 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-#battery,
 #clock, 
 #network,
 #pulseaudio,

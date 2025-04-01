@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -77,11 +77,8 @@
     # Enable the Nvidia settings menu,
 	  # accessible via `nvidia-settings`.
     nvidiaSettings = true;
-
-    # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-  
+
   # Manage sound/audio and music
   services.pipewire.enable = true;
   services.mpd = {

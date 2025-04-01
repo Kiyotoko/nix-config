@@ -58,7 +58,6 @@ input "2:14:1739:52575:SYNA2B46:00_06CB:CD5F_Touchpad" {
 ### Startup
 exec nm-applet
 exec blueman-applet
-exec waybar
 
 ### Key bindings
 #
