@@ -19,13 +19,6 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.nixpkgs.follows = "hyprland";
     };
-    more-waita = {
-      url = "github:somepaulo/MoreWaita";
-      flake = false;
-    };
-
-    ags.url = "github:Aylur/ags";
-    stm.url = "github:Aylur/stm";
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -45,8 +38,10 @@
     };
 
     homeConfigurations."karl" = home-manager.lib.homeManagerConfiguration {
-      pkgs = nixpkgs.legacyPackages.${system};
-      extraSpecialArgs = { inherit inputs; };
+      inherit pkgs;
+      extraSpecialArgs = {
+        inherit inputs;
+      };
       modules = [ ./home-manager/home.nix ];
     };
   };

@@ -32,8 +32,6 @@ in
       thunderbird
       audacious
       gimp
-      rofi
-      pywal
 
       # Programming
       jetbrains.idea-ultimate
@@ -64,6 +62,18 @@ in
   home.file.".config" = {
     source = ./dotfiles/.config;
     recursive = true;
+  };
+
+  services.udiskie = {
+    enable = true;
+    settings = {
+      # workaround for
+      # https://github.com/nix-community/home-manager/issues/632
+      program_options = {
+        # replace with your favorite file manager
+        file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
+      };
+    };
   };
 
   gtk.gtk3.bookmarks = [

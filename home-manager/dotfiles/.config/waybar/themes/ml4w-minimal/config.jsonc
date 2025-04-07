@@ -21,17 +21,6 @@
         "~/.config/waybar/modules.jsonc"
     ],
 
-    // Updates Count
-    "custom/updates": {
-        "format": "   {}",
-        "escape": true,
-        "return-type": "json",
-        "exec": "~/.config/ml4w/scripts/updates.sh",
-        "restart-interval": 60,
-        "on-click": "$(cat ~/.config/ml4w/settings/terminal.sh) --class dotfiles-floating -e ~/.config/ml4w/scripts/installupdates.sh",
-        "on-click-right": "~/.config/ml4w/settings/software.sh"
-    },
-
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

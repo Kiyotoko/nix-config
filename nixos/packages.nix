@@ -1,19 +1,12 @@
 { pkgs, ... }:
 
 {
-  # enable sway/hyprland & waybar
-  programs.sway = {
-    enable = true;
-  };
-
+  # Install hyprland and waybar
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
-
-  programs.waybar = {
-    enable = true;
-  };
+  programs.waybar.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -42,7 +35,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ### Command line / dev tools ###
+    # -----------------------------------------------------
+    # Dev tools
+    # -----------------------------------------------------
     gradle
     maven
     python3
@@ -51,35 +46,50 @@
     python312Packages.venvShellHook
     texliveFull
     gnumake
+    gparted
     cmake
-    tree # tree view of folder
+
+    # -----------------------------------------------------
+    # System tools
+    # -----------------------------------------------------
+    home-manager
+    fastfetch
+    tree
     wget
     unzip
     zip
     passh
     glow
+    pywal
+    ntfs3g
 
-    ### System tools ###
-    home-manager # managing user files
-    wofi # launcher for sway
-    gparted # partition manager
-    dolphin # file manager
-    nautilus
-    ntfs3g # file encryption / mount usb
+    # -----------------------------------------------------
+    # Audio
+    # -----------------------------------------------------
     kdePackages.k3b # burn audio cd
-    playerctl # audio service
-    networkmanager # network tools
-    networkmanagerapplet
-    pavucontrol # audio tools
+    pavucontrol     # Open audio settings.
     mpd-small # music player server
     mpc # music player client
-    fastfetch
-    jq
 
-    ### Sway functionality ###
-    grim # screenshot functionality
-    slurp # screenshot functionality
-    wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
-    mako # notification system developed by swaywm maintainer
+    # -----------------------------------------------------
+    # Network
+    # -----------------------------------------------------
+    networkmanager
+    networkmanagerapplet
+
+    # -----------------------------------------------------
+    # Hyprland
+    # -----------------------------------------------------
+    hypridle
+    hyprpaper
+    hyprlock
+    dunst
+    wofi
+    nemo-with-extensions
+    nemo-emblems
+    nemo-fileroller
+    folder-color-switcher
+    qalculate-qt
+    swaynotificationcenter
   ];
 }

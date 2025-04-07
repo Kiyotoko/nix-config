@@ -93,15 +93,22 @@
     # Optional:
     network.listenAddress = "any"; # if you want to allow non-localhost connections
   };
+  services.playerctld.enable = true;
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" ];
+  services.xserver.excludePackages = [ pkgs.xterm ];
 
-  # Enable the KDE Plasma Desktop Environment.
+  # Enable the trash folder.
+  services.gvfs.enable = true;
+
+  # Auto mount removable media.
+  services.udisks2.enable = true;
+  
   services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "sway";
+  services.displayManager.defaultSession = "hyprland";
 
   # Configure keymap in X11
   services.xserver.xkb = {
