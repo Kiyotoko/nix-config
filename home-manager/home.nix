@@ -6,7 +6,6 @@ in
   imports = [
     ./alacritty.nix
     ./bash.nix
-    ./config.nix
     ./git.nix
     ./starship.nix
     ./theme.nix
@@ -15,7 +14,7 @@ in
 
   home = {
     username = "karl";
-    homeDirectory = "/home/karl";
+    homeDirectory = "${homeDirectory}";
 
     # This value determines the home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -30,8 +29,6 @@ in
     # Packages that should be installed to the user profile.
     packages = with pkgs; [
       # Utility
-      dolphin
-      kdePackages.k3b
       thunderbird
       audacious
       gimp
@@ -41,6 +38,7 @@ in
       jetbrains.rust-rover
       obsidian
       godot_4
+      aseprite
 
       # Messaging
       signal-desktop
@@ -59,6 +57,11 @@ in
       })
       inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
+  };
+
+  home.file.".config" = {
+    source = ./dotfiles/.config;
+    recursive = true;
   };
 
   gtk.gtk3.bookmarks = [

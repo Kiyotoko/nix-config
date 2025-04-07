@@ -42,7 +42,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ### Development tools ###
+    ### Command line / dev tools ###
     gradle
     maven
     python3
@@ -52,23 +52,27 @@
     texliveFull
     gnumake
     cmake
-
-    ### System tools ###
-    home-manager # managing user files
-    wofi # launcher for sway
-    gparted # partition manager
-    playerctl # audio service
-    networkmanager # network tools
-    networkmanagerapplet
-    pavucontrol # audio tools
-    mpd-small # music player server
-    mpc # music player client
     tree # tree view of folder
     wget
     unzip
     zip
     passh
     glow
+
+    ### System tools ###
+    home-manager # managing user files
+    wofi # launcher for sway
+    gparted # partition manager
+    dolphin # file manager
+    nautilus
+    ntfs3g # file encryption / mount usb
+    kdePackages.k3b # burn audio cd
+    playerctl # audio service
+    networkmanager # network tools
+    networkmanagerapplet
+    pavucontrol # audio tools
+    mpd-small # music player server
+    mpc # music player client
 
     ### Sway functionality ###
     grim # screenshot functionality

@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhs;
+    package = pkgs.vscodium;
     extensions = with pkgs.vscode-extensions; [
       dracula-theme.theme-dracula
       yzhang.markdown-all-in-one
@@ -12,6 +12,7 @@
       rebornix.ruby
       jgclark.vscode-todo-highlight
       mechatroner.rainbow-csv
+      bbenoist.nix
     ];
   };
 }
