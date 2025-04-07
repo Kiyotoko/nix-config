@@ -73,6 +73,8 @@
     pavucontrol # audio tools
     mpd-small # music player server
     mpc # music player client
+    fastfetch
+    jq
 
     ### Sway functionality ###
     grim # screenshot functionality

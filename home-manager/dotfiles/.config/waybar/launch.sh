@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #                    __
 #  _    _____ ___ __/ /  ___ _____
 # | |/|/ / _ `/ // / _ \/ _ `/ __/
@@ -15,29 +15,15 @@ sleep 0.5
 # -----------------------------------------------------
 # Default theme: /THEMEFOLDER;/VARIATION
 # -----------------------------------------------------
-themestyle="/ml4w-modern;/ml4w-modern/light"
-
-# -----------------------------------------------------
-# Get current theme information from ~/.config/ml4w/settings/waybar-theme.sh
-# -----------------------------------------------------
-if [ -f ~/.config/ml4w/settings/waybar-theme.sh ]; then
-    themestyle=$(cat ~/.config/ml4w/settings/waybar-theme.sh)
-else
-    touch ~/.config/ml4w/settings/waybar-theme.sh
-    echo "$themestyle" >~/.config/ml4w/settings/waybar-theme.sh
-fi
+themestyle="/ml4w-minimal;/ml4w-minimal"
 
 IFS=';' read -ra arrThemes <<<"$themestyle"
 echo ":: Theme: ${arrThemes[0]}"
 
-if [ ! -f ~/.config/waybar/themes${arrThemes[1]}/style.css ]; then
-    themestyle="/ml4w;/ml4w/light"
-fi
-
 # -----------------------------------------------------
 # Loading the configuration
 # -----------------------------------------------------
-config_file="config"
+config_file="config.jsonc"
 style_file="style.css"
 
 # Standard files can be overwritten with an existing config-custom or style-custom.css

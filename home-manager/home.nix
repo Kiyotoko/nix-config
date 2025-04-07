@@ -32,6 +32,8 @@ in
       thunderbird
       audacious
       gimp
+      rofi
+      pywal
 
       # Programming
       jetbrains.idea-ultimate
