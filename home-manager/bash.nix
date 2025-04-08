@@ -4,7 +4,7 @@
     enableCompletion = true;
 
     shellAliases = {
-      rb = "sudo nixos-rebuild switch --flake .";
+      conf = "make -sC ~/Documents/Kiyotoko/nix-config/";
     };
   };
 }
