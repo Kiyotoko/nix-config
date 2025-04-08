@@ -8,14 +8,14 @@
 # -----------------------------------------------------
 # Quit all running waybar instances
 # -----------------------------------------------------
-killall waybar
 pkill waybar
 sleep 0.5
 
 # -----------------------------------------------------
 # Loading the configuration
 # -----------------------------------------------------
+theme_folder="ml4w-minimal/"
 config_file="config.jsonc"
 style_file="style.css"
 
-waybar -c ~/.config/waybar/themes/ml4w-minimal/$config_file -s ~/.config/waybar/themes/ml4w-minimal/$style_file &
+waybar -c ~/.config/waybar/themes/$theme_folder$config_file -s ~/.config/waybar/themes/$theme_folder$style_file &
