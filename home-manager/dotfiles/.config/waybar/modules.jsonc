@@ -23,14 +23,14 @@
   // Rofi Application Launcher
   "custom/appmenuicon": {
     "format": "",
-    "on-click": "~/.config/waybar/launch.sh",
-    "tooltip-format": "Open the application launcher"
+    "on-click": "wofi",
+    "tooltip": false
   },
 
   // Power Menu
   "custom/exit": {
     "format": "",
-    "on-click": "hyprlock",
+    "on-click": "~/.config/wofi/power.sh",
     "tooltip-format": "Power menu"
   },
 
@@ -136,8 +136,7 @@
   // Power Profiles Daemon
   "power-profiles-daemon": {
     "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
+    "tooltip": false,
     "format-icons": {
       "default": "",
       "performance": "",
