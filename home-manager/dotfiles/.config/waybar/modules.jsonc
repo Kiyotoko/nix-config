@@ -31,7 +31,7 @@
   "custom/exit": {
     "format": "",
     "on-click": "~/.config/wofi/power.sh",
-    "tooltip-format": "Power menu"
+    "tooltip": false
   },
 
   // SwayNC
