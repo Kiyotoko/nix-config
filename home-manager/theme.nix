@@ -23,7 +23,6 @@ in
       jetbrains-mono
       iconPackage
       gtkPackage
-      cursorPackage
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme;
@@ -45,9 +44,7 @@ in
         source = "${nerdfonts}/share/fonts/truetype/NerdFonts";
       };
       ".local/share/icons/" = {
-        # Copying the icons recursivly takes a lot of time and because we do not need to symlink
-        # the icons to our home config, this is disabled.
-        recursive = false;
+        recursive = true;
         source = "${iconPackage}/share/icons";
       };
     };
