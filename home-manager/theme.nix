@@ -1,7 +1,11 @@
 { pkgs, inputs, ... }:
 let
-  gtk-theme = "adw-gtk3-dark";
-
+  iconTheme = "Papirus";
+  iconPackage = pkgs.papirus-icon-theme;
+  gtkTheme = "Orchis";
+  gtkPackage = pkgs.orchis-theme;
+  cursorTheme = "Bibata";
+  cursorPackage = pkgs.bibata-cursors;
   nerdfonts = (pkgs.nerdfonts.override { fonts = [
     "Ubuntu"
     "UbuntuMono"
@@ -10,25 +14,23 @@ let
     "FiraCode"
     "Mononoki"
   ]; });
-
-  cursor-theme = "Qogir";
-  cursor-package = pkgs.qogir-icon-theme;
 in
 {
   home = {
     packages = with pkgs; [
-      adw-gtk3
       font-awesome
       nerdfonts
-      papirus-icon-theme
+      jetbrains-mono
+      iconPackage
+      gtkPackage
     ];
     sessionVariables = {
-      XCURSOR_THEME = cursor-theme;
+      XCURSOR_THEME = cursorTheme;
       XCURSOR_SIZE = "24";
     };
     pointerCursor = {
-      package = cursor-package;
-      name = cursor-theme;
+      package = cursorPackage;
+      name = cursorTheme;
       size = 24;
       gtk.enable = true;
     };
@@ -50,8 +52,9 @@ in
           }
         '';
       };
-      ".local/share/icons/papirus-icon-theme" = {
-        source = "${pkgs.papirus-icon-theme}/share/icons"; # "${moreWaita}/share/icons";
+      ".local/share/icons/" = {
+        recursive = true;
+        source = "${iconPackage}/share/icons";
       };
     };
   };
@@ -59,12 +62,12 @@ in
   gtk = {
     enable = true;
     font.name = "Ubuntu Nerd Font";
-    theme.name = gtk-theme;
+    theme.name = gtkTheme;
     cursorTheme = {
-      name = cursor-theme;
-      package = cursor-package;
+      name = cursorTheme;
+      package = cursorPackage;
     };
-    iconTheme.name = pkgs.papirus-icon-theme.name; # moreWaita.name;
+    iconTheme.name = iconTheme;
     gtk3.extraCss = ''
       headerbar, .titlebar,
       .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
