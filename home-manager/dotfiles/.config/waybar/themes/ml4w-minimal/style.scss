@@ -22,7 +22,7 @@ $border-color: #FFFFFF;
 $text-color-1: #000000;
 $text-color-2: #000000;
 $text-color-3: #FFFFFF;
-$icon-color: #FFFFFF;
+$icon-color: #000000;
 
 * {
     font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
@@ -120,29 +120,17 @@ window#waybar.empty #window {
  * Custom Modules
  * ----------------------------------------------------- */
 
-#custom-appmenuicon {
+#custom-apps {
     font-size: 20px;
     color: $text-color-1;
     margin: 0px 15px 0px 0px;
 }
 
 /* -----------------------------------------------------
- * Custom Notification
- * ----------------------------------------------------- */
-
- #custom-notification {
-    margin: 0px 13px 0px 0px;
-    padding:0px;
-    font-size:20px;
-    color: $icon-color;
-    opacity: 0.8;
-}
-
-/* -----------------------------------------------------
  * Custom Exit
  * ----------------------------------------------------- */
 
-#custom-exit {
+#custom-power {
     margin: 0px 20px 0px 0px;
     padding:0px;
     font-size:16px;
@@ -163,7 +151,7 @@ window#waybar.empty #window {
  * Backlight
  * ----------------------------------------------------- */
 
- #backlight {
+#backlight {
     font-size: 14px;
     color: $text-color-1;
     border-radius: 15px;
@@ -259,6 +247,7 @@ window#waybar.empty #window {
 
 #tray {
     margin:0px 10px 0px 0px;
+    color: $text-color-1;
 }
 
 #tray > .passive {

@@ -20,53 +20,22 @@
     "persistent-workspaces": {}
   },
 
-  // Rofi Application Launcher
-  "custom/appmenuicon": {
+  // Wofi Application Launcher
+  "custom/apps": {
     "format": "",
     "on-click": "wofi",
     "tooltip": false
   },
 
   // Power Menu
-  "custom/exit": {
+  "custom/power": {
     "format": "",
     "on-click": "~/.config/wofi/power.sh",
     "tooltip": false
   },
 
-  // SwayNC
-  "custom/notification": {
-    "tooltip-format": "Left: Notifications\nRight: Do not disturb",
-    "format": "{icon}",
-    "format-icons": {
-      "notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
-      "none": "",
-      "dnd-notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
-      "dnd-none": "",
-      "inhibited-notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
-      "inhibited-none": "",
-      "dnd-inhibited-notification":
-        "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
-      "dnd-inhibited-none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
-    "escape": true
-  },
-
-  // Hypridle inhibitor
-  "custom/hypridle": {
-    "format": "",
-    "return-type": "json",
-    "escape": true,
-    "exec-on-event": true,
-    "interval": 60
+  "clock": {
+    "tooltip": false
   },
 
   // Keyboard State
@@ -84,27 +53,6 @@
   "tray": {
     "icon-size": 21,
     "spacing": 10
-  },
-
-  // System
-  "custom/system": {
-    "format": "",
-    "tooltip": false
-  },
-
-  // Group Tools
-  "group/tools": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 300,
-      "children-class": "not-memory",
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "custom/cliphist",
-      "custom/hypridle",
-      "custom/hyprshade"
-    ]
   },
 
   // Network

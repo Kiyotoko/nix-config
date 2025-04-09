@@ -31,32 +31,33 @@
         "format-source": "{volume}% ",
         "format-source-muted": "",
         "format-icons": {
-        "headphone": " ",
-        "hands-free": " ",
-        "headset": " ",
-        "phone": " ",
-        "portable": " ",
-        "car": " ",
-        "default": [" ", " ", " "]
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
         },
         "on-click": "pavucontrol"
     },
 
     // Modules Left
     "modules-left": [
-        "custom/appmenuicon",
+        "custom/apps",
         "hyprland/workspaces"
     ],
 
     // Modules Right    
     "modules-right": [
         "tray",
+        "backlight",
         "pulseaudio",
         "bluetooth",
         "network",
         "battery", 
         "power-profiles-daemon",
         "clock",
-        "custom/exit"
+        "custom/power"
     ]
 }
