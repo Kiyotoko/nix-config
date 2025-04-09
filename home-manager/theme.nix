@@ -2,8 +2,8 @@
 let
   iconTheme = "Papirus";
   iconPackage = pkgs.papirus-icon-theme;
-  gtkTheme = "Orchis";
-  gtkPackage = pkgs.orchis-theme;
+  gtkTheme = "WhiteSur-Dark-solid";
+  gtkPackage = pkgs.whitesur-gtk-theme;
   cursorTheme = "Bibata-Modern-Classic";
   cursorPackage = pkgs.bibata-cursors;
   nerdfonts = (pkgs.nerdfonts.override { fonts = [
@@ -43,9 +43,8 @@ in
         recursive = true;
         source = "${nerdfonts}/share/fonts/truetype/NerdFonts";
       };
-      ".local/share/icons/" = {
-        recursive = true;
-        source = "${iconPackage}/share/icons";
+      ".local/share/icons/${iconTheme}" = {
+        source = "${iconPackage}/share/icons/${iconTheme}";
       };
     };
   };
