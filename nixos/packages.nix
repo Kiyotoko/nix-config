@@ -48,6 +48,8 @@
     gnumake
     gparted
     cmake
+    sass
+    lua
 
     # -----------------------------------------------------
     # System tools
