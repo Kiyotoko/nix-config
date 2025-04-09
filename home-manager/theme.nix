@@ -4,7 +4,7 @@ let
   iconPackage = pkgs.papirus-icon-theme;
   gtkTheme = "Orchis";
   gtkPackage = pkgs.orchis-theme;
-  cursorTheme = "Bibata";
+  cursorTheme = "Bibata-Modern-Classic";
   cursorPackage = pkgs.bibata-cursors;
   nerdfonts = (pkgs.nerdfonts.override { fonts = [
     "Ubuntu"
@@ -23,6 +23,7 @@ in
       jetbrains-mono
       iconPackage
       gtkPackage
+      cursorPackage
     ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme;
@@ -43,17 +44,10 @@ in
         recursive = true;
         source = "${nerdfonts}/share/fonts/truetype/NerdFonts";
       };
-      ".config/gtk-4.0/gtk.css" = {
-        text = ''
-          window.messagedialog .response-area > button,
-          window.dialog.message .dialog-action-area > button,
-          .background.csd{
-            border-radius: 0;
-          }
-        '';
-      };
       ".local/share/icons/" = {
-        recursive = true;
+        # Copying the icons recursivly takes a lot of time and because we do not need to symlink
+        # the icons to our home config, this is disabled.
+        recursive = false;
         source = "${iconPackage}/share/icons";
       };
     };
