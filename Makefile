@@ -11,3 +11,7 @@ home:	## Rebuilds your user home folder
 
 nixos:	## Rebuilds your system configuration
 	@sudo nixos-rebuild switch --flake . --impure
+
+open:	## Opens your config folder in bash
+	@echo -e "+---------------------+\n| \033[1m\033[94mNixOS Configuration\033[0m |\n+---------------------+\n\nYour config is located here:"
+	@sh -c "pwd && bash"
