@@ -70,8 +70,8 @@
     # -----------------------------------------------------
     kdePackages.k3b # burn audio cd
     pavucontrol     # Open audio settings.
-    mpd-small # music player server
-    mpc # music player client
+    mpd-small       # The music player server.
+    mpc             # A music player client for mpd.
 
     # -----------------------------------------------------
     # Network
@@ -85,6 +85,8 @@
     hypridle
     hyprpaper
     hyprlock
+    hyprshot
+    hyprpicker
     dunst
     wofi
     nemo-with-extensions
