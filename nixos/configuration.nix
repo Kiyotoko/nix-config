@@ -2,13 +2,18 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ lib, config, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ./packages.nix
-    ];
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
+  imports = [
+    # Include the results of the hardware scan.
+    /etc/nixos/hardware-configuration.nix
+    ./packages.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -57,7 +62,7 @@
 
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead 
+    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
     # of just the bare essentials.
     powerManagement.enable = false;
 
@@ -67,15 +72,15 @@
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of 
-    # supported GPUs is at: 
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    # Support is limited to the Turing and later architectures. Full list of
+    # supported GPUs is at:
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
 
     # Enable the Nvidia settings menu,
-	  # accessible via `nvidia-settings`.
+    # accessible via `nvidia-settings`.
     nvidiaSettings = true;
   };
 
@@ -98,7 +103,11 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "displaylink" "modesetting" "nvidia" ];
+  services.xserver.videoDrivers = [
+    "displaylink"
+    "modesetting"
+    "nvidia"
+  ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enable the trash folder.
@@ -106,7 +115,7 @@
 
   # Auto mount removable media.
   services.udisks2.enable = true;
-  
+
   services.displayManager.ly.enable = true;
   services.displayManager.defaultSession = "hyprland";
 
@@ -115,7 +124,7 @@
     layout = "de";
     variant = "";
   };
-  
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -127,7 +136,12 @@
     name = "karl";
     isNormalUser = true;
     description = "Karl Zschiebsch";
-    extraGroups = [ "audio" "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [
+      "audio"
+      "networkmanager"
+      "wheel"
+      "libvirtd"
+    ];
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’
   };
@@ -139,7 +153,10 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.gc = {
     automatic = true;
     persistent = true;

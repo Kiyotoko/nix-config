@@ -18,13 +18,15 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
     protontricks.enable = true;
-    package = with pkgs; steam.override {
-      extraPkgs = pkgs: [
-        jq
-        cabextract
-        wget 
-      ];
-    };
+    package =
+      with pkgs;
+      steam.override {
+        extraPkgs = pkgs: [
+          jq
+          cabextract
+          wget
+        ];
+      };
   };
 
   programs.git = {
@@ -69,9 +71,9 @@
     # Audio
     # -----------------------------------------------------
     kdePackages.k3b # burn audio cd
-    pavucontrol     # Open audio settings.
-    mpd-small       # The music player server.
-    mpc             # A music player client for mpd.
+    pavucontrol # Open audio settings.
+    mpd-small # The music player server.
+    mpc # A music player client for mpd.
 
     # -----------------------------------------------------
     # Network

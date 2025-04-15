@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 let
   homeDirectory = "/home/karl";
-in 
+in
 {
   imports = [
     ./alacritty.nix
@@ -57,11 +57,13 @@ in
       })
       inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
     ];
-  };
 
-  home.file.".config" = {
-    source = ./dotfiles/.config;
-    recursive = true;
+    file = {
+      ".config" = {
+        source = ./dotfiles/.config;
+        recursive = true;
+      };
+    };
   };
 
   services.udiskie = {
@@ -78,6 +80,8 @@ in
 
   gtk.gtk3.bookmarks = [
     "file://${homeDirectory}/Documents"
+    "file://${homeDirectory}/Books"
+    "file://${homeDirectory}/Audiobooks"
     "file://${homeDirectory}/Music"
     "file://${homeDirectory}/Pictures"
     "file://${homeDirectory}/Videos"

@@ -21,28 +21,30 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
-  let
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-  in {
-    nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
-      inherit pkgs;
-      specialArgs = {
-        inherit inputs;
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
       };
-      modules = [ ./nixos/configuration.nix ];
-    };
+    in
+    {
+      nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [ ./nixos/configuration.nix ];
+      };
 
-    homeConfigurations."karl" = home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      extraSpecialArgs = {
-        inherit inputs;
+      homeConfigurations."karl" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+        modules = [ ./home-manager/home.nix ];
       };
-      modules = [ ./home-manager/home.nix ];
     };
-  };
 }
