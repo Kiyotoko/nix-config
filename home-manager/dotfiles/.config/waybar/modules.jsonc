@@ -16,13 +16,12 @@
       "urgent": "",
       "active": "",
       "default": ""
-    },
-    "persistent-workspaces": {}
+    }
   },
 
   // Wofi Application Launcher
   "custom/apps": {
-    "format": "",
+    "format": "",
     "on-click": "wofi",
     "tooltip": false
   },
