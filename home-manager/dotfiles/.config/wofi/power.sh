@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 op=$( echo -e "  Poweroff\n  Reboot\n  Suspend\n  Lock" | wofi -i -d -H 300 | awk '{print tolower($2)}' )
 
