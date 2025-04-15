@@ -1,3 +1,20 @@
+excludes = ["**/dunst/*", "**/kdedefaults/*", "*.png", "*.jsonc", "*.conf", "*.gitignore", "*.toml", "Makefile"]
+
 [formatter.nixfmt-rfc-style]
 command = "nixfmt"
 includes = ["*.nix"]
+
+[formatter.shellcheck]
+command = "shellcheck"
+includes = ["*.sh"]
+
+[formatter.prettier]
+command = "prettier"
+options = ["--write"]
+includes = [
+ "*.css",
+ "*.scss",
+ "*.md",
+ "*.yaml",
+ "*.json",
+]

@@ -13,19 +13,23 @@
  * General
  * ----------------------------------------------------- */
 * {
-  font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial,
+    sans-serif;
   border: none;
-  border-radius: 0px; }
+  border-radius: 0px;
+}
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0.4);
   border-bottom: 0px solid #ffffff;
   /* color: #FFFFFF; */
   transition-property: background-color;
-  transition-duration: .5s; }
+  transition-duration: 0.5s;
+}
 
 .modules-left {
-  padding-left: 10px; }
+  padding-left: 10px;
+}
 
 /* -----------------------------------------------------
  * Workspaces
@@ -34,36 +38,42 @@ window#waybar {
   margin: 3px 7px 3px 3px;
   border: 0px;
   font-size: 14px;
-  color: #000000; }
+  color: #000000;
+}
 
 #workspaces button {
   border: 0px;
   margin: 4px 5px 4px 0px;
   padding: 0px 4px 0px 4px;
-  color: #FFFFFF;
-  transition: all 0.5s ease-in-out; }
+  color: #ffffff;
+  transition: all 0.5s ease-in-out;
+}
 
 #workspaces button.active {
   color: #000000;
-  background: #CCCCCC; }
+  background: #cccccc;
+}
 
 #workspaces button:hover {
   color: #000000;
-  background: #CCCCCC;
-  border-radius: 15px; }
+  background: #cccccc;
+  border-radius: 15px;
+}
 
 /* -----------------------------------------------------
  * Tooltips
  * ----------------------------------------------------- */
 tooltip {
   border-radius: 16px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   opacity: 0.9;
   padding: 20px;
-  margin: 0px; }
+  margin: 0px;
+}
 
 tooltip label {
-  color: #000000; }
+  color: #000000;
+}
 
 /* -----------------------------------------------------
  * Window
@@ -73,19 +83,23 @@ tooltip label {
   border-radius: 12px;
   color: #000000;
   font-size: 14px;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 window#waybar.empty #window {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 /* -----------------------------------------------------
  * Modules
  * ----------------------------------------------------- */
 .modules-left > widget:first-child > #workspaces {
-  margin-left: 0; }
+  margin-left: 0;
+}
 
 .modules-right > widget:last-child > #workspaces {
-  margin-right: 0; }
+  margin-right: 0;
+}
 
 /* -----------------------------------------------------
  * Custom Modules
@@ -93,7 +107,8 @@ window#waybar.empty #window {
 #custom-apps {
   font-size: 20px;
   color: #000000;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 /* -----------------------------------------------------
  * Custom Exit
@@ -102,7 +117,8 @@ window#waybar.empty #window {
   margin: 0px 20px 0px 0px;
   padding: 0px;
   font-size: 16px;
-  color: #000000; }
+  color: #000000;
+}
 
 /* -----------------------------------------------------
  * Clock
@@ -110,7 +126,8 @@ window#waybar.empty #window {
 #clock {
   font-size: 15px;
   color: #000000;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 /* -----------------------------------------------------
  * Backlight
@@ -120,7 +137,8 @@ window#waybar.empty #window {
   color: #000000;
   border-radius: 15px;
   margin: 0px 15px 0px 0px;
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 /* -----------------------------------------------------
  * Pulseaudio
@@ -129,10 +147,12 @@ window#waybar.empty #window {
   font-size: 14px;
   color: #000000;
   border-radius: 15px;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 #pulseaudio.muted {
-  color: #000000; }
+  color: #000000;
+}
 
 /* -----------------------------------------------------
  * Network
@@ -141,27 +161,34 @@ window#waybar.empty #window {
   font-size: 14px;
   color: #000000;
   border-radius: 15px;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 #network.ethernet {
-  color: #000000; }
+  color: #000000;
+}
 
 #network.wifi {
-  color: #000000; }
+  color: #000000;
+}
 
 /* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
-#bluetooth, #bluetooth.on, #bluetooth.connected {
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
   font-size: 14px;
   color: #000000;
   border-radius: 15px;
-  margin: 10px 15px 10px 0px; }
+  margin: 10px 15px 10px 0px;
+}
 
 #bluetooth.off {
   background-color: transparent;
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+}
 
 /* -----------------------------------------------------
  * Battery
@@ -170,35 +197,44 @@ window#waybar.empty #window {
   font-size: 14px;
   color: #000000;
   border-radius: 15px;
-  margin: 10px 15px 10px 0px; }
+  margin: 10px 15px 10px 0px;
+}
 
-#battery.charging, #battery.plugged {
-  color: #000000; }
+#battery.charging,
+#battery.plugged {
+  color: #000000;
+}
 
 @keyframes blink {
   to {
-    background-color: #FFFFFF;
-    color: #000000; } }
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
 #battery.critical:not(.charging) {
   color: #f53c3c;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-direction: alternate; }
+  animation-direction: alternate;
+}
 
 /* -----------------------------------------------------
  * Tray
  * ----------------------------------------------------- */
 #tray {
   margin: 0px 10px 0px 0px;
-  color: #000000; }
+  color: #000000;
+}
 
 #tray > .passive {
-  -gtk-icon-effect: dim; }
+  -gtk-icon-effect: dim;
+}
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b; }
+  background-color: #eb4d4b;
+}
 
 /*# sourceMappingURL=style.css.map */

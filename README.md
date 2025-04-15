@@ -5,8 +5,7 @@ sudo nixos-rebuild switch --flake .
 home-manager switch --flake .
 ```
 
-Credits
--------
+## Credits
 
 - Hypr config and waybar theme: https://github.com/mylinuxforwork
 - Wofi config: https://github.com/binoymanoj

@@ -14,32 +14,33 @@
  * General
  * ----------------------------------------------------- */
 
-$background-light: #FFFFFF;
-$background-dark: #FFFFFF;
-$workspaces-background-1: #FFFFFF;
-$workspaces-background-2: #CCCCCC;
-$border-color: #FFFFFF;
+$background-light: #ffffff;
+$background-dark: #ffffff;
+$workspaces-background-1: #ffffff;
+$workspaces-background-2: #cccccc;
+$border-color: #ffffff;
 $text-color-1: #000000;
 $text-color-2: #000000;
-$text-color-3: #FFFFFF;
+$text-color-3: #ffffff;
 $icon-color: #000000;
 
 * {
-    font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    border: none;
-    border-radius: 0px;
+  font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial,
+    sans-serif;
+  border: none;
+  border-radius: 0px;
 }
 
 window#waybar {
-    background-color: rgba(0,0,0,0.4);
-    border-bottom: 0px solid #ffffff;
-    /* color: #FFFFFF; */
-    transition-property: background-color;
-    transition-duration: .5s;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-bottom: 0px solid #ffffff;
+  /* color: #FFFFFF; */
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 .modules-left {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 /* -----------------------------------------------------
@@ -47,29 +48,29 @@ window#waybar {
  * ----------------------------------------------------- */
 
 #workspaces {
-    margin: 3px 7px 3px 3px;
-    border: 0px;
-    font-size: 14px;
-    color: $text-color-1;
+  margin: 3px 7px 3px 3px;
+  border: 0px;
+  font-size: 14px;
+  color: $text-color-1;
 }
 
 #workspaces button {
-    border: 0px;
-    margin:4px 5px 4px 0px;
-    padding:0px 4px 0px 4px;
-    color: $text-color-3;
-    transition: all 0.5s ease-in-out;
+  border: 0px;
+  margin: 4px 5px 4px 0px;
+  padding: 0px 4px 0px 4px;
+  color: $text-color-3;
+  transition: all 0.5s ease-in-out;
 }
 
 #workspaces button.active {
-    color: $text-color-1;
-    background: $workspaces-background-2;
+  color: $text-color-1;
+  background: $workspaces-background-2;
 }
 
 #workspaces button:hover {
-    color: $text-color-1;
-    background: $workspaces-background-2;
-    border-radius: 15px;
+  color: $text-color-1;
+  background: $workspaces-background-2;
+  border-radius: 15px;
 }
 
 /* -----------------------------------------------------
@@ -77,15 +78,15 @@ window#waybar {
  * ----------------------------------------------------- */
 
 tooltip {
-    border-radius: 16px;
-    background-color: $background-light;
-    opacity:0.9;
-    padding:20px;
-    margin:0px;
+  border-radius: 16px;
+  background-color: $background-light;
+  opacity: 0.9;
+  padding: 20px;
+  margin: 0px;
 }
 
 tooltip label {
-    color: $text-color-2;
+  color: $text-color-2;
 }
 
 /* -----------------------------------------------------
@@ -93,15 +94,15 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-    margin: 0px 15px 0px 0px;
-    border-radius: 12px;
-    color:$text-color-1;
-    font-size:14px;
-    font-weight:normal;
+  margin: 0px 15px 0px 0px;
+  border-radius: 12px;
+  color: $text-color-1;
+  font-size: 14px;
+  font-weight: normal;
 }
 
 window#waybar.empty #window {
-    background-color:transparent;
+  background-color: transparent;
 }
 
 /* -----------------------------------------------------
@@ -109,11 +110,11 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 /* -----------------------------------------------------
@@ -121,9 +122,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-apps {
-    font-size: 20px;
-    color: $text-color-1;
-    margin: 0px 15px 0px 0px;
+  font-size: 20px;
+  color: $text-color-1;
+  margin: 0px 15px 0px 0px;
 }
 
 /* -----------------------------------------------------
@@ -131,10 +132,10 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #custom-power {
-    margin: 0px 20px 0px 0px;
-    padding:0px;
-    font-size:16px;
-    color: $icon-color;
+  margin: 0px 20px 0px 0px;
+  padding: 0px;
+  font-size: 16px;
+  color: $icon-color;
 }
 
 /* -----------------------------------------------------
@@ -142,9 +143,9 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    font-size: 15px;
-    color: $text-color-1;
-    margin: 0px 15px 0px 0px;
+  font-size: 15px;
+  color: $text-color-1;
+  margin: 0px 15px 0px 0px;
 }
 
 /* -----------------------------------------------------
@@ -152,26 +153,26 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #backlight {
-    font-size: 14px;
-    color: $text-color-1;
-    border-radius: 15px;
-    margin: 0px 15px 0px 0px;
-    background-color: transparent;
+  font-size: 14px;
+  color: $text-color-1;
+  border-radius: 15px;
+  margin: 0px 15px 0px 0px;
+  background-color: transparent;
 }
 
 /* -----------------------------------------------------
  * Pulseaudio
  * ----------------------------------------------------- */
 
- #pulseaudio {
-    font-size: 14px;
-    color: $text-color-1;
-    border-radius: 15px;
-    margin: 0px 15px 0px 0px;
+#pulseaudio {
+  font-size: 14px;
+  color: $text-color-1;
+  border-radius: 15px;
+  margin: 0px 15px 0px 0px;
 }
 
 #pulseaudio.muted {
-    color: $text-color-1;
+  color: $text-color-1;
 }
 
 /* -----------------------------------------------------
@@ -179,35 +180,37 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #network {
-    font-size: 14px;
-    color: $text-color-1;
-    border-radius: 15px;
-    margin: 0px 15px 0px 0px;
+  font-size: 14px;
+  color: $text-color-1;
+  border-radius: 15px;
+  margin: 0px 15px 0px 0px;
 }
 
 #network.ethernet {
-    color: $text-color-1;
+  color: $text-color-1;
 }
 
 #network.wifi {
-    color: $text-color-1;
+  color: $text-color-1;
 }
 
 /* -----------------------------------------------------
  * Bluetooth
  * ----------------------------------------------------- */
 
- #bluetooth, #bluetooth.on, #bluetooth.connected {
-    font-size: 14px;
-    color: $text-color-1;
-    border-radius: 15px;
-    margin: 10px 15px 10px 0px;
+#bluetooth,
+#bluetooth.on,
+#bluetooth.connected {
+  font-size: 14px;
+  color: $text-color-1;
+  border-radius: 15px;
+  margin: 10px 15px 10px 0px;
 }
 
 #bluetooth.off {
-    background-color: transparent;
-    padding: 0px;
-    margin: 0px;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
 }
 
 /* -----------------------------------------------------
@@ -215,30 +218,31 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
-    font-size: 14px;
-    color: $text-color-1;
-    border-radius: 15px;
-    margin: 10px 15px 10px 0px;
+  font-size: 14px;
+  color: $text-color-1;
+  border-radius: 15px;
+  margin: 10px 15px 10px 0px;
 }
 
-#battery.charging, #battery.plugged {
-    color: $text-color-1;
+#battery.charging,
+#battery.plugged {
+  color: $text-color-1;
 }
 
 @keyframes blink {
-    to {
-        background-color: $background-light;
-        color: $text-color-2;
-    }
+  to {
+    background-color: $background-light;
+    color: $text-color-2;
+  }
 }
 
 #battery.critical:not(.charging) {
-    color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 /* -----------------------------------------------------
@@ -246,15 +250,15 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    margin:0px 10px 0px 0px;
-    color: $text-color-1;
+  margin: 0px 10px 0px 0px;
+  color: $text-color-1;
 }
 
 #tray > .passive {
-    -gtk-icon-effect: dim;
+  -gtk-icon-effect: dim;
 }
 
 #tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+  -gtk-icon-effect: highlight;
+  background-color: #eb4d4b;
 }

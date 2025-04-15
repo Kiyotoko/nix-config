@@ -1,4 +1,6 @@
-{ pkgs ? import <nixpkgs> {} }:
+{
+  pkgs ? import <nixpkgs> { },
+}:
 
 pkgs.mkShell {
   buildInputs = with pkgs; [
@@ -6,5 +8,9 @@ pkgs.mkShell {
     gnumake
     treefmt
     nixfmt-rfc-style
+    shfmt
+    shellcheck
+    # prettier-d-slim
+    nodePackages.prettier
   ];
 }
