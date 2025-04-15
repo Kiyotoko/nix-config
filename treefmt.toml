@@ -1,4 +1,14 @@
-excludes = ["**/dunst/*", "**/kdedefaults/*", "*.png", "*.jsonc", "*.conf", "*.gitignore", "*.toml", "Makefile"]
+excludes = [
+    "**/dunst/*",
+    "**/kdedefaults/*",
+    "*.png",
+    "*.jsonc",
+    "*.conf",
+    "*.gitignore",
+    "*.toml",
+    "Makefile",
+    "**/waybar/themes/ml4w-minimal/style.css",
+]
 
 [formatter.nixfmt-rfc-style]
 command = "nixfmt"

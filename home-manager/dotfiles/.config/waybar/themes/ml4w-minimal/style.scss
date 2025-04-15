@@ -15,14 +15,13 @@
  * ----------------------------------------------------- */
 
 $background-light: #ffffff;
-$background-dark: #ffffff;
+$background-dark: #2b25259d;
 $workspaces-background-1: #ffffff;
 $workspaces-background-2: #cccccc;
 $border-color: #ffffff;
-$text-color-1: #000000;
+$text-color-1: #ffffff;
 $text-color-2: #000000;
-$text-color-3: #ffffff;
-$icon-color: #000000;
+$icon-color: #ffffff;
 
 * {
   font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial,
@@ -58,7 +57,7 @@ window#waybar {
   border: 0px;
   margin: 4px 5px 4px 0px;
   padding: 0px 4px 0px 4px;
-  color: $text-color-3;
+  color: $text-color-1;
   transition: all 0.5s ease-in-out;
 }
 
