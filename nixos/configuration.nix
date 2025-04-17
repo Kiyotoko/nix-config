@@ -141,6 +141,7 @@
       "networkmanager"
       "wheel"
       "libvirtd"
+      "cdrom"
     ];
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’
