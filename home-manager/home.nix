@@ -82,6 +82,7 @@ in
     "file://${homeDirectory}/Documents"
     "file://${homeDirectory}/Books"
     "file://${homeDirectory}/Audiobooks"
+    "file://${homeDirectory}/Movies"
     "file://${homeDirectory}/Music"
     "file://${homeDirectory}/Pictures"
     "file://${homeDirectory}/Videos"
