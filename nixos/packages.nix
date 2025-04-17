@@ -68,9 +68,13 @@
     ntfs3g
 
     # -----------------------------------------------------
-    # Audio
+    # Audio & Video
     # -----------------------------------------------------
     kdePackages.k3b # burn audio cd
+    # Highly portable CD/DVD/BluRay command line recording software
+    cdrtools
+    # Cross-platform media player and streaming server
+    vlc
     pavucontrol # Open audio settings.
     mpd-small # The music player server.
     mpc # A music player client for mpd.
