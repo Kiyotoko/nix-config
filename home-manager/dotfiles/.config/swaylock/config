@@ -3,8 +3,6 @@ show-failed-attempts
 
 image=~/.config/hypr/wallpapers/edna-light-mountain.png
 
-fade-in=0.2
-
 effect-blur=20x2
 effect-scale=0.3
 

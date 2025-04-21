@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-op=$( echo -e "  Poweroff\n  Reboot\n  Suspend\n  Lock" | wofi -i -d -H 300 | awk '{print tolower($2)}' )
+op=$( echo -e "  Poweroff\n  Reboot\n  Suspend\n  Lock" | wofi -i -d -H 280 | awk '{print tolower($2)}' )
 
 case $op in 
   poweroff)
@@ -11,6 +11,6 @@ case $op in
     systemctl "$op"
     ;;
   lock)
-    hyprlock
+    swaylock
     ;;
 esac
