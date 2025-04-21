@@ -133,7 +133,7 @@
     # -----------------------------------------------------
     hypridle
     hyprpaper
-    hyprlock
+    swaylock
     hyprshot
     hyprpicker
     dunst
