@@ -27,19 +27,19 @@
         "privacy.trackingprotection.socialtracking.enabled" = true;
       };
       ExtensionSettings = {
-        "uBlock-origin" = {
+        "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
-        "return-youtube-dislike" = {
+        "{762f9885-5a13-4abd-9c77-433dcd38b8fd}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4371820/return_youtube_dislikes-3.0.0.18.xpi";
           installation_mode = "force_installed";
         };
-        "sponsor-block" = {
+        "sponsorBlocker@ajay.app" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4465727/sponsorblock-5.11.10.xpi";
           installation_mode = "force_installed";
         };
-        "leechblock-ng" = {
+        "leechblockng@proginosko.com" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/file/4466262/leechblock_ng-1.6.9.xpi";
           installation_mode = "force_installed";
         };
