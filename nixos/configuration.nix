@@ -86,18 +86,6 @@
 
   # Manage sound/audio and music
   services.pipewire.enable = true;
-  services.mpd = {
-    enable = true;
-    extraConfig = ''
-      audio_output {
-        type "pipewire"
-        name "My PipeWire Output"
-      }
-    '';
-
-    # Optional:
-    network.listenAddress = "any"; # if you want to allow non-localhost connections
-  };
   services.playerctld.enable = true;
 
   # Enable the X11 windowing system.
@@ -130,6 +118,9 @@
 
   # Use blueman for bluetooth
   services.blueman.enable = true;
+
+  # Enable power profiels.
+  services.power-profiles-daemon.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karl = {
