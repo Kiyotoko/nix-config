@@ -15,26 +15,26 @@
     "format-icons": {
       "urgent": "",
       "active": "",
-      "default": ""
-    }
+      "default": "",
+    },
   },
 
   // Wofi Application Launcher
   "custom/apps": {
     "format": "",
     "on-click": "wofi",
-    "tooltip": false
+    "tooltip": false,
   },
 
   // Power Menu
   "custom/power": {
     "format": "",
     "on-click": "~/.config/wofi/power.sh",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "clock": {
-    "tooltip": false
+    "tooltip": false,
   },
 
   // Keyboard State
@@ -44,14 +44,14 @@
     "format": "{name} {icon}",
     "format-icons": {
       "locked": "",
-      "unlocked": ""
-    }
+      "unlocked": "",
+    },
   },
 
   // System tray
   "tray": {
     "icon-size": 21,
-    "spacing": 10
+    "spacing": 10,
   },
 
   // Network
@@ -65,20 +65,20 @@
     "tooltip-format-ethernet": "  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
-    "on-click": "alacritty -e nmtui"
+    "on-click": "alacritty -e nmtui",
   },
 
   // Battery
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{icon} {capacity}%",
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{icon}  {time}",
-    "format-icons": [" ", " ", " ", " ", " "]
+    "format-icons": [" ", " ", " ", " ", " "],
   },
 
   // Power Profiles Daemon
@@ -89,8 +89,8 @@
       "default": "",
       "performance": "",
       "balanced": "",
-      "power-saver": ""
-    }
+      "power-saver": "",
+    },
   },
 
   // Pulseaudio
@@ -109,9 +109,9 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": ["", "", ""]
+      "default": ["", "", ""],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
 
   // Bluetooth
@@ -121,7 +121,7 @@
     "format-off": "",
     "interval": 30,
     "on-click": "blueman-manager",
-    "format-no-controller": ""
+    "format-no-controller": "",
   },
 
   // backlight:
@@ -142,8 +142,8 @@
       "",
       "",
       "",
-      ""
+      "",
     ],
-    "scroll-step": 1
-  }
+    "scroll-step": 1,
+  },
 }

@@ -2,7 +2,6 @@ excludes = [
     "**/dunst/*",
     "**/kdedefaults/*",
     "*.png",
-    "*.jsonc",
     "*.conf",
     "*.gitignore",
     "*.toml",
@@ -27,4 +26,5 @@ includes = [
  "*.md",
  "*.yaml",
  "*.json",
+ "*.jsonc",
 ]
