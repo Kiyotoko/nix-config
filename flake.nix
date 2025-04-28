@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
       # The `follows` keyword in inputs is used for inheritance.
@@ -22,13 +24,16 @@
   };
 
   outputs =
-    { nixpkgs, home-manager, ... }@inputs:
+    { nixpkgs, self, home-manager, nixos-hardware, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
       };
+      defaultModules = [
+        ./nixos/configuration.nix
+      ];
     in
     {
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
@@ -36,7 +41,29 @@
         specialArgs = {
           inherit inputs;
         };
-        modules = [ ./nixos/configuration.nix ];
+        modules = defaultModules;
+      };
+
+      nixosConfigurations."nixos-laptop" = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+        specialArgs = {
+          inherit inputs;
+          hostName = "nixos-laptop";
+        };
+        modules = [
+          nixos-hardware.nixosModules.lenovo-legion-y530-15ich
+        ] ++ defaultModules;
+      };
+
+      nixosConfigurations."nixos-pc" = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+        specialArgs = {
+          inherit inputs;
+          hostName = "nixos-pc";
+        };
+        modules = [
+          nixos-hardware.nixosModules.gigabyte.b550
+        ] ++ defaultModules;
       };
 
       homeConfigurations."karl" = home-manager.lib.homeManagerConfiguration {
