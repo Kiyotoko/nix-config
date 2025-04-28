@@ -20,6 +20,9 @@ nixos-laptop:	## Rebuild your laptop system
 nixos-pc:	## Rebuild your pc system
 	@sudo nixos-rebuild switch --flake .#nixos-pc --impure
 
+update:	## Updates your flake lock file
+	@nix flake update
+
 open:	## Opens your config folder in bash
 	@echo -e "+---------------------+\n| \033[1m\033[94mNixOS Configuration\033[0m |\n+---------------------+\n\nYour config is located here:"
 	@sh -c "pwd && bash"
