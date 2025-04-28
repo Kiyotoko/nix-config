@@ -85,6 +85,7 @@
     texliveFull
     gnumake
     gparted
+    nushell
     cmake
     sass
     lua
@@ -100,6 +101,7 @@
     zip
     passh
     glow
+    bat
     pywal
     ntfs3g
 
