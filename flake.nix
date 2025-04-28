@@ -24,7 +24,13 @@
   };
 
   outputs =
-    { nixpkgs, self, home-manager, nixos-hardware, ... }@inputs:
+    {
+      nixpkgs,
+      self,
+      home-manager,
+      nixos-hardware,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {

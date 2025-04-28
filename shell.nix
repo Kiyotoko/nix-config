@@ -1,5 +1,11 @@
 {
-  pkgs ? import <nixpkgs> { },
+  git,
+  gnumake,
+  treefmt,
+  nixfmt-rfc-style,
+  shfmt,
+  shellcheck,
+  nodePackages,
 }:
 
 pkgs.mkShell {
