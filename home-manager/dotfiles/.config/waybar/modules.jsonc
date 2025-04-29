@@ -83,7 +83,7 @@
 
   // Power Profiles Daemon
   "power-profiles-daemon": {
-    "format": "{icon}",
+    "format": "{icon}  ",
     "tooltip": false,
     "format-icons": {
       "default": "",
