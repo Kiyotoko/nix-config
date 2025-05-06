@@ -12,7 +12,7 @@ home:	## Rebuilds your user home folder
 	@home-manager switch --flake . -b back --impure
 
 nixos:	## Rebuilds your system configuration
-	@sudo nixos-rebuild switch --flake . --impure
+	@sudo nixos-rebuild switch --flake .#$(hostname) --impure
 
 nixos-laptop:	## Rebuild your laptop system
 	@sudo nixos-rebuild switch --flake .#nixos-laptop --impure
