@@ -140,6 +140,8 @@
     hyprpicker
     # Wayland based logout menu
     wlogout
+    # Transparency for wlogout
+    gtk-layer-shell
     # Lightweight and customizable notification daemon
     dunst
     wofi
