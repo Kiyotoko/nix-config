@@ -138,6 +138,9 @@
     swaylock
     hyprshot
     hyprpicker
+    # Wayland based logout menu
+    wlogout
+    # Lightweight and customizable notification daemon
     dunst
     wofi
     nemo-with-extensions

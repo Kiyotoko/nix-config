@@ -29,7 +29,7 @@
   // Power Menu
   "custom/power": {
     "format": "",
-    "on-click": "~/.config/wofi/power.sh",
+    "on-click": "wlogout",
     "tooltip": false,
   },
 
