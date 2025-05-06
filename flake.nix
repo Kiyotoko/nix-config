@@ -13,6 +13,7 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    utils.url = "github:numtide/flake-utils";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
@@ -26,7 +27,7 @@
   outputs =
     {
       nixpkgs,
-      self,
+      utils,
       home-manager,
       nixos-hardware,
       ...
@@ -78,6 +79,22 @@
           inherit inputs;
         };
         modules = [ ./home-manager/home.nix ];
+      };
+
+      devShell.${system} = pkgs.mkShell {
+        name = "config";
+
+        nativeBuildInputs = with pkgs; [
+          git
+          gnumake
+
+          # Formatter
+          treefmt
+          nixfmt-rfc-style
+          shfmt
+          shellcheck
+          nodePackages.prettier
+        ];
       };
     };
 }
