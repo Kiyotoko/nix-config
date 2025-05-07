@@ -1,6 +1,8 @@
 * {
   background-image: none;
   box-shadow: none;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: x-large;
 }
 
 window {
@@ -9,10 +11,10 @@ window {
 
 button {
   border-radius: 0;
-  border-color: black;
+  border-color: #000000;
   text-decoration-color: #ffffff;
-  color: #ffffff;
-  background-color: #1e1e1e;
+  color: #000000;
+  background-color: rgba(255, 255, 255, 0.5);
   border-style: solid;
   border-width: 1px;
   background-repeat: no-repeat;
@@ -20,9 +22,8 @@ button {
   background-size: 25%;
 }
 
-button:focus,
-button:hover {
-  background-color: #3700b3;
+button:focus {
+  background-color: rgba(189, 147, 249, 0.9);
   outline-style: none;
 }
 
@@ -32,7 +33,7 @@ button:hover {
     url("/usr/share/wlogout/icons/lock.png"),
     url("/usr/local/share/wlogout/icons/lock.png")
   );
-  border-radius: 55px 0px 0px 0px;
+  border-radius: 80px 0px 0px 0px;
 }
 
 #suspend {
@@ -41,7 +42,7 @@ button:hover {
     url("/usr/share/wlogout/icons/suspend.png"),
     url("/usr/local/share/wlogout/icons/suspend.png")
   );
-  border-radius: 0px 55px 0px 0px;
+  border-radius: 0px 80px 0px 0px;
 }
 
 #shutdown {
@@ -50,7 +51,7 @@ button:hover {
     url("/usr/share/wlogout/icons/shutdown.png"),
     url("/usr/local/share/wlogout/icons/shutdown.png")
   );
-  border-radius: 0px 0px 0px 55px;
+  border-radius: 0px 0px 0px 80px;
 }
 
 #reboot {
@@ -59,7 +60,7 @@ button:hover {
     url("/usr/share/wlogout/icons/reboot.png"),
     url("/usr/local/share/wlogout/icons/reboot.png")
   );
-  border-radius: 0px 0px 55px 0px;
+  border-radius: 0px 0px 80px 0px;
 }
 
 /*# sourceMappingURL=style.css.map */
