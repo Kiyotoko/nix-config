@@ -3,7 +3,7 @@ $background-dark: rgba(0, 0, 0, 0.5);
 $border-color: #000000;
 $text-color-1: #ffffff;
 $text-color-2: #000000;
-$icon-color: #ffffff;
+$accent-color: rgba(31, 153, 184, 0.8);
 
 * {
   background-image: none;
@@ -30,7 +30,7 @@ button {
 }
 
 button:focus {
-  background-color: rgba(189, 147, 249, 0.9);
+  background-color: $accent-color;
   outline-style: none;
 }
 

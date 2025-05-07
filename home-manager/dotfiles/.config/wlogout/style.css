@@ -23,7 +23,7 @@ button {
 }
 
 button:focus {
-  background-color: rgba(189, 147, 249, 0.9);
+  background-color: rgba(31, 153, 184, 0.8);
   outline-style: none;
 }
 
