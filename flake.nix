@@ -69,7 +69,7 @@
           hostName = "nixos-pc";
         };
         modules = [
-          nixos-hardware.nixosModules.gigabyte.b550
+          nixos-hardware.nixosModules.gigabyte-b550
         ] ++ defaultModules;
       };
 
