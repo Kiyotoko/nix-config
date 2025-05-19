@@ -55,7 +55,6 @@
   hardware.graphics.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  hardware.pulseaudio.enable = false;
   hardware.nvidia = {
 
     prime = {
@@ -99,6 +98,7 @@
   };
 
   # Manage sound/audio and music
+  services.pulseaudio.enable = false;
   services.pipewire.enable = true;
   services.playerctld.enable = true;
 
