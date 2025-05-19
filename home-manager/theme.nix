@@ -6,18 +6,7 @@ let
   gtkPackage = pkgs.whitesur-gtk-theme;
   cursorTheme = "Bibata-Modern-Classic";
   cursorPackage = pkgs.bibata-cursors;
-  nerdfonts = (
-    pkgs.nerdfonts.override {
-      fonts = [
-        "Ubuntu"
-        "UbuntuMono"
-        "CascadiaCode"
-        "FantasqueSansMono"
-        "FiraCode"
-        "Mononoki"
-      ];
-    }
-  );
+  nerdfonts = pkgs.nerd-fonts.droid-sans-mono;
 in
 {
   home = {
