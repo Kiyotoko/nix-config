@@ -56,6 +56,7 @@ in
         ];
       })
       inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
+      beyond-all-reason
     ];
 
     file = {
