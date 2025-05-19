@@ -144,6 +144,8 @@
     gtk-layer-shell
     # Lightweight and customizable notification daemon
     dunst
+    # This program allows you read and control device brightness
+    brightnessctl
     wofi
     nemo-with-extensions
     nemo-emblems
