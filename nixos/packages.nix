@@ -118,11 +118,14 @@
     kdePackages.kio-extras
     # Highly portable CD/DVD/BluRay command line recording software
     cdrtools
+    # Tool for recording audio or data CD-Rs in disk-at-once (DAO) mode
+    cdrdao
+    # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
+    cdrkit
     # Cross-platform media player and streaming server
     vlc
-    pavucontrol # Open audio settings.
-    mpd-small # The music player server.
-    mpc # A music player client for mpd.
+    # PulseAudio Volume Control
+    pavucontrol
 
     # -----------------------------------------------------
     # Network
