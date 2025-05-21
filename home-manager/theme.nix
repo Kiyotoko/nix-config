@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 let
   iconTheme = "Papirus";
   iconPackage = pkgs.papirus-icon-theme;
@@ -6,20 +6,27 @@ let
   gtkPackage = pkgs.whitesur-gtk-theme;
   cursorTheme = "Bibata-Modern-Classic";
   cursorPackage = pkgs.bibata-cursors;
-  nerdfonts = pkgs.nerd-fonts.droid-sans-mono;
+  nerdFonts = with pkgs.nerd-fonts; [
+    ubuntu
+    ubuntu-mono
+    fantasque-sans-mono
+    fira-code
+    mononoki
+  ];
 in
 {
   home = {
     packages = with pkgs; [
+      fontconfig
       font-awesome
-      nerdfonts
       jetbrains-mono
       iconPackage
       gtkPackage
-    ];
+    ] ++ nerdFonts;
     sessionVariables = {
       XCURSOR_THEME = cursorTheme;
       XCURSOR_SIZE = "24";
+      SDL_VIDEODRIVER = "'wayland,x11'";
     };
     pointerCursor = {
       package = cursorPackage;
@@ -27,20 +34,16 @@ in
       size = 24;
       gtk.enable = true;
     };
-    file = {
-      ".local/share/fonts" = {
-        recursive = true;
-        source = "${nerdfonts}/share/fonts/truetype/NerdFonts";
-      };
-      ".fonts" = {
-        recursive = true;
-        source = "${nerdfonts}/share/fonts/truetype/NerdFonts";
-      };
-      ".local/share/icons/${iconTheme}" = {
-        source = "${iconPackage}/share/icons/${iconTheme}";
-      };
+    file.".local/share/icons/${iconTheme}" = {
+      source = "${iconPackage}/share/icons/${iconTheme}";
     };
+
+    activation.updateFontCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      ${pkgs.fontconfig}/bin/fc-cache -fv
+    '';
   };
+
+  fonts.fontconfig.enable = true;
 
   gtk = {
     enable = true;
@@ -51,12 +54,6 @@ in
       package = cursorPackage;
     };
     iconTheme.name = iconTheme;
-    gtk3.extraCss = ''
-      headerbar, .titlebar,
-      .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
-        border-radius: 0;
-      }
-    '';
   };
 
   qt = {
