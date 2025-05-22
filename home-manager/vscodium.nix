@@ -9,8 +9,6 @@
       golang.go
       sumneko.lua
       redhat.java
-      rebornix.ruby
-      tiehuis.zig
       ms-vscode.cpptools
       dotjoshjohnson.xml
       esbenp.prettier-vscode
