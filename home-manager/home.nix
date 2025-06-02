@@ -7,6 +7,7 @@ in
     ./alacritty.nix
     ./bash.nix
     ./git.nix
+    ./librewolf.nix
     ./starship.nix
     ./theme.nix
     ./vscodium.nix

@@ -16,8 +16,14 @@
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       Preferences = {
+        "browser.bookmarks.restore_default_bookmarks" = false;
+        "browser.contentblocking.category" = "strict";
         "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
         "cookiebanners.service.mode" = 2; # Block cookie banners
+        "privacy.history.custom" = true;
+        "privacy.globalprivacycontrol.was_ever_enabled" = true;
+        "privacy.clearOnShutdown_v2.formdata" = true;
+        "privacy.clearOnShutdown_v2.siteSettings" = true;
         "privacy.donottrackheader.enabled" = true;
         "privacy.fingerprintingProtection" = true;
         "privacy.resistFingerprinting" = true;
