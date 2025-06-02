@@ -1,4 +1,9 @@
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 let
   iconTheme = "Papirus";
   iconPackage = pkgs.papirus-icon-theme;
@@ -16,13 +21,16 @@ let
 in
 {
   home = {
-    packages = with pkgs; [
-      fontconfig
-      font-awesome
-      jetbrains-mono
-      iconPackage
-      gtkPackage
-    ] ++ nerdFonts;
+    packages =
+      with pkgs;
+      [
+        fontconfig
+        font-awesome
+        jetbrains-mono
+        iconPackage
+        gtkPackage
+      ]
+      ++ nerdFonts;
     sessionVariables = {
       XCURSOR_THEME = cursorTheme;
       XCURSOR_SIZE = "24";
@@ -38,7 +46,7 @@ in
       source = "${iconPackage}/share/icons/${iconTheme}";
     };
 
-    activation.updateFontCache = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    activation.updateFontCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       ${pkgs.fontconfig}/bin/fc-cache -fv
     '';
   };
