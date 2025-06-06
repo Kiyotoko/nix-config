@@ -52,12 +52,15 @@
   console.keyMap = "de";
 
   # Enable hardware
-  hardware.graphics.enable = true;
+  hardware.graphics =  {
+    enable = true;
+    enable32Bit = true;
+  };
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.nvidia = {
 
-    prime = {
+    prime = lib.mkIf (hostName == "nixos-laptop") {
       offload = {
         enable = true;
         enableOffloadCmd = true;
@@ -81,7 +84,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = true;
+    powerManagement.finegrained = lib.mkIf (hostName == "nixos-laptop") true;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
