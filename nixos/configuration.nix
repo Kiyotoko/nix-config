@@ -52,7 +52,7 @@
   console.keyMap = "de";
 
   # Enable hardware
-  hardware.graphics =  {
+  hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
@@ -138,6 +138,59 @@
 
   # Enable power profiels.
   services.power-profiles-daemon.enable = true;
+
+  # Enable syncthing accross multiple devices.
+  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
+  services.syncthing = {
+    enable = true;
+    dataDir = "/home/karl";
+    openDefaultPorts = true;
+    configDir = "/home/karl/.config/syncthing";
+    user = "karl";
+    group = "users";
+    guiAddress = "0.0.0.0:8384";
+    overrideFolders = true;
+    settings = {
+      folders = {
+        "Audiobooks" = {
+          path = "/home/karl/Audiobooks";
+          versioning = {
+            type = "simple";
+          };
+        };
+        "Books" = {
+          path = "/home/karl/Books";
+          versioning = {
+            type = "simple";
+          };
+        };
+        "Movies" = {
+          path = "/home/karl/Movies";
+          versioning = {
+            type = "simple";
+          };
+        };
+        "Music" = {
+          path = "/home/karl/Music";
+          versioning = {
+            type = "simple";
+          };
+        };
+        "Pictures" = {
+          path = "/home/karl/Pictures";
+          versioning = {
+            type = "simple";
+          };
+        };
+        "Videos" = {
+          path = "/home/karl/Videos";
+          versioning = {
+            type = "simple";
+          };
+        };
+      };
+    };
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karl = {
