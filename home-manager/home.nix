@@ -32,11 +32,10 @@ in
       # Utility
       thunderbird
       audacious
+      pix
       gimp
 
       # Programming
-      jetbrains.idea-ultimate
-      jetbrains.rust-rover
       obsidian
       godot_4
       aseprite
@@ -56,7 +55,6 @@ in
           temurin-jre-bin-23
         ];
       })
-      inputs.nix-gaming.packages.${pkgs.hostPlatform.system}.faf-client
       beyond-all-reason
     ];
 
