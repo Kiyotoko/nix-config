@@ -15,8 +15,6 @@
     };
     utils.url = "github:numtide/flake-utils";
 
-    nix-gaming.url = "github:fufexan/nix-gaming";
-
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
