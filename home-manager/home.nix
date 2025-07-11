@@ -43,7 +43,7 @@ in
       # Messaging
       signal-desktop
       telegram-desktop
-      zapzap
+      iamb
       discord
       teamspeak5_client
 

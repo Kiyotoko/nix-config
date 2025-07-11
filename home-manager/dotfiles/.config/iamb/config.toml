@@ -1,0 +1,5 @@
+default_profile = "user"
+
+[profiles.user]
+url = "https://nope.chat"
+user_id = "@karlz:nope.chat"
