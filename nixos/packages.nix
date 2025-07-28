@@ -82,25 +82,36 @@
     # -----------------------------------------------------
     # Dev tools
     # -----------------------------------------------------
-    gradle
-    maven
     python3
     python312Packages.pip
     python312Packages.dbus-python
     python312Packages.venvShellHook
     texliveFull
     gnumake
-    gparted
-    nushell
     cmake
-    sass
-    lua
+    nushell
+    go
+
+    # -----------------------------------------------------
+    # Language server
+    # -----------------------------------------------------
+    gopls
+    mdx-language-server
+    kotlin-language-server
+    kotlin-language-server
+    astro-language-server
+    yaml-language-server
+    tailwindcss-language-server
+    lua-language-server
+    java-language-server
+    nil
 
     # -----------------------------------------------------
     # System tools
     # -----------------------------------------------------
     home-manager
     fastfetch
+    gparted
     tree
     wget
     unzip
