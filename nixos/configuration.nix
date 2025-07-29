@@ -7,6 +7,7 @@
   config,
   pkgs,
   user,
+  description,
   homeDir,
   hostName,
   ...
@@ -198,7 +199,7 @@
   users.users."${user}" = {
     name = user;
     isNormalUser = true;
-    description = "Karl Zschiebsch";
+    description = description;
     extraGroups = [
       "audio"
       "networkmanager"

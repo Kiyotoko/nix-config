@@ -40,22 +40,16 @@
         ./nixos/configuration.nix
       ];
       user = "karl";
+      description = "Karl Zschiebsch";
       homeDir = "/home/${user}";
     in
     {
-      nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
-        specialArgs = {
-          inherit inputs;
-        };
-        modules = defaultModules;
-      };
-
       nixosConfigurations."nixos-laptop" = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         specialArgs = {
           inherit inputs;
           inherit user;
+          inherit description;
           inherit homeDir;
           hostName = "nixos-laptop";
         };
@@ -70,6 +64,7 @@
         specialArgs = {
           inherit inputs;
           inherit user;
+          inherit description;
           inherit homeDir;
           hostName = "nixos-pc";
         };
