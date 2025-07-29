@@ -1,9 +1,7 @@
-$background-light: rgba(255, 255, 255, 0.5);
-$background-dark: rgba(0, 0, 0, 0.5);
-$border-color: #000000;
-$text-color-1: #ffffff;
-$text-color-2: #000000;
-$accent-color: rgba(31, 153, 184, 0.8);
+$background: rgba(8, 29, 45, 0.651);
+$border-color: #95758e;
+$text-color: #c6c2c9;
+$accent-color: rgba(8, 88, 138, 0.812);
 
 * {
   background-image: none;
@@ -19,11 +17,10 @@ window {
 button {
   border-radius: 0;
   border-color: $border-color;
-  text-decoration-color: $text-color-1;
-  color: $text-color-2;
-  background-color: $background-light;
+  color: $text-color;
+  background-color: $background;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;

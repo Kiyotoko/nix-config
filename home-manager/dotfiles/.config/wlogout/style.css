@@ -2,65 +2,40 @@
   background-image: none;
   box-shadow: none;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: x-large;
-}
+  font-size: x-large; }
 
 window {
-  background-color: transparent;
-}
+  background-color: transparent; }
 
 button {
   border-radius: 0;
-  border-color: #000000;
-  text-decoration-color: #ffffff;
-  color: #000000;
-  background-color: rgba(255, 255, 255, 0.5);
+  border-color: #95758e;
+  color: #c6c2c9;
+  background-color: rgba(8, 29, 45, 0.651);
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 25%;
-}
+  background-size: 25%; }
 
 button:focus {
-  background-color: rgba(31, 153, 184, 0.8);
-  outline-style: none;
-}
+  background-color: rgba(8, 88, 138, 0.812);
+  outline-style: none; }
 
 #lock {
-  background-image: image(
-    url("./icons/lock.png"),
-    url("/usr/share/wlogout/icons/lock.png"),
-    url("/usr/local/share/wlogout/icons/lock.png")
-  );
-  border-radius: 80px 0px 0px 0px;
-}
+  background-image: image(url("./icons/lock.png"), url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+  border-radius: 80px 0px 0px 0px; }
 
 #suspend {
-  background-image: image(
-    url("./icons/suspend.png"),
-    url("/usr/share/wlogout/icons/suspend.png"),
-    url("/usr/local/share/wlogout/icons/suspend.png")
-  );
-  border-radius: 0px 80px 0px 0px;
-}
+  background-image: image(url("./icons/suspend.png"), url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+  border-radius: 0px 80px 0px 0px; }
 
 #shutdown {
-  background-image: image(
-    url("./icons/shutdown.png"),
-    url("/usr/share/wlogout/icons/shutdown.png"),
-    url("/usr/local/share/wlogout/icons/shutdown.png")
-  );
-  border-radius: 0px 0px 0px 80px;
-}
+  background-image: image(url("./icons/shutdown.png"), url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+  border-radius: 0px 0px 0px 80px; }
 
 #reboot {
-  background-image: image(
-    url("./icons/reboot.png"),
-    url("/usr/share/wlogout/icons/reboot.png"),
-    url("/usr/local/share/wlogout/icons/reboot.png")
-  );
-  border-radius: 0px 0px 80px 0px;
-}
+  background-image: image(url("./icons/reboot.png"), url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+  border-radius: 0px 0px 80px 0px; }
 
 /*# sourceMappingURL=style.css.map */
