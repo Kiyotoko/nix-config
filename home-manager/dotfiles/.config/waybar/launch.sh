@@ -14,7 +14,7 @@ sleep 0.5
 # -----------------------------------------------------
 # Loading the configuration
 # -----------------------------------------------------
-theme_folder="ml4w-minimal/"
+theme_folder="kiyo-sunrise/"
 config_file="config.jsonc"
 style_file="style.css"
 
