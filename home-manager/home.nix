@@ -1,7 +1,10 @@
-{ pkgs, inputs, ... }:
-let
-  homeDirectory = "/home/karl";
-in
+{
+  pkgs,
+  inputs,
+  user,
+  homeDir,
+  ...
+}:
 {
   imports = [
     ./alacritty.nix
@@ -14,8 +17,8 @@ in
   ];
 
   home = {
-    username = "karl";
-    homeDirectory = "${homeDirectory}";
+    username = "${user}";
+    homeDirectory = "${homeDir}";
 
     # This value determines the home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -79,14 +82,14 @@ in
   };
 
   gtk.gtk3.bookmarks = [
-    "file://${homeDirectory}/Documents"
-    "file://${homeDirectory}/Books"
-    "file://${homeDirectory}/Audiobooks"
-    "file://${homeDirectory}/Movies"
-    "file://${homeDirectory}/Music"
-    "file://${homeDirectory}/Pictures"
-    "file://${homeDirectory}/Videos"
-    "file://${homeDirectory}/Downloads"
-    "file://${homeDirectory}/Desktop"
+    "file://${homeDir}/Documents"
+    "file://${homeDir}/Books"
+    "file://${homeDir}/Audiobooks"
+    "file://${homeDir}/Movies"
+    "file://${homeDir}/Music"
+    "file://${homeDir}/Pictures"
+    "file://${homeDir}/Videos"
+    "file://${homeDir}/Downloads"
+    "file://${homeDir}/Desktop"
   ];
 }

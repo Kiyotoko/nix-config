@@ -9,7 +9,7 @@
       golang.go
       sumneko.lua
       redhat.java
-      ms-vscode.cpptools
+      llvm-vs-code-extensions.vscode-clangd
       dotjoshjohnson.xml
       esbenp.prettier-vscode
       jgclark.vscode-todo-highlight

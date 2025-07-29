@@ -105,6 +105,8 @@
     lua-language-server
     java-language-server
     nil
+    # Standalone command line tools for C++ development, contains clangd
+    clang-tools
 
     # -----------------------------------------------------
     # System tools

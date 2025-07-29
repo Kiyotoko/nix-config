@@ -1,4 +1,8 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  user,
+  ...
+}:
 {
   programs.firefox = {
     enable = true;
@@ -42,8 +46,8 @@
         };
       };
     };
-    profiles.karl = {
-      name = "karl";
+    profiles."${user}" = {
+      name = "${user}";
       isDefault = true;
 
       bookmarks = {

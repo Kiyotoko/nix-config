@@ -6,6 +6,8 @@
   lib,
   config,
   pkgs,
+  user,
+  homeDir,
   hostName,
   ...
 }:
@@ -143,47 +145,47 @@
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
   services.syncthing = {
     enable = true;
-    dataDir = "/home/karl";
+    dataDir = homeDir;
     openDefaultPorts = true;
-    configDir = "/home/karl/.config/syncthing";
-    user = "karl";
+    configDir = "${homeDir}/.config/syncthing";
+    user = user;
     group = "users";
     guiAddress = "0.0.0.0:8384";
     overrideFolders = true;
     settings = {
       folders = {
         "Audiobooks" = {
-          path = "/home/karl/Audiobooks";
+          path = "${homeDir}/Audiobooks";
           versioning = {
             type = "simple";
           };
         };
         "Books" = {
-          path = "/home/karl/Books";
+          path = "${homeDir}/Books";
           versioning = {
             type = "simple";
           };
         };
         "Movies" = {
-          path = "/home/karl/Movies";
+          path = "${homeDir}/Movies";
           versioning = {
             type = "simple";
           };
         };
         "Music" = {
-          path = "/home/karl/Music";
+          path = "${homeDir}/Music";
           versioning = {
             type = "simple";
           };
         };
         "Pictures" = {
-          path = "/home/karl/Pictures";
+          path = "${homeDir}/Pictures";
           versioning = {
             type = "simple";
           };
         };
         "Videos" = {
-          path = "/home/karl/Videos";
+          path = "${homeDir}/Videos";
           versioning = {
             type = "simple";
           };
@@ -193,8 +195,8 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.karl = {
-    name = "karl";
+  users.users."${user}" = {
+    name = user;
     isNormalUser = true;
     description = "Karl Zschiebsch";
     extraGroups = [
@@ -222,7 +224,7 @@
   nix.gc = {
     automatic = true;
     persistent = true;
-    dates = "daily";
-    options = "-d --delete-older-than 7d";
+    dates = "weekly";
+    options = "-d --delete-older-than 30d";
   };
 }

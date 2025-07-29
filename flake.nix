@@ -39,6 +39,8 @@
       defaultModules = [
         ./nixos/configuration.nix
       ];
+      user = "karl";
+      homeDir = "/home/${user}";
     in
     {
       nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
@@ -53,28 +55,36 @@
         inherit pkgs;
         specialArgs = {
           inherit inputs;
+          inherit user;
+          inherit homeDir;
           hostName = "nixos-laptop";
         };
         modules = [
           nixos-hardware.nixosModules.lenovo-legion-y530-15ich
-        ] ++ defaultModules;
+        ]
+        ++ defaultModules;
       };
 
       nixosConfigurations."nixos-pc" = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         specialArgs = {
           inherit inputs;
+          inherit user;
+          inherit homeDir;
           hostName = "nixos-pc";
         };
         modules = [
           nixos-hardware.nixosModules.gigabyte-b550
-        ] ++ defaultModules;
+        ]
+        ++ defaultModules;
       };
 
-      homeConfigurations."karl" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
           inherit inputs;
+          inherit user;
+          inherit homeDir;
         };
         modules = [ ./home-manager/home.nix ];
       };
