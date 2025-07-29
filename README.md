@@ -1,5 +1,7 @@
 # ❄️ My NixOS Config
 
+![Screenshot of this config using the kiyo theme](images/kiyo-sunrise-theme.png)
+
 ## Installation
 
 Before installing this configuration, consider changing the following:
