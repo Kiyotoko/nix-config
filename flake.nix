@@ -87,11 +87,11 @@
       templates = {
         rust = {
           name = "Rust";
-          path = "templates/rust";
+          path = ./templates/rust;
         };
         zig = {
           name = "Zig";
-          path = "templates/zig";
+          path = ./templates/zig;
         };
       };
 
