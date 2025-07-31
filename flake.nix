@@ -84,6 +84,17 @@
         modules = [ ./home-manager/home.nix ];
       };
 
+      templates = {
+        rust = {
+          name = "Rust";
+          path = "templates/rust";
+        };
+        zig = {
+          name = "Zig";
+          path = "templates/zig";
+        };
+      };
+
       devShell.${system} = pkgs.mkShell {
         name = "config";
 
