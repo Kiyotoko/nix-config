@@ -4,16 +4,19 @@
 * {
   font-family: Verdana, Arial, Helvetica, FontAwesome, Roboto, sans-serif;
   border: none;
-  border-radius: 0px; }
+  border-radius: 0px;
+}
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0.4);
   border-bottom: 0px solid #ffffff;
   transition-property: background-color;
-  transition-duration: 0.5s; }
+  transition-duration: 0.5s;
+}
 
 .modules-left {
-  padding-left: 10px; }
+  padding-left: 10px;
+}
 
 /* -----------------------------------------------------
  * Workspaces
@@ -22,23 +25,27 @@ window#waybar {
   margin: 3px 7px 3px 3px;
   border: 0px;
   font-size: 14px;
-  color: #c6c2c9; }
+  color: #c6c2c9;
+}
 
 #workspaces button {
   border: 0px;
   margin: 4px 5px 4px 0px;
   padding: 0px 4px 0px 4px;
   color: #c6c2c9;
-  transition: all 0.5s ease-in-out; }
+  transition: all 0.5s ease-in-out;
+}
 
 #workspaces button.active {
   color: #c6c2c9;
-  background: #097ec5; }
+  background: #097ec5;
+}
 
 #workspaces button:hover {
   color: #c6c2c9;
   background: #097ec5;
-  border-radius: 15px; }
+  border-radius: 15px;
+}
 
 /* -----------------------------------------------------
  * Tooltips
@@ -48,10 +55,12 @@ tooltip {
   background-color: rgba(0, 0, 0, 0.4);
   opacity: 0.9;
   padding: 20px;
-  margin: 0px; }
+  margin: 0px;
+}
 
 tooltip label {
-  color: #95768f; }
+  color: #95768f;
+}
 
 /* -----------------------------------------------------
  * Window
@@ -61,19 +70,23 @@ tooltip label {
   border-radius: 12px;
   color: #c6c2c9;
   font-size: 14px;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 window#waybar.empty #window {
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 /* -----------------------------------------------------
  * Modules
  * ----------------------------------------------------- */
 .modules-left > widget:first-child > #workspaces {
-  margin-left: 0; }
+  margin-left: 0;
+}
 
 .modules-right > widget:last-child > #workspaces {
-  margin-right: 0; }
+  margin-right: 0;
+}
 
 /* -----------------------------------------------------
  * Custom Modules
@@ -81,7 +94,8 @@ window#waybar.empty #window {
 #custom-apps {
   font-size: 20px;
   color: #c6c2c9;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 /* -----------------------------------------------------
  * Custom Exit
@@ -90,7 +104,8 @@ window#waybar.empty #window {
   margin: 0px 20px 0px 0px;
   padding: 0px;
   font-size: 16px;
-  color: #c6c2c9; }
+  color: #c6c2c9;
+}
 
 /* -----------------------------------------------------
  * Clock
@@ -98,7 +113,8 @@ window#waybar.empty #window {
 #clock {
   font-size: 15px;
   color: #c6c2c9;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 /* -----------------------------------------------------
  * Backlight
@@ -108,7 +124,8 @@ window#waybar.empty #window {
   color: #c6c2c9;
   border-radius: 15px;
   margin: 0px 15px 0px 0px;
-  background-color: transparent; }
+  background-color: transparent;
+}
 
 /* -----------------------------------------------------
  * Pulseaudio
@@ -117,7 +134,8 @@ window#waybar.empty #window {
   font-size: 14px;
   color: #c6c2c9;
   border-radius: 15px;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 /* -----------------------------------------------------
  * Network
@@ -126,7 +144,8 @@ window#waybar.empty #window {
   font-size: 14px;
   color: #c6c2c9;
   border-radius: 15px;
-  margin: 0px 15px 0px 0px; }
+  margin: 0px 15px 0px 0px;
+}
 
 /* -----------------------------------------------------
  * Bluetooth
@@ -137,12 +156,14 @@ window#waybar.empty #window {
   font-size: 14px;
   color: #c6c2c9;
   border-radius: 15px;
-  margin: 10px 15px 10px 0px; }
+  margin: 10px 15px 10px 0px;
+}
 
 #bluetooth.off {
   background-color: transparent;
   padding: 0px;
-  margin: 0px; }
+  margin: 0px;
+}
 
 /* -----------------------------------------------------
  * Battery
@@ -151,36 +172,44 @@ window#waybar.empty #window {
   font-size: 14px;
   color: #c6c2c9;
   border-radius: 15px;
-  margin: 10px 15px 10px 0px; }
+  margin: 10px 15px 10px 0px;
+}
 
 #battery.charging,
 #battery.plugged {
-  color: #c6c2c9; }
+  color: #c6c2c9;
+}
 
 @keyframes blink {
   to {
     background-color: rgba(0, 0, 0, 0.4);
-    color: #95768f; } }
+    color: #95768f;
+  }
+}
 #battery.critical:not(.charging) {
   color: #f53c3c;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-direction: alternate; }
+  animation-direction: alternate;
+}
 
 /* -----------------------------------------------------
  * Tray
  * ----------------------------------------------------- */
 #tray {
   margin: 0px 10px 0px 0px;
-  color: #c6c2c9; }
+  color: #c6c2c9;
+}
 
 #tray > .passive {
-  -gtk-icon-effect: dim; }
+  -gtk-icon-effect: dim;
+}
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b; }
+  background-color: #eb4d4b;
+}
 
 /*# sourceMappingURL=style.css.map */
