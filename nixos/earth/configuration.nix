@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 {
   lib,
   config,
@@ -9,14 +5,12 @@
   user,
   description,
   homeDir,
-  hostName,
   ...
 }:
 {
   imports = [
     # Include the results of the hardware scan.
-    /etc/nixos/hardware-configuration.nix
-    ./packages.nix
+    ./hardware-configuration.nix
   ];
 
   # Bootloader.
@@ -24,7 +18,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   security.rtkit.enable = true;
-  networking.hostName = hostName; # Define your hostname.
+  networking.hostName = "earth"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -63,7 +57,7 @@
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.nvidia = {
 
-    prime = lib.mkIf (hostName == "nixos-laptop") {
+    prime = {
       offload = {
         enable = true;
         enableOffloadCmd = true;
@@ -87,7 +81,7 @@
 
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = lib.mkIf (hostName == "nixos-laptop") true;
+    powerManagement.finegrained = true;
 
     # Use the NVidia open source kernel module (not to be confused with the
     # independent third-party "nouveau" open source driver).
@@ -141,59 +135,6 @@
 
   # Enable power profiels.
   services.power-profiles-daemon.enable = true;
-
-  # Enable syncthing accross multiple devices.
-  systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder
-  services.syncthing = {
-    enable = true;
-    dataDir = homeDir;
-    openDefaultPorts = true;
-    configDir = "${homeDir}/.config/syncthing";
-    user = user;
-    group = "users";
-    guiAddress = "0.0.0.0:8384";
-    overrideFolders = true;
-    settings = {
-      folders = {
-        "Audiobooks" = {
-          path = "${homeDir}/Audiobooks";
-          versioning = {
-            type = "simple";
-          };
-        };
-        "Books" = {
-          path = "${homeDir}/Books";
-          versioning = {
-            type = "simple";
-          };
-        };
-        "Movies" = {
-          path = "${homeDir}/Movies";
-          versioning = {
-            type = "simple";
-          };
-        };
-        "Music" = {
-          path = "${homeDir}/Music";
-          versioning = {
-            type = "simple";
-          };
-        };
-        "Pictures" = {
-          path = "${homeDir}/Pictures";
-          versioning = {
-            type = "simple";
-          };
-        };
-        "Videos" = {
-          path = "${homeDir}/Videos";
-          versioning = {
-            type = "simple";
-          };
-        };
-      };
-    };
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${user}" = {

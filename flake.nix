@@ -37,39 +37,42 @@
         config.allowUnfree = true;
       };
       defaultModules = [
-        ./nixos/configuration.nix
+        ./nixos/packages.nix
+        ./nixos/hyprland.nix
+        ./nixos/librewolf.nix
+        ./nixos/syncthing.nix
       ];
       user = "karl";
       description = "Karl Zschiebsch";
       homeDir = "/home/${user}";
     in
     {
-      nixosConfigurations."nixos-laptop" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."earth" = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         specialArgs = {
           inherit inputs;
           inherit user;
           inherit description;
           inherit homeDir;
-          hostName = "nixos-laptop";
         };
         modules = [
           nixos-hardware.nixosModules.lenovo-legion-y530-15ich
+          ./nixos/earth/configuration.nix
         ]
         ++ defaultModules;
       };
 
-      nixosConfigurations."nixos-pc" = nixpkgs.lib.nixosSystem {
+      nixosConfigurations."mars" = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         specialArgs = {
           inherit inputs;
           inherit user;
           inherit description;
           inherit homeDir;
-          hostName = "nixos-pc";
         };
         modules = [
           nixos-hardware.nixosModules.gigabyte-b550
+          ./nixos/mars/configuration.nix
         ]
         ++ defaultModules;
       };

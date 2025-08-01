@@ -14,11 +14,11 @@ home:	## Rebuilds your user home folder
 nixos:	## Rebuilds your system configuration
 	@sudo nixos-rebuild switch --flake .#$(hostname) --impure
 
-nixos-laptop:	## Rebuild your laptop system
-	@sudo nixos-rebuild switch --flake .#nixos-laptop --impure
+nixos-earth:	## Rebuild your laptop system
+	@sudo nixos-rebuild switch --flake .#earth --impure
 
-nixos-pc:	## Rebuild your pc system
-	@sudo nixos-rebuild switch --flake .#nixos-pc --impure
+nixos-mars:	## Rebuild your pc system
+	@sudo nixos-rebuild switch --flake .#mars --impure
 
 update:	## Updates your flake lock file
 	@nix flake update
