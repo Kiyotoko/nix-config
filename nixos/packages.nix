@@ -20,6 +20,7 @@
     gnumake
     cmake
     nushell
+    temurin-bin
     go
 
     # -----------------------------------------------------
