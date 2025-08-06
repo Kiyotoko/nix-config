@@ -16,7 +16,7 @@
     # Hyprland
     # -----------------------------------------------------
     hypridle
-    hyprpaper
+    swww
     swaylock
     hyprshot
     hyprpicker
