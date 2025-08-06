@@ -8,13 +8,13 @@
       yzhang.markdown-all-in-one
       golang.go
       sumneko.lua
-      redhat.java
       llvm-vs-code-extensions.vscode-clangd
       dotjoshjohnson.xml
       esbenp.prettier-vscode
       jgclark.vscode-todo-highlight
       mechatroner.rainbow-csv
       bbenoist.nix
+      bradlc.vscode-tailwindcss
     ];
   };
 }
