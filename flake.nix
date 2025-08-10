@@ -56,7 +56,7 @@
           inherit homeDir;
         };
         modules = [
-          nixos-hardware.nixosModules.lenovo-legion-y530-15ich
+          nixos-hardware.nixosModules.framework-amd-ai-300-series
           ./nixos/earth/configuration.nix
         ]
         ++ defaultModules;
