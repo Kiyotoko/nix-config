@@ -6,7 +6,7 @@
 {
   stylix = {
     enable = true;
-    image = ./../home-manager/dotfiles/.config/hypr/wallpaper/dolomites-mountains.png;
+    image = ./../home/dotfiles/.config/wallpapers/doubly-warped-black-hole.png;
     polarity = "dark";
 
     fonts = {
