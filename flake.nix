@@ -13,6 +13,10 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     utils.url = "github:numtide/flake-utils";
 
     hyprland.url = "github:hyprwm/Hyprland";
@@ -26,8 +30,9 @@
     {
       nixpkgs,
       utils,
-      home-manager,
       nixos-hardware,
+      home-manager,
+      stylix,
       ...
     }@inputs:
     let
@@ -37,9 +42,11 @@
         config.allowUnfree = true;
       };
       defaultModules = [
+        stylix.nixosModules.stylix
         ./nixos/packages.nix
         ./nixos/hyprland.nix
         ./nixos/librewolf.nix
+        ./nixos/stylix.nix
         ./nixos/syncthing.nix
       ];
       user = "karl";
