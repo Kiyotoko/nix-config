@@ -4,17 +4,18 @@
 }:
 
 {
-  # Install hyprland and waybar
+  # Install hyprland
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
-  programs.waybar.enable = true;
 
   environment.systemPackages = with pkgs; [
     # -----------------------------------------------------
     # Hyprland
     # -----------------------------------------------------
+    # Highly customizable Wayland bar for Sway and Wlroots based compositors.
+    waybar
     hypridle
     swww
     swaylock
