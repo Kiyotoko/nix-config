@@ -15,6 +15,7 @@
       mechatroner.rainbow-csv
       bbenoist.nix
       bradlc.vscode-tailwindcss
+      ziglang.vscode-zig
     ];
   };
 }
