@@ -17,6 +17,7 @@
     python312Packages.dbus-python
     python312Packages.venvShellHook
     texliveFull
+    typst
     gnumake
     cmake
     nushell
