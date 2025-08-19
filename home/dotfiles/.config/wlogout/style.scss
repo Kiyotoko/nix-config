@@ -1,13 +1,14 @@
-$background: rgba(8, 29, 45, 0.651);
-$border-color: #95758e;
-$text-color: #c6c2c9;
-$accent-color: rgba(8, 88, 138, 0.812);
+$background: rgba(8, 29, 45, 0.8);
+$border-color: #ffffff;
+$border-radius: 60px;
+$text-color: #ffffff;
+$accent-color: rgba(0, 157, 255, 0.85);
 
 * {
   background-image: none;
   box-shadow: none;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: x-large;
+  font-size: xx-large;
 }
 
 window {
@@ -32,37 +33,16 @@ button:focus {
 }
 
 #lock {
-  background-image: image(
-    url("./icons/lock.png"),
-    url("/usr/share/wlogout/icons/lock.png"),
-    url("/usr/local/share/wlogout/icons/lock.png")
-  );
-  border-radius: 80px 0px 0px 0px;
-}
-
-#suspend {
-  background-image: image(
-    url("./icons/suspend.png"),
-    url("/usr/share/wlogout/icons/suspend.png"),
-    url("/usr/local/share/wlogout/icons/suspend.png")
-  );
-  border-radius: 0px 80px 0px 0px;
+  background-image: image(url("./icons/lock.png"));
+  border-radius: $border-radius 0px 0px $border-radius;
 }
 
 #shutdown {
-  background-image: image(
-    url("./icons/shutdown.png"),
-    url("/usr/share/wlogout/icons/shutdown.png"),
-    url("/usr/local/share/wlogout/icons/shutdown.png")
-  );
-  border-radius: 0px 0px 0px 80px;
+  background-image: image(url("./icons/shutdown.png"));
+  border-radius: 0px 0px 0px 0px;
 }
 
 #reboot {
-  background-image: image(
-    url("./icons/reboot.png"),
-    url("/usr/share/wlogout/icons/reboot.png"),
-    url("/usr/local/share/wlogout/icons/reboot.png")
-  );
-  border-radius: 0px 0px 80px 0px;
+  background-image: image(url("./icons/reboot.png"));
+  border-radius: 0px $border-radius $border-radius 0px;
 }

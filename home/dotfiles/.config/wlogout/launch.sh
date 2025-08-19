@@ -1,3 +1,3 @@
 #!/bin/sh
 
-wlogout  -b 2 -p layer-shell -L 680 -R 680 -T 260 -B 260 --css ~/.config/wlogout/style.css --layout ~/.config/wlogout/layout&
+wlogout  -b 3 -p layer-shell -L 660 -R 660 -T 620 -B 620 --css ~/.config/wlogout/style.css --layout ~/.config/wlogout/layout&
