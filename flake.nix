@@ -91,7 +91,7 @@
           inherit user;
           inherit homeDir;
         };
-        modules = [ ./home-manager/home.nix ];
+        modules = [ ./home/home.nix ];
       };
 
       templates = {
