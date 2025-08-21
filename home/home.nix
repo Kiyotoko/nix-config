@@ -63,7 +63,7 @@
 
     file = {
       ".config" = {
-        source = ./dotfiles/.config;
+        source = ./.config;
         recursive = true;
       };
     };
