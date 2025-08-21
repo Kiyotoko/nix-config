@@ -6,6 +6,7 @@
 {
   stylix = {
     enable = true;
+    base16Scheme = ./.schemes/black-hole.yaml;
     image = ./../home/dotfiles/.config/wallpapers/doubly-warped-black-hole.png;
     polarity = "dark";
 
