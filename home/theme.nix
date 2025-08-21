@@ -53,7 +53,7 @@ in
 
   fonts.fontconfig.enable = true;
 
-  gtk = lib.mkForce({
+  gtk = {
     enable = true;
     font.name = "Ubuntu Nerd Font";
     theme.name = gtkTheme;
@@ -62,7 +62,7 @@ in
       package = cursorPackage;
     };
     iconTheme.name = iconTheme;
-  });
+  };
 
   qt = {
     enable = true;

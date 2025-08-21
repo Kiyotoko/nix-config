@@ -15,6 +15,7 @@
     targets.firefox.profileNames = [ "${user}" ];
     targets.gtk.enable = false;
     targets.vscode.enable = false;
+    targets.gnome.enable = false;
 
     fonts = {
       serif = {
