@@ -1,14 +1,20 @@
 {
+  lib,
   pkgs,
+  user,
   ...
 }:
 
 {
-  stylix = {
+  stylix = lib.mkDefault({
     enable = true;
-    base16Scheme = ./../home/.schemes/black-hole.yaml;
-    image = ./../home/.config/wallpapers/doubly-warped-black-hole.png;
+    base16Scheme = ./.schemes/black-hole.yaml;
+    image = ./.config/wallpapers/doubly-warped-black-hole.png;
     polarity = "dark";
+
+    targets.firefox.profileNames = [ "${user}" ];
+    targets.gtk.enable = false;
+    targets.vscode.enable = false;
 
     fonts = {
       serif = {
@@ -31,5 +37,5 @@
         name = "Noto Color Emoji";
       };
     };
-  };
+  });
 }

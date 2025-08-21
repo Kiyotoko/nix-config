@@ -12,6 +12,7 @@
     ./git.nix
     ./librewolf.nix
     ./starship.nix
+    ./stylix.nix
     ./theme.nix
     ./vscodium.nix
   ];

@@ -91,7 +91,10 @@
           inherit user;
           inherit homeDir;
         };
-        modules = [ ./home/home.nix ];
+        modules = [
+          stylix.homeModules.stylix
+          ./home/home.nix
+        ];
       };
 
       templates = {
