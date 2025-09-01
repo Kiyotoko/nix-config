@@ -16,6 +16,7 @@
       bbenoist.nix
       bradlc.vscode-tailwindcss
       ziglang.vscode-zig
+      rust-lang.rust-analyzer
     ];
   };
 }
