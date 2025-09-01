@@ -21,7 +21,8 @@
     gnumake
     cmake
     nushell
-    temurin-bin
+    jdk
+    cargo
     go
 
     # -----------------------------------------------------
