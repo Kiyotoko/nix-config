@@ -40,6 +40,11 @@
     nil
     # Standalone command line tools for C++ development, contains clangd
     clang-tools
+    rust-analyzer
+    # IDE support for Pest, via the LSP
+    pest-ide-tools
+    # Tinymist is an integrated language service for Typst
+    tinymist
 
     # -----------------------------------------------------
     # System tools
