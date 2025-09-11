@@ -18,10 +18,9 @@
 
   mailserver = {
     enable = true;
-    stateVersion = 3;
     # TODO: Add our mail url here.
-    fqdn = "mail.example.com";
-    domains = [ "example.com" ];
+    fqdn = "localhost";
+    domains = [ "localhost" ];
 
     # A list of all login accounts. To create the password hashes, use
     # nix-shell -p mkpasswd --run 'mkpasswd -sm bcrypt'
@@ -34,5 +33,5 @@
     certificateScheme = "acme-nginx";
   };
   security.acme.acceptTerms = true;
-  security.acme.defaults.email = "security@example.com";
+  security.acme.defaults.email = "karl.zschiebsch@gmail.com";
 }

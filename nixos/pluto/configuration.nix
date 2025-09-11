@@ -13,7 +13,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./mailserver.nix
+    # ./mailserver.nix
     ./min-packages.nix
   ];
 
@@ -24,7 +24,7 @@ in
   security.rtkit.enable = true;
   networking = {
     hostName = hostName; # Define your hostname.
-    wireless.enable = true; # Enables wireless support via wpa_supplicant.
+    # wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
@@ -85,9 +85,33 @@ in
     lfs.enable = true;
   };
 
+  # Nextcloud
+  environment.etc."nextcloud-admin-pass".text = "aa9eg1adlg";
   services.nextcloud = {
     enable = true;
-    hostName = hostName;
+    hostName = "localhost";
+    database.createLocally = true;
+    configureRedis = true;
+    config.adminpassFile = "/etc/nextcloud-admin-pass";
+    config.dbtype = "sqlite";
+    settings = {
+      default_phone_region = "DE";
+      trusted_proxies = [ "127.0.0.1" ];
+    };
+  };
+  # Checkout issue github.com/NixOS/nixpkgs/issues/48045
+  systemd.services.nextcloud-setup.serviceConfig = {
+    RequiresMountsFor = [ "var/lib/nextcloud" ];
+  };
+
+  services.nginx = {
+    enable = true;
+    virtualHosts."localhost".listen = [
+     {
+       addr = "127.0.0.1";
+       port = 8082;
+     }
+   ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -96,6 +120,7 @@ in
     isNormalUser = true;
     description = description;
     extraGroups = [
+      "users"
       "networkmanager"
       "wheel"
       "docker"
