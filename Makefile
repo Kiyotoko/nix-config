@@ -20,6 +20,9 @@ nixos-earth:	## Rebuild your laptop system
 nixos-mars:	## Rebuild your pc system
 	@sudo nixos-rebuild switch --flake .#mars
 
+nixos-pluto:	## Rebuild your homelab system
+	@sudo nixos-rebuild switch --flake .#pluto
+
 update:	## Updates your flake lock file
 	@nix flake update
 

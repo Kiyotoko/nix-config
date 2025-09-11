@@ -84,6 +84,19 @@
         ++ defaultModules;
       };
 
+      nixosConfigurations."pluto" = nixpkgs.lib.nixosSystem {
+        inherit pkgs;
+        specialArgs = {
+          inherit inputs;
+          user = "admin";
+          description = "Admin";
+          homeDir = "/home/admin";
+        };
+        modules = [
+          ./nixos/pluto/configuration.nix
+        ];
+      };
+
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
