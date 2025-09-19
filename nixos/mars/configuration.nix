@@ -24,6 +24,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   security.rtkit.enable = true;
+  security.polkit.enable = true;
   networking.hostName = "mars"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -93,13 +94,13 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
-  services.xserver.videoDrivers = [
-    "displaylink"
-    "modesetting"
-    "nvidia"
-  ];
-  services.xserver.excludePackages = [ pkgs.xterm ];
+  # services.xserver.enable = true;
+  # services.xserver.videoDrivers = [
+  #   "displaylink"
+  #   "modesetting"
+  #   "nvidia"
+  # ];
+  # services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enable the trash folder.
   services.gvfs.enable = true;
