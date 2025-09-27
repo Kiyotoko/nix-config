@@ -113,10 +113,10 @@ in
 
   services.nginx = {
     enable = true;
-    virtualHosts."zschiebsch.org" = {
+    virtualHosts."www.zschiebsch.org" = {
       addSSL = true;
       enableACME = true;
-      root = "/var/www/zschiebsch.org";  
+      root = "/var/www/www.zschiebsch.org";  
     };
   };
 
