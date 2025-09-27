@@ -26,7 +26,12 @@ in
     hostName = hostName; # Define your hostname.
     # wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
-    firewall.allowedTCPPorts = [ 22 8082 ];
+    firewall.allowedTCPPorts = [
+      22
+      64
+      80
+      443
+    ];
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -104,12 +109,11 @@ in
 
   services.nginx = {
     enable = true;
-    virtualHosts."localhost".listen = [
-     {
-       addr = "127.0.0.1";
-       port = 8082;
-     }
-   ];
+    virtualHosts."zschiebsch.org" = {
+      addSSL = true;
+      enableACME = true;
+      root = "/var/www/zschiebsch.org";  
+    };
   };
 
   services.openssh = {
