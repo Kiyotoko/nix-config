@@ -22,6 +22,10 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   security.rtkit.enable = true;
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "contact@zschiebsch.org";
+  };
   networking = {
     hostName = hostName; # Define your hostname.
     # wireless.enable = true; # Enables wireless support via wpa_supplicant.
