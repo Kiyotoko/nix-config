@@ -26,6 +26,7 @@ in
     hostName = hostName; # Define your hostname.
     # wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
+    firewall.allowedTCPPorts = [ 22 8082 ];
     # Configure network proxy if necessary
     # proxy.default = "http://user:password@proxy:port/";
     # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -70,9 +71,6 @@ in
     variant = "";
   };
 
-  # Enable the OpenSSH daemon, for SSH...
-  services.openssh.enable = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -112,6 +110,18 @@ in
        port = 8082;
      }
    ];
+  };
+
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PasswordAuthentication = true;
+      AllowUsers = null; # Allows all users by default. Can be [ "user1" "user2" ]
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "prohibit-password"; # "yes", "without-password", "prohibit-password", "forced-commands-only", "no"
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
