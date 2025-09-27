@@ -119,6 +119,8 @@ in
       root = "/var/www/www.zschiebsch.org";  
     };
   };
+  # Redirect nextcloud to different host
+  services.nginx.virtualHosts."localhost".listen = [ { addr = "127.0.0.1"; port = 8080; } ];
 
   services.openssh = {
     enable = true;
