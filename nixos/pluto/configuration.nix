@@ -131,7 +131,7 @@ in
     interval = "5min";
     protocol = "cloudflare";
     passwordFile = "/var/ddclient/api-token";
-    domains = "zschiebsch.org";
+    domains = [ "zschiebsch.org" ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
