@@ -1,12 +1,14 @@
 {
-    inputs,
-    ...
+  inputs,
+  ...
 }:
 {
-    imports = [inputs.walker.homeManagerModules.default];
+  imports = [
+    inputs.walker.homeManagerModules.default
+  ];
 
-    programs.walker = {
-      enable = true;
-        runAsService = true;
-    };
+  programs.walker = {
+    enable = true;
+    runAsService = true;
+  };
 }
