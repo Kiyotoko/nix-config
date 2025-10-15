@@ -1,0 +1,9 @@
+log_level = "warn"
+outputs = "All"
+position = "Top"
+enable_esc_key = true
+
+[modules]
+left = [ "Workspaces" ]
+center = [ "WindowTitle" ]
+right = [ "Tray", "MediaPlayer", "Settings", "Clock" ]
