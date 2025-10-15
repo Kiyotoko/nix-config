@@ -42,7 +42,6 @@
       # Programming
       obsidian
       godot_4
-      aseprite
 
       # Messaging
       signal-desktop
