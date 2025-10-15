@@ -39,3 +39,4 @@ After installing this configuration, restart and check if everything still works
 - Power menu shell script: https://github.com/mxdevmanuel
 - Doubly warped black hole wallpaper: https://svs.gsfc.nasa.gov/14146/#media_group_314682
 - Dolomites mountains wallpaper: https://www.hdwallpapers.in/dolomites_mountains_4k-wallpapers.html _(No original artist could be found)_
+- Ruins beneath wallpaper: https://motionbgs.com/ruins-beneath-red-leaves _(No original artist could be found)_

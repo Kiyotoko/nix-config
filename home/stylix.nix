@@ -9,7 +9,6 @@
   stylix = lib.mkDefault ({
     enable = true;
     base16Scheme = ./.schemes/black-hole.yaml;
-    image = ./.config/wallpapers/doubly-warped-black-hole.png;
     polarity = "dark";
 
     targets.firefox.profileNames = [ "${user}" ];
