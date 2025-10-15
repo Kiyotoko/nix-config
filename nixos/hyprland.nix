@@ -12,7 +12,8 @@
     xwayland.enable = true;
     # https://wiki.hypr.land/Nix/Hyprland-on-NixOS/
     package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+    portalPackage =
+      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
 
   # Enable Ozone Wayland support
@@ -33,6 +34,20 @@
   # Whether to enable Upower, a DBus service that provides power management support to applications.
   # This service is required for ashell.
   services.upower.enable = true;
+
+  # This service is required for walker.
+  users.users.elephant = {
+    isNormalUser = true;
+    extraGroups = [
+      "elephant"
+    ];
+  };
+  users.groups.elephant = { };
+  services.elephant = {
+    enable = true;
+    user = "elephant";
+    installService = false;
+  };
 
   # Hyprland packages
   environment.systemPackages = with pkgs; [

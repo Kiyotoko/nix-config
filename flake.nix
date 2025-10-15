@@ -39,6 +39,7 @@
       nixos-hardware,
       home-manager,
       stylix,
+      elephant,
       ...
     }@inputs:
     let
@@ -49,6 +50,7 @@
       };
       defaultModules = [
         stylix.nixosModules.stylix
+        elephant.nixosModules.elephant
         ./nixos/packages.nix
         ./nixos/hyprland.nix
         ./nixos/librewolf.nix
