@@ -30,13 +30,17 @@
     ];
   };
 
+  # Whether to enable Upower, a DBus service that provides power management support to applications.
+  # This service is required for ashell.
+  services.upower.enable = true;
+
   # Hyprland packages
   environment.systemPackages = with pkgs; [
     # -----------------------------------------------------
     # Hyprland
     # -----------------------------------------------------
     # Highly customizable Wayland bar for Sway and Wlroots based compositors.
-    ashell
+    inputs.ashell.defaultPackage.${pkgs.system}
     hypridle
     swww
     hyprshot
