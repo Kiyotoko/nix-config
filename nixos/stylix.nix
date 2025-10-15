@@ -6,8 +6,7 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = ./../home/.schemes/black-hole.yaml;
-    image = ./../home/.config/wallpapers/doubly-warped-black-hole.png;
+    base16Scheme = ./.schemes/black-hole.yaml;
     polarity = "dark";
 
     fonts = {
