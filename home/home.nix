@@ -15,6 +15,7 @@
     ./stylix.nix
     ./theme.nix
     ./vscodium.nix
+    ./walker.nix
   ];
 
   home = {
