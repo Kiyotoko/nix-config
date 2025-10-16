@@ -8,8 +8,8 @@
 {
   stylix = lib.mkDefault ({
     enable = true;
-    base16Scheme = ./.schemes/black-hole.yaml;
-    polarity = "dark";
+    base16Scheme = ./.schemes/ghibli.yaml;
+    polarity = "light";
 
     targets.firefox.profileNames = [ "${user}" ];
     targets.gtk.enable = false;

@@ -63,9 +63,4 @@ in
     };
     iconTheme.name = iconTheme;
   };
-
-  qt = {
-    enable = true;
-    platformTheme.name = "kde";
-  };
 }
