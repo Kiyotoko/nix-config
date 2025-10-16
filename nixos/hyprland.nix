@@ -57,7 +57,7 @@
     # Highly customizable Wayland bar for Sway and Wlroots based compositors.
     inputs.ashell.defaultPackage.${pkgs.system}
     hypridle
-    swww
+    swaybg
     hyprshot
     hyprpicker
     # Transparency for wlogout
