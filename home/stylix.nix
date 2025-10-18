@@ -6,15 +6,34 @@
 }:
 
 {
-  stylix = lib.mkDefault ({
+  stylix = {
     enable = true;
     base16Scheme = ./.schemes/latte.yaml;
     polarity = "light";
 
-    targets.firefox.profileNames = [ "${user}" ];
-    targets.gtk.enable = false;
-    targets.vscode.enable = true;
-    targets.gnome.enable = false;
+    targets = {
+      /*
+        # TODO: enable when upgrading
+        ashell.enable = true;
+      */
+      nixcord.enable = true; # Discord
+      firefox.profileNames = [ "${user}" ];
+      librewolf = {
+        enable = true;
+        colorTheme.enable = true;
+        firefoxGnomeTheme.enable = true;
+        profileNames = [ "${user}" ];
+      };
+      gtk.enable = false;
+      /*
+        # TODO: enable when upgrading
+        obsidia = {
+          enable = true;
+          vaultNames = [ "vault-uni" "vault-sek2" ];
+        };
+      */
+      vscode.enable = true;
+    };
 
     fonts = {
       serif = {
@@ -37,5 +56,5 @@
         name = "Noto Color Emoji";
       };
     };
-  });
+  };
 }

@@ -26,7 +26,6 @@ in
       [
         fontconfig
         font-awesome
-        jetbrains-mono
         iconPackage
         gtkPackage
       ]
@@ -55,7 +54,6 @@ in
 
   gtk = {
     enable = true;
-    font.name = "Ubuntu Nerd Font";
     theme.name = gtkTheme;
     cursorTheme = {
       name = cursorTheme;

@@ -3,14 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
-      # The `follows` keyword in inputs is used for inheritance.
-      # Here, `inputs.nixpkgs` of home-manager is kept consistent with
-      # the `inputs.nixpkgs` of the current flake,
-      # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix = {
@@ -40,11 +36,16 @@
       home-manager,
       stylix,
       elephant,
+      walker,
       ...
     }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -59,7 +60,6 @@
       ];
       user = "karl";
       description = "Karl Zschiebsch";
-      homeDir = "/home/${user}";
     in
     {
       nixosConfigurations."earth" = nixpkgs.lib.nixosSystem {
@@ -68,7 +68,6 @@
           inherit inputs;
           inherit user;
           inherit description;
-          inherit homeDir;
         };
         modules = [
           nixos-hardware.nixosModules.framework-amd-ai-300-series
@@ -83,7 +82,6 @@
           inherit inputs;
           inherit user;
           inherit description;
-          inherit homeDir;
         };
         modules = [
           nixos-hardware.nixosModules.gigabyte-b550
@@ -95,10 +93,8 @@
       nixosConfigurations."pluto" = nixpkgs.lib.nixosSystem {
         inherit pkgs;
         specialArgs = {
-          inherit inputs;
           user = "admin";
           description = "Admin";
-          homeDir = "/home/admin";
         };
         modules = [
           ./nixos/pluto/configuration.nix
@@ -108,12 +104,12 @@
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = {
-          inherit inputs;
           inherit user;
-          inherit homeDir;
+          inherit pkgs-unstable;
         };
         modules = [
           stylix.homeModules.stylix
+          walker.homeManagerModules.walker
           ./home/home.nix
         ];
       };

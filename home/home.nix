@@ -2,9 +2,11 @@
   pkgs,
   inputs,
   user,
-  homeDir,
   ...
 }:
+let
+  homeDir = "/home/${user}";
+in
 {
   imports = [
     ./alacritty.nix

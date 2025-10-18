@@ -1,9 +1,10 @@
 {
   user,
-  homeDir,
   ...
 }:
-
+let
+  homeDir = "/home/${user}";
+in
 {
   # Enable syncthing accross multiple devices.
   systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true"; # Don't create default ~/Sync folder

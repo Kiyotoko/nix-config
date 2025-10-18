@@ -4,9 +4,11 @@
   pkgs,
   user,
   description,
-  homeDir,
   ...
 }:
+let
+  homeDir = "/home/${user}";
+in
 {
   imports = [
     # Include the results of the hardware scan.
