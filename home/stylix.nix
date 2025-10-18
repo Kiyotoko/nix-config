@@ -8,12 +8,12 @@
 {
   stylix = lib.mkDefault ({
     enable = true;
-    base16Scheme = ./.schemes/ghibli.yaml;
+    base16Scheme = ./.schemes/latte.yaml;
     polarity = "light";
 
     targets.firefox.profileNames = [ "${user}" ];
     targets.gtk.enable = false;
-    targets.vscode.enable = false;
+    targets.vscode.enable = true;
     targets.gnome.enable = false;
 
     fonts = {
