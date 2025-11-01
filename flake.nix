@@ -21,7 +21,7 @@
       inputs.nixpkgs.follows = "hyprland";
     };
     ashell.url = "github:MalpenZibo/ashell";
-    elephant.url = "github:abenz1267/elephant";
+    elephant.url = "github:abenz1267/elephant/v2.10.4";
     walker = {
       url = "github:abenz1267/walker";
       inputs.elephant.follows = "elephant";

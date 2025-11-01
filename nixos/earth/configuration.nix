@@ -137,6 +137,9 @@ in
   # Enable power profiels.
   services.power-profiles-daemon.enable = true;
 
+  # Update Framework BIOS
+  services.fwupd.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${user}" = {
     name = user;
