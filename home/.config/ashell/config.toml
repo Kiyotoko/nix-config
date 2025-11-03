@@ -7,7 +7,7 @@ app_launcher_cmd = "walker"
 [modules]
 left = [ "Launcher", "Workspaces" ]
 center = [ "WindowTitle" ]
-right = [ "Tray", "MediaPlayer", "Clock", "Settings" ]
+right = [ "Tray", "Clock", "Settings" ]
 
 [window_title]
 mode = "Title"
