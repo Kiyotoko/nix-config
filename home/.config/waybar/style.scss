@@ -1,9 +1,5 @@
-/* -----------------------------------------------------
- * General
- * ----------------------------------------------------- */
-
-$background: #eff1f5;
-$workspaces-background: #4c4f69;
+$background: #4c4f69;
+$tooltip-background: #eff1f5;
 $text-color-1: #e6e9ef;
 $text-color-2: #dc8a78;
 $icon-color: #e6e9ef;
@@ -11,47 +7,26 @@ $icon-color: #e6e9ef;
 * {
   font-family: Verdana, Arial, Helvetica, FontAwesome, Roboto, sans-serif;
   border: none;
-  border-radius: 0px;
 }
 
-window#waybar {
-  background-color: #00000000;
-  border-bottom: 0px;
+#waybar {
+  background-color: transparent;
   transition-property: background-color;
   transition-duration: 0.5s;
-}
-
-.modules-left {
-  padding-left: 10px;
 }
 
 /* -----------------------------------------------------
  * Workspaces
  * ----------------------------------------------------- */
-
-#workspaces {
-  margin: 3px 7px 3px 3px;
-  border: 0px;
-  font-size: 14px;
-  color: $text-color-1;
-}
-
 #workspaces button {
-  border: 0px;
-  margin: 4px 5px 4px 0px;
-  padding: 0px 4px 0px 4px;
   color: $text-color-1;
   transition: all 0.5s ease-in-out;
 }
 
-#workspaces button.active {
-  color: $text-color-1;
-  background: $workspaces-background;
-}
-
+#workspaces button.active,
 #workspaces button:hover {
-  color: $text-color-1;
-  background: $workspaces-background;
+  color: $background;
+  background: $text-color-1;
   border-radius: 15px;
 }
 
@@ -60,11 +35,8 @@ window#waybar {
  * ----------------------------------------------------- */
 
 tooltip {
-  border-radius: 16px;
-  background-color: $background;
-  opacity: 0.9;
+  background-color: $tooltip-background;
   padding: 20px;
-  margin: 0px;
 }
 
 tooltip label {
@@ -72,126 +44,39 @@ tooltip label {
 }
 
 /* -----------------------------------------------------
- * Window
- * ----------------------------------------------------- */
-
-#window {
-  margin: 0px 15px 0px 0px;
-  border-radius: 12px;
-  color: $text-color-1;
-  font-size: 14px;
-  font-weight: normal;
-}
-
-window#waybar.empty #window {
-  background-color: transparent;
-}
-
-/* -----------------------------------------------------
  * Modules
  * ----------------------------------------------------- */
 
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-/* -----------------------------------------------------
- * Custom Modules
- * ----------------------------------------------------- */
-
-#custom-apps {
-  font-size: 20px;
-  color: $icon-color;
-  margin: 0px 15px 0px 0px;
-}
-
-/* -----------------------------------------------------
- * Custom Exit
- * ----------------------------------------------------- */
-
-#custom-power {
-  margin: 0px 20px 0px 0px;
-  padding: 0px;
-  font-size: 16px;
-  color: $icon-color;
-}
-
-/* -----------------------------------------------------
- * Clock
- * ----------------------------------------------------- */
-
-#clock {
-  font-size: 15px;
-  color: $text-color-1;
-  margin: 0px 15px 0px 0px;
-}
-
-/* -----------------------------------------------------
- * Backlight
- * ----------------------------------------------------- */
-
-#backlight {
-  font-size: 14px;
+#custom-apps,
+#workspaces,
+#status,
+#system {
+  background: $background;
   color: $icon-color;
   border-radius: 15px;
-  margin: 0px 15px 0px 0px;
-  background-color: transparent;
 }
 
-/* -----------------------------------------------------
- * Pulseaudio
- * ----------------------------------------------------- */
-
-#pulseaudio {
-  font-size: 14px;
-  color: $icon-color;
-  border-radius: 15px;
-  margin: 0px 15px 0px 0px;
-}
-
-/* -----------------------------------------------------
- * Network
- * ----------------------------------------------------- */
-
-#network {
-  font-size: 14px;
-  color: $icon-color;
-  border-radius: 15px;
-  margin: 0px 15px 0px 0px;
-}
-
-/* -----------------------------------------------------
- * Bluetooth
- * ----------------------------------------------------- */
-
+#apps,
+#workspaces,
+#custom-apps,
+#custom-power,
+#clock,
+#backlight,
+#pulseaudio,
+#network,
 #bluetooth,
 #bluetooth.on,
-#bluetooth.connected {
-  font-size: 14px;
-  color: $icon-color;
-  border-radius: 15px;
-  margin: 10px 15px 10px 0px;
+#bluetooth.connected,
+#power-profiles-daemon,
+#battery,
+#tray {
+  padding: 4px 8px;
+  font-size: 18px;
 }
 
 #bluetooth.off {
   background-color: transparent;
   padding: 0px;
-  margin: 0px;
-}
-
-/* -----------------------------------------------------
- * Battery
- * ----------------------------------------------------- */
-
-#battery {
-  font-size: 14px;
-  color: $icon-color;
-  border-radius: 15px;
-  margin: 10px 15px 10px 0px;
 }
 
 #battery.charging,
@@ -213,15 +98,6 @@ window#waybar.empty #window {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   animation-direction: alternate;
-}
-
-/* -----------------------------------------------------
- * Tray
- * ----------------------------------------------------- */
-
-#tray {
-  margin: 0px 10px 0px 0px;
-  color: $text-color-1;
 }
 
 #tray > .passive {

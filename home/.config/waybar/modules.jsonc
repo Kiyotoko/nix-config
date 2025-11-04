@@ -14,14 +14,14 @@
 
   // Wofi Application Launcher
   "custom/apps": {
-    "format": "",
+    "format": " ",
     "on-click": "wofi",
     "tooltip": false,
   },
 
   // Power Menu
   "custom/power": {
-    "format": "",
+    "format": " ",
     "on-click": "~/.config/wlogout/launch.sh",
     "tooltip": false,
   },
@@ -50,11 +50,11 @@
   // Network
   "network": {
     "format": "{ifname}",
-    "format-wifi": "  {essid} ({signalStrength}%)",
+    "format-wifi": "   {signalStrength}%",
     "format-ethernet": "  {ifname}",
     "format-disconnected": "Disconnected ⚠",
-    "tooltip-format": "  {ifname} via {gwaddri}",
-    "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+    "tooltip-format": "   {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "   {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
     "tooltip-format-ethernet": "  {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
@@ -76,7 +76,7 @@
 
   // Power Profiles Daemon
   "power-profiles-daemon": {
-    "format": "{icon}  ",
+    "format": "{icon} ",
     "tooltip": false,
     "format-icons": {
       "default": "",
