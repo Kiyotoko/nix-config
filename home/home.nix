@@ -17,7 +17,8 @@ in
     ./stylix.nix
     ./theme.nix
     ./vscodium.nix
-    ./walker.nix
+    ./waybar.nix
+    ./wofi.nix
   ];
 
   home = {
@@ -51,17 +52,6 @@ in
       telegram-desktop
       iamb
       discord
-      teamspeak5_client
-
-      # Games
-      lutris
-      (prismlauncher.override {
-        jdks = [
-          temurin-jre-bin-8
-          temurin-jre-bin-23
-        ];
-      })
-      beyond-all-reason
     ];
 
     file = {

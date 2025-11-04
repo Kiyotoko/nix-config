@@ -19,7 +19,6 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  security.rtkit.enable = true;
   networking.hostName = "earth"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -50,67 +49,28 @@ in
   # Configure console keymap
   console.keyMap = "de";
 
-  # Enable hardware
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  hardware.nvidia = {
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
-    prime = {
-      offload = {
-        enable = true;
-        enableOffloadCmd = true;
-      };
-
-      # Make sure to use the correct Bus ID values for your system!
-      intelBusId = lib.mkDefault "PCI:0:2:0";
-
-      # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
-      nvidiaBusId = lib.mkDefault "PCI:1:00:0";
-    };
-
-    # Modesetting is required.
-    modesetting.enable = true;
-
-    # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
-    # Enable this if you have graphical corruption issues or application crashes after waking
-    # up from sleep. This fixes it by saving the entire VRAM memory to /tmp/ instead
-    # of just the bare essentials.
-    powerManagement.enable = true;
-
-    # Fine-grained power management. Turns off GPU when not in use.
-    # Experimental and only works on modern Nvidia GPUs (Turing or newer).
-    powerManagement.finegrained = true;
-
-    # Use the NVidia open source kernel module (not to be confused with the
-    # independent third-party "nouveau" open source driver).
-    # Support is limited to the Turing and later architectures. Full list of
-    # supported GPUs is at:
-    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus
-    # Only available from driver 515.43.04+
-    # Currently alpha-quality/buggy, so false is currently the recommended setting.
-    open = false;
-
-    # Enable the Nvidia settings menu,
-    # accessible via `nvidia-settings`.
-    nvidiaSettings = true;
-  };
-
-  # Manage sound/audio and music
+  # Enable sound with pipewire.
   services.pulseaudio.enable = false;
-  services.pipewire.enable = true;
-  services.playerctld.enable = true;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [
-    "modesetting"
-    "nvidia"
-  ];
   services.xserver.excludePackages = [ pkgs.xterm ];
 
   # Enable the trash folder.
@@ -128,14 +88,8 @@ in
     variant = "";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Use blueman for bluetooth
   services.blueman.enable = true;
-
-  # Enable power profiels.
-  services.power-profiles-daemon.enable = true;
 
   # Update Framework BIOS
   services.fwupd.enable = true;

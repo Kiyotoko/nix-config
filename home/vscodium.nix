@@ -34,4 +34,26 @@
     };
   };
 
+  home.packages = with pkgs; [
+    # -----------------------------------------------------
+    # Language server
+    # -----------------------------------------------------
+    gopls
+    mdx-language-server
+    kotlin-language-server
+    kotlin-language-server
+    astro-language-server
+    yaml-language-server
+    tailwindcss-language-server
+    lua-language-server
+    java-language-server
+    nil
+    # Standalone command line tools for C++ development, contains clangd
+    clang-tools
+    rust-analyzer
+    # IDE support for Pest, via the LSP
+    pest-ide-tools
+    # Tinymist is an integrated language service for Typst
+    tinymist
+  ];
 }

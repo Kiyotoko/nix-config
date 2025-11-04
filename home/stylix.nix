@@ -12,10 +12,6 @@
     polarity = "light";
 
     targets = {
-      /*
-        # TODO: enable when upgrading
-        ashell.enable = true;
-      */
       nixcord.enable = true; # Discord
       firefox.profileNames = [ "${user}" ];
       librewolf = {
@@ -27,7 +23,7 @@
       gtk.enable = false;
       /*
         # TODO: enable when upgrading
-        obsidia = {
+        obsidian = {
           enable = true;
           vaultNames = [ "vault-uni" "vault-sek2" ];
         };

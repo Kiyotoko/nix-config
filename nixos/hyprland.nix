@@ -31,31 +31,11 @@
     ];
   };
 
-  # Whether to enable Upower, a DBus service that provides power management support to applications.
-  # This service is required for ashell.
-  services.upower.enable = true;
-
-  # This service is required for walker.
-  users.users.elephant = {
-    isNormalUser = true;
-    extraGroups = [
-      "elephant"
-    ];
-  };
-  users.groups.elephant = { };
-  services.elephant = {
-    enable = true;
-    user = "elephant";
-    installService = false;
-  };
-
   # Hyprland packages
   environment.systemPackages = with pkgs; [
     # -----------------------------------------------------
     # Hyprland
     # -----------------------------------------------------
-    # Highly customizable Wayland bar for Sway and Wlroots based compositors.
-    inputs.ashell.defaultPackage.${pkgs.system}
     hypridle
     swaybg
     hyprshot

@@ -20,12 +20,6 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.nixpkgs.follows = "hyprland";
     };
-    ashell.url = "github:MalpenZibo/ashell";
-    elephant.url = "github:abenz1267/elephant/v2.10.4";
-    walker = {
-      url = "github:abenz1267/walker";
-      inputs.elephant.follows = "elephant";
-    };
   };
 
   outputs =
@@ -35,8 +29,6 @@
       nixos-hardware,
       home-manager,
       stylix,
-      elephant,
-      walker,
       ...
     }@inputs:
     let
@@ -51,10 +43,8 @@
       };
       defaultModules = [
         stylix.nixosModules.stylix
-        elephant.nixosModules.elephant
         ./nixos/packages.nix
         ./nixos/hyprland.nix
-        ./nixos/librewolf.nix
         ./nixos/stylix.nix
         ./nixos/syncthing.nix
       ];
@@ -109,7 +99,6 @@
         };
         modules = [
           stylix.homeModules.stylix
-          walker.homeManagerModules.walker
           ./home/home.nix
         ];
       };
