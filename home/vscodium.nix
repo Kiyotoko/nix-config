@@ -52,11 +52,17 @@
 
   home.packages = with pkgs; [
     # -----------------------------------------------------
+    # Build tools
+    # -----------------------------------------------------
+    jdk24
+    cargo
+    go
+
+    # -----------------------------------------------------
     # Language server
     # -----------------------------------------------------
     gopls
     mdx-language-server
-    kotlin-language-server
     kotlin-language-server
     astro-language-server
     yaml-language-server
