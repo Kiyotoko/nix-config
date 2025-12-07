@@ -53,7 +53,7 @@ in
   # Enable hardware
   hardware.graphics.enable = true;
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth 
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [ pkgs.linux-firmware ];
 

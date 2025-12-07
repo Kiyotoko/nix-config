@@ -21,13 +21,13 @@
         profileNames = [ "${user}" ];
       };
       gtk.enable = false;
-      /*
-        # TODO: enable when upgrading
-        obsidian = {
-          enable = true;
-          vaultNames = [ "vault-uni" "vault-sek2" ];
-        };
-      */
+      obsidian = {
+        enable = true;
+        vaultNames = [
+          "vault-uni"
+          "vault-sek2"
+        ];
+      };
       vscode.enable = true;
     };
 
@@ -48,7 +48,7 @@
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
     };

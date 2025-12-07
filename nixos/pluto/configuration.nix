@@ -96,6 +96,7 @@ in
   environment.etc."nextcloud-admin-pass".text = "aa9eg1adlg";
   services.nextcloud = {
     enable = true;
+    package = pkgs.nextcloud31;
     hostName = "localhost";
     database.createLocally = true;
     configureRedis = true;
@@ -116,11 +117,16 @@ in
     virtualHosts."www.zschiebsch.org" = {
       addSSL = true;
       enableACME = true;
-      root = "/var/www/www.zschiebsch.org";  
+      root = "/var/www/www.zschiebsch.org";
     };
   };
   # Redirect nextcloud to different host
-  services.nginx.virtualHosts."localhost".listen = [ { addr = "127.0.0.1"; port = 8080; } ];
+  services.nginx.virtualHosts."localhost".listen = [
+    {
+      addr = "127.0.0.1";
+      port = 8080;
+    }
+  ];
 
   services.openssh = {
     enable = true;

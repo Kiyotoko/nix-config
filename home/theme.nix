@@ -33,7 +33,6 @@ in
     sessionVariables = {
       XCURSOR_THEME = cursorTheme;
       XCURSOR_SIZE = "24";
-      SDL_VIDEODRIVER = "'wayland,x11'";
     };
     pointerCursor = {
       package = cursorPackage;
