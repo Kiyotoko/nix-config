@@ -101,6 +101,13 @@ in
   # Update Framework BIOS
   services.fwupd.enable = true;
 
+  # Disable Lid close events on Framework
+  services.logind = {
+    lidSwitch = "ignore";
+    lidSwitchDocked = "ignore";
+    lidSwitchExternalPower = "ignore";
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${user}" = {
     name = user;
@@ -130,8 +137,7 @@ in
   ];
   nix.gc = {
     automatic = true;
-    persistent = true;
     dates = "weekly";
-    options = "-d --delete-older-than 30d";
+    options = "--delete-older-than 30d";
   };
 }
