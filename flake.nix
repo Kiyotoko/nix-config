@@ -45,6 +45,7 @@
         stylix.nixosModules.stylix
         ./nixos/packages.nix
         ./nixos/hyprland.nix
+        ./nixos/pass.nix
         ./nixos/stylix.nix
         ./nixos/syncthing.nix
       ];
