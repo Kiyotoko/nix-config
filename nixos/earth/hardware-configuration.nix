@@ -27,7 +27,7 @@
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/f362d367-f79c-4b1e-944f-66a78b8e3e28";
-    fsType = "ext4";
+    fsType = "btrfs";
   };
 
   fileSystems."/home" = {
