@@ -41,7 +41,7 @@
         inherit system;
         config.allowUnfree = true;
       };
-      defaultModules = [
+      nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
         ./nixos/hyprland.nix
@@ -64,7 +64,7 @@
           nixos-hardware.nixosModules.framework-amd-ai-300-series
           ./nixos/earth/configuration.nix
         ]
-        ++ defaultModules;
+        ++ nixos-modules;
       };
 
       nixosConfigurations."mars" = nixpkgs.lib.nixosSystem {
@@ -78,7 +78,7 @@
           nixos-hardware.nixosModules.gigabyte-b550
           ./nixos/mars/configuration.nix
         ]
-        ++ defaultModules;
+        ++ nixos-modules;
       };
 
       nixosConfigurations."pluto" = nixpkgs.lib.nixosSystem {
@@ -100,7 +100,16 @@
         };
         modules = [
           stylix.homeModules.stylix
-          ./home/home.nix
+          ./home/karl/home.nix
+          ./modules/home/alacritty.nix
+          ./modules/home/bash.nix
+          ./modules/home/git.nix
+          ./modules/home/librewolf.nix
+          ./modules/home/starship.nix
+          ./modules/home/stylix.nix
+          ./modules/home/vscodium.nix
+          ./modules/home/waybar.nix
+          ./modules/home/wofi.nix
         ];
       };
 

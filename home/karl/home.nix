@@ -9,16 +9,7 @@ let
 in
 {
   imports = [
-    ./alacritty.nix
-    ./bash.nix
-    ./git.nix
-    ./librewolf.nix
-    ./starship.nix
-    ./stylix.nix
     ./theme.nix
-    ./vscodium.nix
-    ./waybar.nix
-    ./wofi.nix
   ];
 
   home = {
