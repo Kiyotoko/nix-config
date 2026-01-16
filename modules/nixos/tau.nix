@@ -1,8 +1,8 @@
-{ inputs, system, ... }:
+{ inputs, pkgs, ... }:
 
 {
   environment.systemPackages = [
-    inputs.tau-lang.${system}.default
-    inputs.ochtendzon.${system}.default
+    inputs.tau-lang.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.ochtendzon.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }

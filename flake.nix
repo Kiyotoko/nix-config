@@ -66,6 +66,7 @@
         modules = [
           nixos-hardware.nixosModules.framework-amd-ai-300-series
           ./nixos/earth/configuration.nix
+          ./modules/nixos/tau.nix
         ]
         ++ nixos-modules;
       };
@@ -128,7 +129,7 @@
         };
       };
 
-      devShells.${system}.default = pkgs.mkShell {
+      devShells.${pkgs.hostPlatform.system}.default = pkgs.mkShell {
         name = "config";
 
         nativeBuildInputs = with pkgs; [
