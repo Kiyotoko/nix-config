@@ -102,10 +102,10 @@ in
   services.fwupd.enable = true;
 
   # Disable Lid close events on Framework
-  services.logind = {
-    lidSwitch = "ignore";
-    lidSwitchDocked = "ignore";
-    lidSwitchExternalPower = "ignore";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "ignore";
+    HandleLidSwitchDocked = "ignore";
+    HandleLidSwitchExternalPower = "ignore";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -130,7 +130,7 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.11"; # Did you read the comment?
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
