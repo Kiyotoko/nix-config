@@ -20,6 +20,9 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.nixpkgs.follows = "hyprland";
     };
+
+    tau-lang.url = "github:tau-lang/tau";
+    ochtendzon.url = "github:tau-lang/ochtendzon";
   };
 
   outputs =
@@ -44,10 +47,10 @@
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
-        ./nixos/hyprland.nix
-        ./nixos/pass.nix
-        ./nixos/stylix.nix
-        ./nixos/syncthing.nix
+        ./modules/nixos/hyprland.nix
+        ./modules/nixos/pass.nix
+        ./modules/nixos/stylix.nix
+        ./modules/nixos/syncthing.nix
       ];
       user = "karl";
       description = "Karl Zschiebsch";
@@ -77,6 +80,7 @@
         modules = [
           nixos-hardware.nixosModules.gigabyte-b550
           ./nixos/mars/configuration.nix
+          ./modules/nixos/steam.nix
         ]
         ++ nixos-modules;
       };
