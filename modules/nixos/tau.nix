@@ -1,8 +1,14 @@
 { inputs, pkgs, ... }:
 
+let
+  tau-lang = inputs.tau-lang.packages.${pkgs.stdenv.hostPlatform.system};
+  ochtendzon = inputs.ochtendzon.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   environment.systemPackages = [
-    inputs.tau-lang.packages.${pkgs.stdenv.hostPlatform.system}.default
-    inputs.ochtendzon.packages.${pkgs.stdenv.hostPlatform.system}.default
+    tau-lang.default
+    tau-lang.tau-manpages
+    ochtendzon.default
+    ochtendzon.ochtendzon-manpages
   ];
 }
