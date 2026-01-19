@@ -46,6 +46,8 @@
           "**/*.rs"
           "**/*.java"
         ];
+        "Lua.completion.callSnippet" = "Both";
+        "[cpp].editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
       };
     };
   };
