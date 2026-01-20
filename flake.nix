@@ -109,6 +109,7 @@
           ./modules/home/alacritty.nix
           ./modules/home/bash.nix
           ./modules/home/git.nix
+          ./modules/home/helix.nix
           ./modules/home/librewolf.nix
           ./modules/home/starship.nix
           ./modules/home/stylix.nix
