@@ -8,8 +8,8 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = ./.schemes/latte.yaml;
-    polarity = "light";
+    base16Scheme = ./schemes/frappe.yaml;
+    polarity = "dark";
 
     targets = {
       nixcord.enable = true; # Discord

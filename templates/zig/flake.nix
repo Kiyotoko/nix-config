@@ -15,7 +15,7 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = nixpkgs.legacyPackages.${stdenv.hostPlatform.system};
         nativeBuildInputs = with pkgs; [
           zig
           zls

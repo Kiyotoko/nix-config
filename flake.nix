@@ -47,10 +47,11 @@
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
-        ./modules/nixos/hyprland.nix
-        ./modules/nixos/pass.nix
-        ./modules/nixos/stylix.nix
-        ./modules/nixos/syncthing.nix
+        ./modules/nixos/hyprland
+        ./modules/nixos/pass
+        ./modules/nixos/pipewire
+        ./modules/nixos/stylix
+        ./modules/nixos/syncthing
       ];
       user = "karl";
       description = "Karl Zschiebsch";
@@ -66,7 +67,7 @@
         modules = [
           nixos-hardware.nixosModules.framework-amd-ai-300-series
           ./nixos/earth/configuration.nix
-          ./modules/nixos/tau.nix
+          ./modules/nixos/tau
         ]
         ++ nixos-modules;
       };
@@ -81,7 +82,7 @@
         modules = [
           nixos-hardware.nixosModules.gigabyte-b550
           ./nixos/mars/configuration.nix
-          ./modules/nixos/steam.nix
+          ./modules/nixos/steam
         ]
         ++ nixos-modules;
       };
@@ -106,16 +107,16 @@
         modules = [
           stylix.homeModules.stylix
           ./home/karl/home.nix
-          ./modules/home/alacritty.nix
-          ./modules/home/bash.nix
-          ./modules/home/git.nix
-          ./modules/home/helix.nix
-          ./modules/home/librewolf.nix
-          ./modules/home/starship.nix
-          ./modules/home/stylix.nix
-          ./modules/home/vscodium.nix
-          ./modules/home/waybar.nix
-          ./modules/home/wofi.nix
+          ./modules/home/alacritty
+          ./modules/home/bash
+          ./modules/home/git
+          ./modules/home/helix
+          ./modules/home/librewolf
+          ./modules/home/starship
+          ./modules/home/stylix
+          ./modules/home/vscodium
+          ./modules/home/waybar
+          ./modules/home/wofi
         ];
       };
 

@@ -6,7 +6,7 @@
 {
   stylix = {
     enable = true;
-    base16Scheme = ./.schemes/black-hole.yaml;
+    base16Scheme = ./schemes/black-hole.yaml;
     polarity = "dark";
 
     fonts = {

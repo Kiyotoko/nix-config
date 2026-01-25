@@ -30,6 +30,7 @@
         "editor.defaultFormatter" = "esbenp.prettier-vscode";
         "editor.tabSize" = 2;
         "editor.autoIndentOnPaste" = true;
+        "explorer.confirmDragAndDrop" = false;
         "todohighlight.include" = [
           "**/*.js"
           "**/*.jsx"
