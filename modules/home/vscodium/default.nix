@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, pkgs-unstable, lib, ... }:
 {
   programs.vscode = {
     enable = true;
@@ -24,32 +24,7 @@
           pkgs-unstable.vscode-extensions.oracle.oracle-java
         ];
 
-      userSettings = {
-        "explorer.confirmDelete" = false;
-        "editor.wordWrap" = "on";
-        "editor.defaultFormatter" = "esbenp.prettier-vscode";
-        "editor.tabSize" = 2;
-        "editor.autoIndentOnPaste" = true;
-        "explorer.confirmDragAndDrop" = false;
-        "todohighlight.include" = [
-          "**/*.js"
-          "**/*.jsx"
-          "**/*.ts"
-          "**/*.tsx"
-          "**/*.html"
-          "**/*.css"
-          "**/*.scss"
-          "**/*.md"
-          "**/*.c"
-          "**/*.cpp"
-          "**/*.h"
-          "**/*.hpp"
-          "**/*.rs"
-          "**/*.java"
-        ];
-        "Lua.completion.callSnippet" = "Both";
-        "[cpp].editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
-      };
+      userSettings = lib.importJSON ./settings.json;
     };
   };
 
