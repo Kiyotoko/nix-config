@@ -35,15 +35,16 @@
       ...
     }@inputs:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgs-unstable = import inputs.nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      eachSystem = nixpkgs.lib.genAttrs [
+        "aarch64-darwin"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "x86_64-linux"
+      ];
+      # pkgs-unstable = import inputs.nixpkgs-unstable {
+      #   inherit system;
+      #   config.allowUnfree = true;
+      # };
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
@@ -52,13 +53,14 @@
         ./modules/nixos/pipewire
         ./modules/nixos/stylix
         ./modules/nixos/syncthing
+        { nixpkgs.config.allowUnfree = true; }
       ];
       user = "karl";
       description = "Karl Zschiebsch";
     in
     {
       nixosConfigurations."earth" = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
+        # inherit pkgs;
         specialArgs = {
           inherit inputs;
           inherit user;
@@ -73,7 +75,7 @@
       };
 
       nixosConfigurations."mars" = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
+        # inherit pkgs;
         specialArgs = {
           inherit inputs;
           inherit user;
@@ -88,7 +90,7 @@
       };
 
       nixosConfigurations."pluto" = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
+        # inherit pkgs;
         specialArgs = {
           user = "admin";
           description = "Admin";
@@ -99,10 +101,10 @@
       };
 
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        # inherit pkgs;
         extraSpecialArgs = {
           inherit user;
-          inherit pkgs-unstable;
+          # inherit pkgs-unstable;
         };
         modules = [
           stylix.homeModules.stylix
@@ -130,21 +132,30 @@
           path = ./templates/zig;
         };
       };
+      devShells = eachSystem (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        in
+        {
+          default = pkgs.mkShell {
+            name = "config";
+            nativeBuildInputs = with pkgs; [
+              git
+              gnumake
 
-      devShells.${pkgs.hostPlatform.system}.default = pkgs.mkShell {
-        name = "config";
-
-        nativeBuildInputs = with pkgs; [
-          git
-          gnumake
-
-          # Formatter
-          treefmt
-          nixfmt-rfc-style
-          shfmt
-          shellcheck
-          nodePackages.prettier
-        ];
-      };
+              # Formatter
+              treefmt
+              nixfmt-rfc-style
+              shfmt
+              shellcheck
+              nodePackages.prettier
+            ];
+          };
+        }
+      );
     };
 }
