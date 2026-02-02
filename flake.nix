@@ -13,8 +13,6 @@
       url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    utils.url = "github:numtide/flake-utils";
-
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -28,7 +26,6 @@
   outputs =
     {
       nixpkgs,
-      utils,
       nixos-hardware,
       home-manager,
       stylix,
@@ -41,10 +38,6 @@
         "x86_64-darwin"
         "x86_64-linux"
       ];
-      # pkgs-unstable = import inputs.nixpkgs-unstable {
-      #   inherit system;
-      #   config.allowUnfree = true;
-      # };
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
@@ -60,7 +53,6 @@
     in
     {
       nixosConfigurations."earth" = nixpkgs.lib.nixosSystem {
-        # inherit pkgs;
         specialArgs = {
           inherit inputs;
           inherit user;
@@ -75,7 +67,6 @@
       };
 
       nixosConfigurations."mars" = nixpkgs.lib.nixosSystem {
-        # inherit pkgs;
         specialArgs = {
           inherit inputs;
           inherit user;
@@ -101,10 +92,8 @@
       };
 
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
-        # inherit pkgs;
         extraSpecialArgs = {
           inherit user;
-          # inherit pkgs-unstable;
         };
         modules = [
           stylix.homeModules.stylix
