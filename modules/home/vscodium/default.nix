@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-unstable,
   lib,
   ...
 }:
@@ -24,9 +23,7 @@
           bradlc.vscode-tailwindcss
           ziglang.vscode-zig
           rust-lang.rust-analyzer
-        ]
-        ++ [
-          pkgs-unstable.vscode-extensions.oracle.oracle-java
+          oracle.oracle-java
         ];
 
       userSettings = lib.importJSON ./settings.json;

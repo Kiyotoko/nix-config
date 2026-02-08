@@ -1,5 +1,6 @@
 {
   pkgs,
+  lib,
   inputs,
   user,
   ...
@@ -11,6 +12,13 @@ in
   imports = [
     ./theme.nix
   ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [
+      # Add additional package names here
+      "obsidian"
+      "discord"
+    ];
 
   home = {
     username = "${user}";
