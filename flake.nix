@@ -72,8 +72,13 @@
           inherit user;
           inherit description;
         };
-        modules = [
-          nixos-hardware.nixosModules.gigabyte-b550
+        modules = let
+          hardware = nixos-hardware.nixosModules;
+        in [
+          hardware.gigabyte-b550
+          hardware.common-gpu-nvidia
+          hardware.common-pc
+          hardware.common-pc-ssd
           ./nixos/mars/configuration.nix
           ./modules/nixos/steam
         ]
