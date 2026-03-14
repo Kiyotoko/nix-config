@@ -12,7 +12,7 @@
       url = "https://gitlab.com/simple-nixos-mailserver/nixos-mailserver/-/archive/nixos-25.05/nixos-mailserver-nixos-25.05.tar.gz";
       # To get the sha256 of the nixos-mailserver tarball, we can use the nix-prefetch-url command:
       # release="nixos-25.05"; nix-prefetch-url "https://gitlab.com/simple-nixos-mailserver/nixos-mailserver/-/archive/${release}/nixos-mailserver-${release}.tar.gz" --unpack
-      sha256 = "1qn5fg0h62r82q7xw54ib9wcpflakix2db2mahbicx540562la1y";
+      sha256 = "0la8v8d9vzhwrnxmmyz3xnb6vm76kihccjyidhfg6qfi3143fiwq";
     })
   ];
 
@@ -32,6 +32,4 @@
     # down nginx and opens port 80.
     certificateScheme = "acme-nginx";
   };
-  security.acme.acceptTerms = true;
-  security.acme.defaults.email = "karl.zschiebsch@gmail.com";
 }

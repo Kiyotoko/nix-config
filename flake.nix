@@ -83,6 +83,14 @@
             ./nixos/mars/configuration.nix
             ./modules/nixos/minecraft
             ./modules/nixos/steam
+
+            # testing only
+            ./modules/nixos/acme
+            ./modules/nixos/docker
+            ./modules/nixos/gitea
+            ./modules/nixos/nextcloud
+            ./modules/nixos/nginx
+            ./modules/nixos/openssh
           ]
           ++ nixos-modules;
       };
@@ -95,6 +103,13 @@
         };
         modules = [
           ./nixos/pluto/configuration.nix
+          ./modules/nixos/acme
+          ./modules/nixos/ddclient
+          ./modules/nixos/docker
+          ./modules/nixos/gitea
+          ./modules/nixos/nextcloud
+          ./modules/nixos/nginx
+          ./modules/nixos/openssh
         ];
       };
 
