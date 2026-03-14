@@ -43,6 +43,7 @@
         ./nixos/packages.nix
         ./modules/nixos/bluetooth
         ./modules/nixos/german
+        ./modules/nixos/git
         ./modules/nixos/pass
         ./modules/nixos/stylix
         { nixpkgs.config.allowUnfree = true; }
