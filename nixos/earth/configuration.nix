@@ -1,14 +1,9 @@
 {
-  lib,
-  config,
   pkgs,
   user,
   description,
   ...
 }:
-let
-  homeDir = "/home/${user}";
-in
 {
   imports = [
     # Include the results of the hardware scan.
