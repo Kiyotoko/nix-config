@@ -32,8 +32,6 @@
     enable = true;
     enable32Bit = true;
   };
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -71,13 +69,9 @@
   services.udisks2.enable = true;
 
   services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "hyprland";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Use blueman for bluetooth
-  services.blueman.enable = true;
 
   # Enable power profiels.
   services.power-profiles-daemon.enable = true;

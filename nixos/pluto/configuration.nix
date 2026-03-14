@@ -23,10 +23,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable hardware
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-
   # Auto mount removable media.
   services.udisks2.enable = true;
 

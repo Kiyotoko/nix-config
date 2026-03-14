@@ -41,12 +41,10 @@
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
+        ./modules/nixos/bluetooth
         ./modules/nixos/german
-        ./modules/nixos/hyprland
         ./modules/nixos/pass
-        ./modules/nixos/pipewire
         ./modules/nixos/stylix
-        ./modules/nixos/syncthing
         { nixpkgs.config.allowUnfree = true; }
       ];
       user = "karl";
@@ -62,6 +60,9 @@
         modules = [
           nixos-hardware.nixosModules.framework-amd-ai-300-series
           ./nixos/earth/configuration.nix
+          ./modules/nixos/hyprland
+          ./modules/nixos/pipewire
+          ./modules/nixos/syncthing
           ./modules/nixos/tau
         ]
         ++ nixos-modules;
@@ -82,8 +83,11 @@
             hardware.common-pc
             hardware.common-pc-ssd
             ./nixos/mars/configuration.nix
+            ./modules/nixos/hyprland
             ./modules/nixos/minecraft
+            ./modules/nixos/pipewire
             ./modules/nixos/steam
+            ./modules/nixos/syncthing
 
             # testing only
             ./modules/nixos/acme
@@ -107,12 +111,12 @@
           ./modules/nixos/acme
           ./modules/nixos/ddclient
           ./modules/nixos/docker
-          ./modules/nixos/german
           ./modules/nixos/gitea
           ./modules/nixos/nextcloud
           ./modules/nixos/nginx
           ./modules/nixos/openssh
-        ];
+        ]
+        ++ nixos-modules;
       };
 
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {

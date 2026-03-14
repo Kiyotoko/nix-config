@@ -21,14 +21,12 @@ in
 
   security.rtkit.enable = true;
   networking.hostName = "earth"; # Define your hostname.
-  
+
   # Enable networking
   networking.networkmanager.enable = true;
 
   # Enable hardware
   hardware.graphics.enable = true;
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth
   hardware.enableRedistributableFirmware = true;
   hardware.firmware = [ pkgs.linux-firmware ];
 
@@ -56,10 +54,6 @@ in
   services.udisks2.enable = true;
 
   services.displayManager.ly.enable = true;
-  services.displayManager.defaultSession = "hyprland";
-
-  # Use blueman for bluetooth
-  services.blueman.enable = true;
 
   # Update Framework BIOS
   services.fwupd.enable = true;
