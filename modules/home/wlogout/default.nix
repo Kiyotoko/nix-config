@@ -1,9 +1,9 @@
 { ... }:
 {
-  programs.waybar.enable = true;
+  programs.wlogout.enable = true;
 
   home.file = {
-    ".config/waybar" = {
+    ".config/wlogout" = {
       source = ./config;
       recursive = true;
     };

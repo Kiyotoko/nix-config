@@ -107,6 +107,11 @@ in
       trusted_proxies = [ "127.0.0.1" ];
     };
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "nextcloud-31.0.14"
+  ];
+
   # Checkout issue github.com/NixOS/nixpkgs/issues/48045
   systemd.services.nextcloud-setup.serviceConfig = {
     RequiresMountsFor = [ "var/lib/nextcloud" ];

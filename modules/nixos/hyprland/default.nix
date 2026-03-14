@@ -41,14 +41,8 @@
     hyprpicker
     # Transparency for wlogout
     gtk-layer-shell
-    # Lightweight and customizable notification daemon
-    dunst
     # This program allows you read and control device brightness
     brightnessctl
-    nemo-with-extensions
-    nemo-emblems
-    nemo-fileroller
-    folder-color-switcher
     qalculate-qt
     swaynotificationcenter
   ];

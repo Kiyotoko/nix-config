@@ -5,15 +5,13 @@
   user,
   ...
 }:
-let
-  homeDir = "/home/${user}";
-in
 {
   imports = [
     ./theme.nix
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
       "obsidian"
@@ -22,7 +20,7 @@ in
 
   home = {
     username = "${user}";
-    homeDirectory = "${homeDir}";
+    homeDirectory = "/home/${user}";
 
     # This value determines the home Manager release that your
     # configuration is compatible with. This helps avoid breakage
@@ -49,39 +47,14 @@ in
       # Messaging
       signal-desktop
       telegram-desktop
-      iamb
       discord
     ];
 
     file = {
-      ".config" = {
-        source = ./.config;
+      ".config/wallpapers/default.jpg" = {
+        source = ./config/wallpapers/ghibli.jpg;
         recursive = true;
       };
     };
   };
-
-  services.udiskie = {
-    enable = true;
-    settings = {
-      # workaround for
-      # https://github.com/nix-community/home-manager/issues/632
-      program_options = {
-        # replace with your favorite file manager
-        file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
-      };
-    };
-  };
-
-  gtk.gtk3.bookmarks = [
-    "file://${homeDir}/Documents"
-    "file://${homeDir}/Books"
-    "file://${homeDir}/Audiobooks"
-    "file://${homeDir}/Movies"
-    "file://${homeDir}/Music"
-    "file://${homeDir}/Pictures"
-    "file://${homeDir}/Videos"
-    "file://${homeDir}/Downloads"
-    "file://${homeDir}/Desktop"
-  ];
 }

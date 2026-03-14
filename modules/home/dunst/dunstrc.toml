@@ -27,7 +27,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = "none"
 
     ### Geometry ###
 
@@ -37,13 +37,13 @@
     width = 300
 
     # The maximum height of a single notification, excluding the frame.
-    height = (0,300)
+    height = "(0,300)"
 
     # Position the notification in the top right corner
-    origin = top-center
+    origin = "top-center"
 
     # Offset from the origin
-    offset = 30x30
+    offset = "30x30"
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 0
@@ -78,7 +78,7 @@
 
     # Show how many messages are currently hidden (because of
     # notification_limit).
-    indicate_hidden = yes
+    indicate_hidden = true
 
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
@@ -119,10 +119,10 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = "frame"
 
     # Sort messages by urgency.
-    sort = yes
+    sort = true
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -133,7 +133,7 @@
 
     ### Text ###
 
-    font = "Fira Sans Semibold" 9
+    font = "Fira Sans Semibold 9"
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -161,7 +161,7 @@
     #
     # It's important to note that markup inside the format option will be parsed
     # regardless of what this is set to.
-    markup = full
+    markup = "full"
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -177,11 +177,11 @@
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
-    alignment = left
+    alignment = "left"
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
-    vertical_alignment = center
+    vertical_alignment = "center"
 
     # Show age of message if message is older than show_age_threshold
     # seconds.
@@ -190,10 +190,10 @@
 
     # Specify where to make an ellipsis in long lines.
     # Possible values are "start", "middle" and "end".
-    ellipsize = middle
+    ellipsize = "middle"
 
     # Ignore newlines '\n' in notifications.
-    ignore_newline = no
+    ignore_newline = false
 
     # Stack together notifications with the same content
     stack_duplicates = true
@@ -202,7 +202,7 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    show_indicators = true
 
     ### Icons ###
 
@@ -216,7 +216,7 @@
     # icon_theme = "Adwaita, breeze"
 
     # Align icons left/right/top/off
-    icon_position = left
+    icon_position = "left"
 
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
@@ -226,34 +226,28 @@
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 128
 
-    # Paths to default icons (only neccesary when not using recursive icon lookup)
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-
     ### History ###
 
     # Should a notification popped up from history be sticky or timeout
     # as if it would normally do.
-    sticky_history = yes
+    sticky_history = true
 
     # Maximum amount of notifications kept in history
     history_length = 20
 
     ### Misc/Advanced ###
 
-    # dmenu path.
-    dmenu = /usr/bin/dmenu -p dunst:
-
     # Browser for opening urls in context menu.
-    browser = /usr/bin/xdg-open
+    browser = "/usr/bin/xdg-open"
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
 
     # Define the title of the windows spawned by dunst
-    title = Dunst
+    title = "Dunst"
 
     # Define the class of the windows spawned by dunst
-    class = Dunst
+    class = "Dunst"
 
     # Define the corner radius of the notification window
     # in pixel size. If the radius is 0, you have no rounded
@@ -273,7 +267,7 @@
 
     # Uncomment this if you want to let notications appear under fullscreen
     # applications (default: overlay)
-    # layer = top
+    # layer = "top"
 
     # Set this to true to use X11 output on Wayland.
     force_xwayland = false
@@ -305,9 +299,9 @@
     # * context_all: Open context menu for all notifications.
     # These values can be strung together for each mouse event, and
     # will be executed in sequence.
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
-    mouse_right_click = close_all
+    mouse_left_click = "close_current"
+    mouse_middle_click = "do_action, close_current"
+    mouse_right_click = "close_all"
 
 # Experimental features that may or may not work correctly. Do not expect them
 # to have a consistent behaviour across releases.
@@ -398,14 +392,14 @@
 # Disable the transient hint so that idle_threshold cannot be bypassed from the
 # client
 #[transient_disable]
-#    match_transient = yes
-#    set_transient = no
+#    match_transient = true
+#    set_transient = false
 #
 # Make the handling of transient notifications more strict by making them not
 # be placed in history.
 #[transient_history_ignore]
-#    match_transient = yes
-#    history_ignore = yes
+#    match_transient = true
+#    history_ignore = true
 
 # fullscreen values
 # show: show the notifications, regardless if there is a fullscreen window opened
@@ -435,12 +429,12 @@
 #[history-ignore]
 #    # This notification will not be saved in history
 #    summary = "foobar"
-#    history_ignore = yes
+#    history_ignore = true
 
 #[skip-display]
 #    # This notification will not be displayed, but will be included in the history
 #    summary = "foobar"
-#    skip_display = yes
+#    skip_display = true
 
 #[signed_on]
 #    appname = Pidgin

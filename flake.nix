@@ -72,17 +72,19 @@
           inherit user;
           inherit description;
         };
-        modules = let
-          hardware = nixos-hardware.nixosModules;
-        in [
-          hardware.gigabyte-b550
-          hardware.common-gpu-nvidia
-          hardware.common-pc
-          hardware.common-pc-ssd
-          ./nixos/mars/configuration.nix
-          ./modules/nixos/steam
-        ]
-        ++ nixos-modules;
+        modules =
+          let
+            hardware = nixos-hardware.nixosModules;
+          in
+          [
+            hardware.gigabyte-b550
+            hardware.common-pc
+            hardware.common-pc-ssd
+            ./nixos/mars/configuration.nix
+            ./modules/nixos/minecraft
+            ./modules/nixos/steam
+          ]
+          ++ nixos-modules;
       };
 
       nixosConfigurations."pluto" = nixpkgs.lib.nixosSystem {
@@ -107,13 +109,22 @@
           ./home/karl/home.nix
           ./modules/home/alacritty
           ./modules/home/bash
+          ./modules/home/dunst
+          ./modules/home/fastfetch
           ./modules/home/git
           ./modules/home/helix
+          ./modules/home/hyprland
+          ./modules/home/iamb
           ./modules/home/librewolf
+          ./modules/home/mpd
+          ./modules/home/nemo
           ./modules/home/starship
           ./modules/home/stylix
+          ./modules/home/swaylock
+          ./modules/home/swaync
           ./modules/home/vscodium
           ./modules/home/waybar
+          ./modules/home/wlogout
           ./modules/home/wofi
         ];
       };
