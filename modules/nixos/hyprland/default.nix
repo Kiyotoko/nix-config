@@ -30,11 +30,11 @@
     ];
   };
 
+  services.displayManager.ly.enable = true;
+  services.displayManager.defaultSession = "hyprland";
+
   # Hyprland packages
   environment.systemPackages = with pkgs; [
-    # -----------------------------------------------------
-    # Hyprland
-    # -----------------------------------------------------
     hypridle
     swaybg
     hyprshot

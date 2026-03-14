@@ -42,8 +42,6 @@ in
   # Auto mount removable media.
   services.udisks2.enable = true;
 
-  services.displayManager.ly.enable = true;
-
   # Update Framework BIOS
   services.fwupd.enable = true;
 

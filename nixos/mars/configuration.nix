@@ -60,8 +60,6 @@
   # Auto mount removable media.
   services.udisks2.enable = true;
 
-  services.displayManager.ly.enable = true;
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
