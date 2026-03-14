@@ -41,6 +41,7 @@
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
+        ./modules/nixos/german
         ./modules/nixos/hyprland
         ./modules/nixos/pass
         ./modules/nixos/pipewire
@@ -106,6 +107,7 @@
           ./modules/nixos/acme
           ./modules/nixos/ddclient
           ./modules/nixos/docker
+          ./modules/nixos/german
           ./modules/nixos/gitea
           ./modules/nixos/nextcloud
           ./modules/nixos/nginx
