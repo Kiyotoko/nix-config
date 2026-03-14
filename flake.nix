@@ -84,6 +84,7 @@
             hardware.common-pc
             hardware.common-pc-ssd
             ./nixos/mars/configuration.nix
+            ./modules/nixos/cdr
             ./modules/nixos/hyprland
             ./modules/nixos/minecraft
             ./modules/nixos/pipewire
@@ -102,7 +103,6 @@
       };
 
       nixosConfigurations."pluto" = nixpkgs.lib.nixosSystem {
-        # inherit pkgs;
         specialArgs = {
           user = "admin";
           description = "Admin";

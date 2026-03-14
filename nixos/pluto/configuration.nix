@@ -10,18 +10,15 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ./min-packages.nix
   ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  security.rtkit.enable = true;
-  networking.hostName = "pluto";
-
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.hostName = "pluto";
 
   # Auto mount removable media.
   services.udisks2.enable = true;

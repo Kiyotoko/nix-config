@@ -20,12 +20,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  security.rtkit.enable = true;
-  security.polkit.enable = true;
-  networking.hostName = "mars"; # Define your hostname.
-
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.hostName = "mars"; # Define your hostname.
 
   # Enable hardware
   hardware.graphics = {
@@ -56,11 +53,6 @@
     # accessible via `nvidia-settings`.
     nvidiaSettings = true;
   };
-
-  # Manage sound/audio and music
-  services.pulseaudio.enable = false;
-  services.pipewire.enable = true;
-  services.playerctld.enable = true;
 
   # Enable the trash folder.
   services.gvfs.enable = true;

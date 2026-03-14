@@ -19,11 +19,9 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  security.rtkit.enable = true;
-  networking.hostName = "earth"; # Define your hostname.
-
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.hostName = "earth"; # Define your hostname.
 
   # Enable hardware
   hardware.graphics.enable = true;
@@ -32,15 +30,6 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
