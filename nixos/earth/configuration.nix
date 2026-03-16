@@ -45,11 +45,8 @@
     isNormalUser = true;
     description = description;
     extraGroups = [
-      "audio"
       "networkmanager"
       "wheel"
-      "libvirtd"
-      "cdrom"
     ];
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’

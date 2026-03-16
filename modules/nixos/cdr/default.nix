@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   environment.systemPackages = with pkgs; [
     # Full-featured CD/DVD/Blu-ray burning and ripping application
@@ -16,4 +16,6 @@
     # Portable command-line CD/DVD recorder software, mostly compatible with cdrtools
     cdrkit
   ];
+
+  users.users."${user}".extraGroups = [ "cdrom" ];
 }

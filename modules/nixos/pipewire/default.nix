@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 
 {
   # https://nixos.wiki/wiki/PipeWire
@@ -13,6 +13,8 @@
   };
 
   services.playerctld.enable = true;
+
+  users.users."${user}".extraGroups = [ "audio" ];
 
   environment.systemPackages = with pkgs; [
     # Cross-platform media player and streaming server

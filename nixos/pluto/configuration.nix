@@ -29,10 +29,8 @@
     isNormalUser = true;
     description = description;
     extraGroups = [
-      "users"
       "networkmanager"
       "wheel"
-      "docker"
     ];
     useDefaultShell = true;
     initialPassword = "nixos"; # Change with ’passwd’
