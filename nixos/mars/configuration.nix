@@ -53,9 +53,6 @@
   # Auto mount removable media.
   services.udisks2.enable = true;
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Enable power profiels.
   services.power-profiles-daemon.enable = true;
 
