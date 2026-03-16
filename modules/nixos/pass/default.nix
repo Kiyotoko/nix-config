@@ -3,7 +3,11 @@
 {
   services.passSecretService.enable = true;
   environment.systemPackages = [
-    pkgs.pinentry-curses
     pkgs.pass-wayland
   ];
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
 }
