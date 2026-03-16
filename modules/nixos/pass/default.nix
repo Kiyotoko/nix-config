@@ -2,5 +2,8 @@
 
 {
   services.passSecretService.enable = true;
-  environment.systemPackages = [ pkgs.pinentry-curses ];
+  environment.systemPackages = [
+    pkgs.pinentry-curses
+    pkgs.pass-wayland
+  ];
 }
