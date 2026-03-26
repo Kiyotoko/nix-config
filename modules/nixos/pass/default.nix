@@ -3,7 +3,11 @@
 {
   services.passSecretService.enable = true;
   environment.systemPackages = [
-    pkgs.pass-wayland
+    pkgs.pass
+    pkgs.qtpass
+    pkgs.passExtensions.pass-import
+    pkgs.passExtensions.pass-update
+    pkgs.passExtensions.pass-audit
   ];
 
   programs.gnupg.agent = {
