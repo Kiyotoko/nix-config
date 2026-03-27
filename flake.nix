@@ -111,6 +111,7 @@
         modules = [
           ./nixos/pluto/configuration.nix
           ./modules/nixos/acme
+          ./modules/nixos/cloudflared
           ./modules/nixos/ddclient
           ./modules/nixos/docker
           ./modules/nixos/gitea
