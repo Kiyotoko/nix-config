@@ -11,6 +11,7 @@
       ]
     ))
     pkgs.qtpass
+    pkgs.wl-clipboard # required for copying passwords in Wayland
   ];
 
   programs.gnupg.agent = {
