@@ -91,14 +91,6 @@
             ./modules/nixos/pipewire
             ./modules/nixos/steam
             ./modules/nixos/syncthing
-
-            # testing only
-            ./modules/nixos/acme
-            ./modules/nixos/docker
-            ./modules/nixos/gitea
-            ./modules/nixos/nextcloud
-            ./modules/nixos/nginx
-            ./modules/nixos/openssh
           ]
           ++ nixos-modules;
       };
