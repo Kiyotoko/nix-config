@@ -4,7 +4,7 @@
   environment.etc."nextcloud-admin-pass".text = "aa9eg1adlg";
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud31;
+    package = pkgs.nextcloud32;
     hostName = "localhost";
     database.createLocally = true;
     configureRedis = true;
