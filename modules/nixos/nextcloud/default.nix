@@ -13,7 +13,7 @@
     settings = {
       default_phone_region = "DE";
       trusted_proxies = [ "127.0.0.1" ];
-      trusted_domains = [ "nextcloud.zschiebsch.org" ]
+      trusted_domains = [ "nextcloud.zschiebsch.org" ];
     };
   };
 
