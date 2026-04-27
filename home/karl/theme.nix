@@ -1,35 +1,26 @@
 {
   lib,
   pkgs,
-  inputs,
   ...
 }:
 let
   iconTheme = "Papirus";
   iconPackage = pkgs.papirus-icon-theme;
   gtkTheme = "WhiteSur-Dark-solid";
-  gtkPackage = pkgs.whitesur-gtk-theme;
   cursorTheme = "Bibata-Modern-Classic";
   cursorPackage = pkgs.bibata-cursors;
-  nerdFonts = with pkgs.nerd-fonts; [
-    ubuntu
-    ubuntu-mono
-    fantasque-sans-mono
-    fira-code
-    mononoki
-  ];
 in
 {
   home = {
-    packages =
-      with pkgs;
-      [
-        fontconfig
-        font-awesome
-        iconPackage
-        gtkPackage
-      ]
-      ++ nerdFonts;
+    packages = [
+      pkgs.font-awesome
+      pkgs.iconPackage
+      pkgs.gtkPackage
+      pkgs.ubuntu-classic
+      pkgs.arkpandora_ttf
+      pkgs.liberation_ttf
+      pkgs.nerd-fonts.ubuntu
+    ];
     sessionVariables = {
       XCURSOR_THEME = cursorTheme;
       XCURSOR_SIZE = "24";
@@ -43,10 +34,6 @@ in
     file.".local/share/icons/${iconTheme}" = {
       source = "${iconPackage}/share/icons/${iconTheme}";
     };
-
-    activation.updateFontCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${pkgs.fontconfig}/bin/fc-cache -fv
-    '';
   };
 
   fonts.fontconfig.enable = true;
