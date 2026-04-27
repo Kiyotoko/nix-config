@@ -30,4 +30,9 @@
       };
     };
   };
+
+  # pdf reader with automatic document reloading
+  home.packages = [
+    pkgs.zathura
+  ];
 }
