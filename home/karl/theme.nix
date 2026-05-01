@@ -1,21 +1,18 @@
-{
-  lib,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 let
   iconTheme = "Papirus";
   iconPackage = pkgs.papirus-icon-theme;
   gtkTheme = "WhiteSur-Dark-solid";
+  gtkPackage = pkgs.whitesur-gtk-theme;
   cursorTheme = "Bibata-Modern-Classic";
   cursorPackage = pkgs.bibata-cursors;
 in
 {
   home = {
     packages = [
+      iconPackage
+      gtkPackage
       pkgs.font-awesome
-      pkgs.iconPackage
-      pkgs.gtkPackage
       pkgs.ubuntu-classic
       pkgs.arkpandora_ttf
       pkgs.liberation_ttf
