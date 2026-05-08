@@ -18,6 +18,7 @@
       url = "github:hyprwm/hyprland-plugins";
       inputs.nixpkgs.follows = "hyprland";
     };
+    treefmt-nix.url = "github:numtide/treefmt-nix";
 
     tau-lang.url = "github:tau-lang/tau";
     ochtendzon.url = "github:tau-lang/ochtendzon";
@@ -25,10 +26,12 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       nixos-hardware,
       home-manager,
       stylix,
+      treefmt-nix,
       ...
     }@inputs:
     let
@@ -38,6 +41,9 @@
         "x86_64-darwin"
         "x86_64-linux"
       ];
+      treefmtEval = eachSystem (
+        system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
@@ -169,16 +175,15 @@
             nativeBuildInputs = with pkgs; [
               git
               gnumake
-
-              # Formatter
-              treefmt
-              nixfmt-rfc-style
-              shfmt
-              shellcheck
-              nodePackages.prettier
             ];
           };
         }
       );
+
+      #Formatter
+      formatter = eachSystem (system: treefmtEval.${system}.config.build.wrapper);
+      checks = eachSystem (system: {
+        formatting = treefmtEval.${system}.config.build.check self;
+      });
     };
 }
