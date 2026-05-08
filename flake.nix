@@ -56,17 +56,17 @@
       ];
       user = "karl";
       description = "Karl Zschiebsch";
+      lib-flake = nixpkgs.lib.extend (import ./lib);
     in
     {
       nixosConfigurations."earth" = nixpkgs.lib.nixosSystem {
         specialArgs = {
-          inherit inputs;
-          inherit user;
-          inherit description;
+          inherit inputs user description;
         };
         modules = [
           nixos-hardware.nixosModules.framework-amd-ai-300-series
           ./nixos/earth/configuration.nix
+          ./modules/nixos/docker
           ./modules/nixos/hyprland
           ./modules/nixos/pipewire
           ./modules/nixos/printing
@@ -123,8 +123,7 @@
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {
-          inherit inputs;
-          inherit user;
+          inherit inputs lib-flake user;
         };
         modules = [
           stylix.homeModules.stylix

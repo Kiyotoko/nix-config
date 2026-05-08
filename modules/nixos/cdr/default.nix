@@ -13,7 +13,10 @@
     cdrkit
   ];
 
-  users.users."${user}".extraGroups = [ "cdrom" "disk" ];
+  users.users."${user}".extraGroups = [
+    "cdrom"
+    "disk"
+  ];
 
   # Realtime scheduling priority to user processes
   security.rtkit.enable = true;
