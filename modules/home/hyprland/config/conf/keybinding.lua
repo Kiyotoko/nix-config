@@ -31,6 +31,54 @@ for i = 1, 10 do
   hl.bind(mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i , follow=true}))
 end
 
+function sorted()
+  local wks = hl.get_workspaces()
+  table.sort(wks, function(a, b)
+    return a.id < b.id
+  end)
+  return wks
+end
+
+function workspace(callback, default)
+  local next = callback()
+  hl.dispatch(hl.dsp.focus({ workspace = next.id}))
+  hl.notification.create({
+    text = "Workspace: " .. next.name .. ".",
+    timeout = 4000,
+    icon = "ok"
+  })
+end
+
+function prev()
+  workspace(function ()
+    local workspaces = sorted()
+    local current = hl.get_active_workspace()
+    local prev = workspaces[#workspaces]
+    for k, v in ipairs(workspaces) do
+      if v.id < current.id then 
+        prev = v
+      else break end
+    end
+    return prev
+  end)
+end
+
+function next()
+  workspace(function ()
+    local workspaces = sorted()
+    local current = hl.get_active_workspace()
+    for k, v in ipairs(workspaces) do
+      if v.id > current.id then 
+        return v
+      end
+    end
+    return workspaces[1]
+  end)
+end
+
+hl.bind(mod .. " + TAB", next)
+hl.bind(mod .. " + SHIFT + TAB", prev)
+
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
