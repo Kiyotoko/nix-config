@@ -1,89 +1,87 @@
-//  Thanks to Bina
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "display": {
-    "separator": " ➜  ",
+    "separator": " ➜  "
   },
   "modules": [
     {
       "type": "os",
       "key": "OS   ",
-      "keyColor": "red",
+      "keyColor": "red"
     },
     {
       "type": "kernel",
       "key": " ├  ",
-      "keyColor": "red",
+      "keyColor": "red"
     },
     {
       "type": "shell",
       "key": " └  ",
-      "keyColor": "red",
+      "keyColor": "red"
     },
     "break",
     {
       "type": "wm",
       "key": "WM   ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "wmtheme",
       "key": " ├ 󰉼 ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "icons",
       "key": " ├ 󰀻 ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "cursor",
       "key": " ├  ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "terminal",
       "key": " ├  ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     {
       "type": "terminalfont",
       "key": " └  ",
-      "keyColor": "green",
+      "keyColor": "green"
     },
     "break",
     {
       "type": "host",
       "format": "{5} {1} Type {2}",
       "key": "PC   ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "cpu",
       "format": "{1} ({3}) @ {7} GHz",
       "key": " ├  ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "gpu",
       "format": "{1} {2} @ {12} GHz",
       "key": " ├ 󰢮 ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "memory",
       "key": " ├  ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "disk",
       "key": " ├ 󰋊 ",
-      "keyColor": "yellow",
+      "keyColor": "yellow"
     },
     {
       "type": "monitor",
       "key": " └  ",
-      "keyColor": "yellow",
-    },
-  ],
+      "keyColor": "yellow"
+    }
+  ]
 }

@@ -19,4 +19,14 @@ rec {
       type = tomlFormat.type;
       inherit description default;
     };
+
+  mkJsonOption =
+    pkgs: description: default:
+    let
+      jsonFormat = pkgs.formats.json { };
+    in
+    lib.mkOption {
+      type = jsonFormat.type;
+      inherit description default;
+    };
 }
