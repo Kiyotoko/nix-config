@@ -39,14 +39,9 @@ function sorted()
   return wks
 end
 
-function workspace(callback, default)
+function workspace(callback)
   local next = callback()
   hl.dispatch(hl.dsp.focus({ workspace = next.id}))
-  hl.notification.create({
-    text = "Workspace: " .. next.name .. ".",
-    timeout = 4000,
-    icon = "ok"
-  })
 end
 
 function prev()
@@ -78,6 +73,8 @@ end
 
 hl.bind(mod .. " + TAB", next)
 hl.bind(mod .. " + SHIFT + TAB", prev)
+hl.bind("ALT + TAB", hl.dsp.window.cycle_next())
+hl.bind(mod .. " + mouse:272", hl.dsp.window.drag())
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })
