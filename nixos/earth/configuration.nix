@@ -29,16 +29,6 @@
   # Auto mount removable media.
   services.udisks2.enable = true;
 
-  # Update Framework BIOS
-  services.fwupd.enable = true;
-
-  # Disable Lid close events on Framework
-  services.logind.settings.Login = {
-    HandleLidSwitch = "ignore";
-    HandleLidSwitchDocked = "ignore";
-    HandleLidSwitchExternalPower = "ignore";
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."${user}" = {
     name = user;
