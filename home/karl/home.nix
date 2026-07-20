@@ -10,13 +10,20 @@
     ./theme.nix
   ];
 
-  nixpkgs.config.allowUnfreePredicate =
+  nixpkgs.config = {
+    allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
       "obsidian"
       "discord"
     ];
+    permittedInsecurePackages = [
+      "librewolf-bin-152.0-1"
+      "librewolf-bin-unwrapped-152.0-1"
+    ];
+  };
+    
 
   home = {
     username = "${user}";

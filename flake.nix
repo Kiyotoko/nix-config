@@ -44,6 +44,19 @@
       treefmtEval = eachSystem (
         system: treefmt-nix.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
       );
+      pkgs-config = {
+        permittedInsecurePackages = [
+          "docker-28.5.2"
+        ];
+        allowUnfree = true;
+      };
+      pkgs = (
+        system:
+        import nixpkgs {
+          inherit system;
+          config = pkgs-config;
+        }
+      );
       nixos-modules = [
         stylix.nixosModules.stylix
         ./nixos/packages.nix
@@ -52,7 +65,7 @@
         ./modules/nixos/git
         ./modules/nixos/pass
         ./modules/nixos/stylix
-        { nixpkgs.config.allowUnfree = true; }
+        { nixpkgs.config = pkgs-config; }
       ];
       user = "karl";
       description = "Karl Zschiebsch";
@@ -121,7 +134,7 @@
       };
 
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        pkgs = pkgs "x86_64-linux";
         extraSpecialArgs = {
           inherit inputs lib-flake user;
         };
@@ -163,10 +176,7 @@
       devShells = eachSystem (
         system:
         let
-          pkgs = import nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
+          pkgs = pkgs system;
         in
         {
           default = pkgs.mkShell {
