@@ -50,7 +50,7 @@
         ];
         allowUnfree = true;
       };
-      pkgs = (
+      pkgs-for = (
         system:
         import nixpkgs {
           inherit system;
@@ -63,6 +63,7 @@
         ./modules/nixos/bluetooth
         ./modules/nixos/german
         ./modules/nixos/git
+        ./modules/nixos/networkmanager
         ./modules/nixos/pass
         ./modules/nixos/stylix
         { nixpkgs.config = pkgs-config; }
@@ -134,7 +135,7 @@
       };
 
       homeConfigurations."${user}" = home-manager.lib.homeManagerConfiguration {
-        pkgs = pkgs "x86_64-linux";
+        pkgs = pkgs-for "x86_64-linux";
         extraSpecialArgs = {
           inherit inputs lib-flake user;
         };
@@ -176,7 +177,7 @@
       devShells = eachSystem (
         system:
         let
-          pkgs = pkgs system;
+          pkgs = pkgs-for system;
         in
         {
           default = pkgs.mkShell {
@@ -184,6 +185,7 @@
             nativeBuildInputs = with pkgs; [
               git
               gnumake
+              nixfmt-tree
             ];
           };
         }

@@ -13,8 +13,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  # Set networking name.
   networking.hostName = "mars"; # Define your hostname.
 
   # Enable hardware
@@ -62,7 +61,6 @@
     isNormalUser = true;
     description = description;
     extraGroups = [
-      "networkmanager"
       "wheel"
     ];
     useDefaultShell = true;
