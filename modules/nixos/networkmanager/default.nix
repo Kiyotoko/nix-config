@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }:
 {
   networking.networkmanager = {
     enable = true;
@@ -7,5 +7,5 @@
     ];
   };
 
-  users.users."${users}".extraGroups = [ "networkmanager" ];
+  users.users."${user}".extraGroups = [ "networkmanager" ];
 }
