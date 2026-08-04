@@ -12,18 +12,17 @@
 
   nixpkgs.config = {
     allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      # Add additional package names here
-      "obsidian"
-      "discord"
-    ];
+      pkg:
+      builtins.elem (lib.getName pkg) [
+        # Add additional package names here
+        "obsidian"
+        "discord"
+      ];
     permittedInsecurePackages = [
       "librewolf-bin-152.0-1"
       "librewolf-bin-unwrapped-152.0-1"
     ];
   };
-    
 
   home = {
     username = "${user}";
@@ -46,6 +45,8 @@
       audacious
       pix
       gimp
+      protonvpn-gui
+      qbittorrent
 
       # Programming
       obsidian
