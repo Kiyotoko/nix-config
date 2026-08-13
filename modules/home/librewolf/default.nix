@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   user,
   ...
@@ -7,6 +8,7 @@
   programs.firefox = {
     enable = true;
     package = pkgs.librewolf-bin;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     policies = {
       DisableTelemetry = true;
       DisableFirefoxStudies = true;

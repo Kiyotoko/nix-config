@@ -4,7 +4,7 @@ local mod = "SUPER"
 hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("alacritty"))
 hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("wofi"))
 hl.bind(mod .. " + PRINT", hl.dsp.exec_cmd("hyprshot -m window -o ~/Pictures/Screenshots/ -z"))
-hl.bind(mod .. " + SHIFT", hl.dsp.exec_cmd("hyprshot -m output -o ~/Pictures/Screenshots/ -z"))
+hl.bind(mod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m output -o ~/Pictures/Screenshots/ -z"))
 hl.bind(mod .. " + F1", hl.dsp.exec_cmd("librewolf"))
 hl.bind(mod .. " + F2", hl.dsp.exec_cmd("codium"))
 hl.bind(mod .. " + F3", hl.dsp.exec_cmd("steam"))

@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   inputs,
@@ -45,7 +46,7 @@
       audacious
       pix
       gimp
-      protonvpn-gui
+      proton-vpn
       qbittorrent
 
       # Programming
