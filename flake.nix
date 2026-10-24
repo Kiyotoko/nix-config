@@ -84,6 +84,7 @@
           ./modules/nixos/hyprland
           ./modules/nixos/pipewire
           ./modules/nixos/printing
+          ./modules/nixos/steam
           ./modules/nixos/syncthing
           ./modules/nixos/tau
         ]
