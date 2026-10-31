@@ -21,6 +21,10 @@
         profileNames = [ "${user}" ];
       };
       gtk.enable = false;
+      qt = {
+        enable = true;
+        platform = "qtct";
+      };
       obsidian = {
         enable = true;
         vaultNames = [
